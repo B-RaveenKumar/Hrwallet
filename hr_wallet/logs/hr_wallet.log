@@ -7874,3 +7874,22 @@ INFO 2025-09-15 22:01:48,531 middleware 14484 6708 Access: /hr-dashboard/employe
 INFO 2025-09-15 22:01:48,546 basehttp 14484 6708 "GET /hr-dashboard/employees/ HTTP/1.1" 200 37769
 INFO 2025-09-15 22:01:48,603 basehttp 14484 6708 "GET /favicon.ico HTTP/1.1" 204 0
 INFO 2025-09-16 16:07:18,554 autoreload 9336 10824 Watching for file changes with StatReloader
+INFO 2025-09-16 16:07:33,442 basehttp 9336 9044 "GET / HTTP/1.1" 302 0
+INFO 2025-09-16 16:07:33,499 basehttp 9336 9044 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-16 16:07:34,551 basehttp 9336 9044 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-16 16:07:42,130 views 9336 9044 Successful login: admin (role: super_admin) at Global Industries Ltd
+INFO 2025-09-16 16:07:42,139 basehttp 9336 9044 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-16 16:07:42,156 middleware 9336 9044 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-16 16:07:42,157 decorators 9336 9044 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-16 16:07:42,226 basehttp 9336 9044 "GET /admin-panel/ HTTP/1.1" 200 14455
+INFO 2025-09-16 16:07:42,350 basehttp 9336 9044 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-16 16:07:46,588 middleware 9336 9044 Access: /admin-panel/users/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-16 16:07:46,594 basehttp 9336 9044 "GET /admin-panel/users/ HTTP/1.1" 200 29587
+INFO 2025-09-16 16:07:46,722 basehttp 9336 9044 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-16 16:08:35,718 log 9336 9044 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-16 16:08:35,718 basehttp 9336 9044 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3649
+INFO 2025-09-16 19:48:52,724 autoreload 16436 16716 Watching for file changes with StatReloader
+INFO 2025-09-16 19:48:58,988 basehttp 16436 9340 "GET /admin-panel/users/ HTTP/1.1" 302 0
+INFO 2025-09-16 19:48:58,999 basehttp 16436 9340 "GET /login/?next=/admin-panel/users/ HTTP/1.1" 302 0
+INFO 2025-09-16 19:48:59,112 basehttp 16436 9340 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-16 19:48:59,530 basehttp 16436 9340 "GET /favicon.ico HTTP/1.1" 204 0
