@@ -1,0 +1,312 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+
+{% block title %}Create HR Manager - Admin Panel{% endblock %}
+
+{% block extra_css %}
+<style>
+    .form-container {
+        background: white;
+        border-radius: 10px;
+        box-shadow: 0 0 20px rgba(0,0,0,0.1);
+        padding: 30px;
+        margin: 20px 0;
+    }
+    .form-group {
+        margin-bottom: 20px;
+    }
+    .form-label {
+        font-weight: 600;
+        color: #333;
+        margin-bottom: 8px;
+    }
+    .form-control {
+        border: 2px solid #e9ecef;
+        border-radius: 8px;
+        padding: 12px 15px;
+        font-size: 14px;
+        transition: all 0.3s ease;
+    }
+    .form-control:focus {
+        border-color: #007bff;
+        box-shadow: 0 0 0 0.2rem rgba(0,123,255,.25);
+    }
+    .btn-create {
+        background: linear-gradient(135deg, #007bff, #0056b3);
+        border: none;
+        padding: 12px 30px;
+        border-radius: 8px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        transition: all 0.3s ease;
+    }
+    .btn-create:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(0,123,255,0.4);
+    }
+    .alert {
+        border-radius: 8px;
+        border: none;
+        padding: 15px 20px;
+        margin-bottom: 20px;
+    }
+    .alert-success {
+        background: linear-gradient(135deg, #28a745, #20c997);
+        color: white;
+    }
+    .alert-danger {
+        background: linear-gradient(135deg, #dc3545, #c82333);
+        color: white;
+    }
+    .required {
+        color: #dc3545;
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <div class="d-flex justify-content-between align-items-center mb-4">
+                <div>
+                    <h2 class="mb-0">
+                        <i class="bi bi-person-plus-fill me-2"></i>
+                        Create HR Manager
+                    </h2>
+                    <p class="text-muted mb-0">Add a new HR Manager to the system</p>
+                </div>
+                <a href="{% url 'admin_panel:hr_managers' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-arrow-left me-2"></i>Back to HR Managers
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="row justify-content-center">
+        <div class="col-lg-8">
+            <div class="form-container">
+                <!-- Success/Error Messages -->
+                <div id="message-container"></div>
+
+                <form id="createHRForm">
+                    {% csrf_token %}
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="full_name" class="form-label">
+                                    Full Name <span class="required">*</span>
+                                </label>
+                                <input type="text" class="form-control" id="full_name" name="full_name" 
+                                       placeholder="Enter full name" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="email" class="form-label">
+                                    Email Address <span class="required">*</span>
+                                </label>
+                                <input type="email" class="form-control" id="email" name="email" 
+                                       placeholder="Enter email address" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" class="form-control" id="phone" name="phone" 
+                                       placeholder="Enter phone number">
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="department_id" class="form-label">
+                                    Department <span class="required">*</span>
+                                </label>
+                                <select class="form-control" id="department_id" name="department_id" required>
+                                    <option value="">Select Department</option>
+                                </select>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="designation" class="form-label">
+                                    Designation <span class="required">*</span>
+                                </label>
+                                <input type="text" class="form-control" id="designation" name="designation" 
+                                       placeholder="Enter job title/designation" required>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="salary" class="form-label">Salary</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="salary" name="salary"
+                                           placeholder="Enter salary amount" step="0.01" min="0">
+                                </div>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label for="employee_id" class="form-label">Employee ID</label>
+                                <input type="text" class="form-control" id="employee_id" name="employee_id" 
+                                       placeholder="Auto-generated if left blank">
+                                <small class="form-text text-muted">Leave blank for auto-generation</small>
+                                <div class="invalid-feedback"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-group">
+                                <label class="form-label">Role</label>
+                                <input type="text" class="form-control" value="HR Manager" readonly>
+                                <input type="hidden" name="role" value="hr_manager">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="text-center mt-4">
+                        <button type="submit" class="btn btn-primary btn-create" id="submitBtn">
+                            <i class="bi bi-person-plus me-2"></i>
+                            Create HR Manager
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+$(document).ready(function() {
+    // Load departments
+    loadDepartments();
+    
+    // Form submission
+    $('#createHRForm').on('submit', function(e) {
+        e.preventDefault();
+        createHRManager();
+    });
+});
+
+function loadDepartments() {
+    $.ajax({
+        url: '/api/departments/',
+        method: 'GET',
+        success: function(response) {
+            if (response.success) {
+                const departmentSelect = $('#department_id');
+                departmentSelect.empty().append('<option value="">Select Department</option>');
+                
+                response.data.forEach(function(dept) {
+                    departmentSelect.append(`<option value="${dept.id}">${dept.name}</option>`);
+                });
+            }
+        },
+        error: function() {
+            showMessage('Error loading departments', 'danger');
+        }
+    });
+}
+
+function createHRManager() {
+    const submitBtn = $('#submitBtn');
+    const originalText = submitBtn.html();
+    
+    // Disable button and show loading
+    submitBtn.prop('disabled', true).html('<i class="spinner-border spinner-border-sm me-2"></i>Creating...');
+    
+    // Clear previous validation errors
+    $('.form-control').removeClass('is-invalid');
+    $('.invalid-feedback').text('');
+    
+    const formData = {
+        full_name: $('#full_name').val(),
+        email: $('#email').val(),
+        phone: $('#phone').val(),
+        role: 'hr_manager',
+        department_id: parseInt($('#department_id').val()),
+        designation: $('#designation').val(),
+        salary: $('#salary').val() ? parseFloat($('#salary').val()) : null,
+        employee_id: $('#employee_id').val()
+    };
+    
+    $.ajax({
+        url: '/api/hr/',
+        method: 'POST',
+        data: JSON.stringify(formData),
+        contentType: 'application/json',
+        headers: {
+            'X-CSRFToken': $('[name=csrfmiddlewaretoken]').val()
+        },
+        success: function(response) {
+            if (response.success) {
+                showMessage(`HR Manager created successfully! Employee ID: ${response.data.employee_id}. Default password: ${response.data.default_password}`, 'success');
+                $('#createHRForm')[0].reset();
+                loadDepartments(); // Reload departments
+            } else {
+                showMessage(response.message, 'danger');
+            }
+        },
+        error: function(xhr) {
+            if (xhr.status === 400) {
+                const errors = xhr.responseJSON.errors;
+                if (errors) {
+                    Object.keys(errors).forEach(function(field) {
+                        const fieldElement = $(`#${field}`);
+                        fieldElement.addClass('is-invalid');
+                        fieldElement.siblings('.invalid-feedback').text(errors[field][0]);
+                    });
+                }
+                showMessage(xhr.responseJSON.message || 'Validation failed', 'danger');
+            } else {
+                showMessage('An error occurred while creating the HR Manager', 'danger');
+            }
+        },
+        complete: function() {
+            // Re-enable button
+            submitBtn.prop('disabled', false).html(originalText);
+        }
+    });
+}
+
+function showMessage(message, type) {
+    const alertClass = type === 'success' ? 'alert-success' : 'alert-danger';
+    const icon = type === 'success' ? 'bi-check-circle' : 'bi-exclamation-triangle';
+    
+    const messageHtml = `
+        <div class="alert ${alertClass} alert-dismissible fade show" role="alert">
+            <i class="bi ${icon} me-2"></i>
+            ${message}
+            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+        </div>
+    `;
+    
+    $('#message-container').html(messageHtml);
+    
+    // Auto-hide success messages after 5 seconds
+    if (type === 'success') {
+        setTimeout(function() {
+            $('.alert').alert('close');
+        }, 5000);
+    }
+}
+</script>
+{% endblock %}

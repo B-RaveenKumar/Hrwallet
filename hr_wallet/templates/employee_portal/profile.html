@@ -1,0 +1,84 @@
+{% extends 'employee_portal/base.html' %}
+
+{% block title %}My Profile - Employee Portal{% endblock %}
+{% block page_title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="bi bi-person-circle display-1 text-muted"></i>
+                </div>
+                <h5 class="card-title">{{ user.get_full_name|default:user.username }}</h5>
+                <p class="card-text text-muted">{% if employee %}{{ employee.job_title }}{% else %}Employee{% endif %}</p>
+                <p class="card-text">
+                    <small class="text-muted">Employee ID: {% if employee %}{{ employee.employee_id }}{% else %}N/A{% endif %}</small>
+                </p>
+                <button class="btn btn-success">
+                    <i class="bi bi-camera me-2"></i>
+                    Update Photo
+                </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-person-gear me-2"></i>
+                    Personal Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <form>
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="firstName" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="firstName" value="{{ user.first_name }}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="lastName" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="lastName" value="{{ user.last_name }}" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email</label>
+                            <input type="email" class="form-control" id="email" value="{{ user.email }}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="tel" class="form-control" id="phone" value="{% if employee %}{{ employee.phone }}{% endif %}" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" rows="3" readonly>{% if employee %}{{ employee.address }}{% endif %}</textarea>
+                    </div>
+                    
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="department" value="{% if employee %}{{ employee.department.name }}{% else %}N/A{% endif %}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="position" class="form-label">Position</label>
+                            <input type="text" class="form-control" id="position" value="{% if employee %}{{ employee.job_title }}{% else %}N/A{% endif %}" readonly>
+                        </div>
+                    </div>
+                    
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-secondary me-2">Edit Profile</button>
+                        <button type="submit" class="btn btn-success">Save Changes</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

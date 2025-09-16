@@ -1,0 +1,147 @@
+{% extends 'hr_dashboard/base.html' %}
+
+{% block title %}Leave Approvals - HR Dashboard{% endblock %}
+{% block page_title %}Leave Approvals{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-calendar-check me-2"></i>
+                    Leave Request Overview
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="card bg-warning text-white">
+                            <div class="card-body">
+                                <h3>{{ pending_leaves.count|default:"0" }}</h3>
+                                <p class="mb-0">Pending Requests</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-success text-white">
+                            <div class="card-body">
+                                <h3>15</h3>
+                                <p class="mb-0">Approved This Month</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-danger text-white">
+                            <div class="card-body">
+                                <h3>2</h3>
+                                <p class="mb-0">Rejected This Month</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="card bg-info text-white">
+                            <div class="card-body">
+                                <h3>85%</h3>
+                                <p class="mb-0">Approval Rate</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header d-flex justify-content-between align-items-center">
+                <h5 class="mb-0">
+                    <i class="bi bi-list-check me-2"></i>
+                    Pending Leave Requests
+                </h5>
+                <div>
+                    <button class="btn btn-outline-primary btn-sm me-2">
+                        <i class="bi bi-funnel me-1"></i>Filter
+                    </button>
+                    <button class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-check-all me-1"></i>Bulk Approve
+                    </button>
+                </div>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <input type="checkbox" class="form-check-input">
+                                </th>
+                                <th>Employee</th>
+                                <th>Leave Type</th>
+                                <th>Start Date</th>
+                                <th>End Date</th>
+                                <th>Days</th>
+                                <th>Reason</th>
+                                <th>Submitted</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for leave in pending_leaves %}
+                            <tr>
+                                <td>
+                                    <input type="checkbox" class="form-check-input">
+                                </td>
+                                <td>
+                                    <div class="d-flex align-items-center">
+                                        <i class="bi bi-person-circle me-2 text-muted"></i>
+                                        <div>
+                                            <div class="fw-bold">{{ leave.employee.user.get_full_name }}</div>
+                                            <small class="text-muted">{{ leave.employee.employee_id }}</small>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td>
+                                    <span class="badge bg-primary">{{ leave.leave_type|title }}</span>
+                                </td>
+                                <td>{{ leave.start_date|date:"M d, Y" }}</td>
+                                <td>{{ leave.end_date|date:"M d, Y" }}</td>
+                                <td>{{ leave.days_requested }}</td>
+                                <td>
+                                    <span class="text-truncate d-inline-block" style="max-width: 150px;" title="{{ leave.reason }}">
+                                        {{ leave.reason|truncatechars:30 }}
+                                    </span>
+                                </td>
+                                <td>{{ leave.created_at|date:"M d" }}</td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn btn-sm btn-success">
+                                            <i class="bi bi-check me-1"></i>Approve
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-danger">
+                                            <i class="bi bi-x me-1"></i>Reject
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-outline-primary">
+                                            <i class="bi bi-eye me-1"></i>View
+                                        </button>
+                                    </div>
+                                </td>
+                            </tr>
+                            {% empty %}
+                            <tr>
+                                <td colspan="9" class="text-center text-muted py-4">
+                                    <i class="bi bi-calendar-check display-4 text-muted mb-3"></i>
+                                    <p class="mb-0">No pending leave requests</p>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

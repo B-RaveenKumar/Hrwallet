@@ -1,0 +1,258 @@
+{% extends 'employee_portal/base.html' %}
+
+{% block title %}My Dashboard - Employee Portal{% endblock %}
+{% block page_title %}My Dashboard{% endblock %}
+
+{% block content %}
+<!-- Welcome Section -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card bg-success text-white">
+            <div class="card-body">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h2 class="mb-1">Welcome back, {{ user.get_full_name|default:user.username }}!</h2>
+                        <p class="mb-2">{% if employee %}{{ employee.job_title }} - {{ employee.department.name }}{% else %}Employee{% endif %}</p>
+                        <small class="opacity-75">Employee ID: {% if employee %}{{ employee.employee_id }}{% else %}N/A{% endif %}</small>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <div class="d-flex flex-column align-items-end">
+                            <small class="opacity-75">Today's Date</small>
+                            <h5 class="mb-0">{{ current_date|date:"M d, Y" }}</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Stats -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body text-center">
+                <i class="bi bi-clock display-4 mb-3"></i>
+                <h3 class="mb-1" id="hours-worked">{{ hours_worked|default:"0" }}</h3>
+                <p class="mb-0">Hours This Month</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-calendar-event display-4 mb-3"></i>
+                <h3 class="mb-1" id="leave-balance">{{ leave_balance|default:"0" }}</h3>
+                <p class="mb-0">Leave Days Available</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-exclamation-circle display-4 mb-3"></i>
+                <h3 class="mb-1" id="pending-requests">{{ pending_requests|default:"0" }}</h3>
+                <p class="mb-0">Pending Requests</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-primary text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-bell display-4 mb-3"></i>
+                <h3 class="mb-1" id="attendance-percentage">{{ attendance_percentage|default:"0" }}%</h3>
+                <p class="mb-0">Attendance Rate</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightning-charge me-2"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'employee_portal:employee_attendance' %}" class="btn btn-success w-100 py-3">
+                            <i class="bi bi-clock-fill display-6 d-block mb-2"></i>
+                            View Attendance
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'employee_portal:employee_leave_requests' %}" class="btn btn-outline-warning w-100 py-3">
+                            <i class="bi bi-calendar-plus display-6 d-block mb-2"></i>
+                            Request Leave
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'employee_portal:employee_profile' %}" class="btn btn-outline-info w-100 py-3">
+                            <i class="bi bi-person-gear display-6 d-block mb-2"></i>
+                            Update Profile
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'employee_portal:employee_payslips' %}" class="btn btn-outline-primary w-100 py-3">
+                            <i class="bi bi-receipt display-6 d-block mb-2"></i>
+                            View Payslips
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity and Upcoming Events -->
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history me-2"></i>
+                    Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Dashboard Access</div>
+                            <small class="text-muted">Logged into employee portal</small>
+                        </div>
+                        <small class="text-muted">Now</small>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Profile Updated</div>
+                            <small class="text-muted">Contact information updated</small>
+                        </div>
+                        <small class="text-muted">2 days ago</small>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">Leave Request</div>
+                            <small class="text-muted">Annual leave request submitted</small>
+                        </div>
+                        <small class="text-muted">1 week ago</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-calendar-event me-2"></i>
+                    Upcoming Events
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Team Meeting</div>
+                            <small class="text-muted">Weekly team sync</small>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">Today 2:00 PM</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Performance Review</div>
+                            <small class="text-muted">Quarterly review meeting</small>
+                        </div>
+                        <span class="badge bg-warning rounded-pill">Tomorrow</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Company All-Hands</div>
+                            <small class="text-muted">Monthly company meeting</small>
+                        </div>
+                        <span class="badge bg-info rounded-pill">Friday</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Attendance Summary -->
+<div class="row">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-graph-up me-2"></i>
+                    This Week's Attendance
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col">
+                        <div class="p-3 border rounded">
+                            <h6 class="text-muted mb-1">Monday</h6>
+                            <div class="text-success">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <small class="d-block">9:00 AM - 5:30 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border rounded">
+                            <h6 class="text-muted mb-1">Tuesday</h6>
+                            <div class="text-success">
+                                <i class="bi bi-check-circle-fill"></i>
+                                <small class="d-block">9:15 AM - 5:45 PM</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border rounded">
+                            <h6 class="text-muted mb-1">Wednesday</h6>
+                            <div class="text-warning">
+                                <i class="bi bi-clock-fill"></i>
+                                <small class="d-block">In Progress</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border rounded">
+                            <h6 class="text-muted mb-1">Thursday</h6>
+                            <div class="text-muted">
+                                <i class="bi bi-dash-circle"></i>
+                                <small class="d-block">Pending</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col">
+                        <div class="p-3 border rounded">
+                            <h6 class="text-muted mb-1">Friday</h6>
+                            <div class="text-muted">
+                                <i class="bi bi-dash-circle"></i>
+                                <small class="d-block">Pending</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Live Update Indicator -->
+<div id="update-indicator">Last updated: <span id="last-update-time">{{ current_date|date:"M d, Y" }}</span></div>
+
+{% endblock %}
+
+{% block extra_js %}
+{% load static %}
+<script src="{% static 'js/live_updates.js' %}"></script>
+{% endblock %}

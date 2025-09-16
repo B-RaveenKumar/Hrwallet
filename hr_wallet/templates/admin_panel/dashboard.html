@@ -1,0 +1,173 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block title %}Super Admin Dashboard - HR Wallet{% endblock %}
+{% block page_title %}Super Admin Dashboard{% endblock %}
+
+{% block content %}
+<!-- Welcome Section -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card bg-danger text-white">
+            <div class="card-body">
+                <h2 class="mb-1">Welcome, {{ user.get_full_name|default:user.username }}!</h2>
+                <p class="mb-0">Super Administrator - Complete System Control</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-md-3 mb-3">
+        <div class="card stats-card">
+            <div class="card-body text-center">
+                <i class="bi bi-people display-4 mb-3"></i>
+                <h3 class="mb-1">{{ total_users }}</h3>
+                <p class="mb-0">Total Users</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-info text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-person-badge display-4 mb-3"></i>
+                <h3 class="mb-1">{{ total_employees }}</h3>
+                <p class="mb-0">Employees</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-warning text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-building display-4 mb-3"></i>
+                <h3 class="mb-1">{{ total_departments }}</h3>
+                <p class="mb-0">Departments</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-3 mb-3">
+        <div class="card bg-success text-white">
+            <div class="card-body text-center">
+                <i class="bi bi-person-gear display-4 mb-3"></i>
+                <h3 class="mb-1">{{ hr_managers }}</h3>
+                <p class="mb-0">HR Managers</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Quick Actions -->
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-lightning-charge me-2"></i>
+                    Quick Actions
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'admin_panel:user_management' %}" class="btn btn-primary w-100 py-3">
+                            <i class="bi bi-people display-6 d-block mb-2"></i>
+                            User Management
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'admin_panel:hr_managers' %}" class="btn btn-danger w-100 py-3">
+                            <i class="bi bi-person-plus display-6 d-block mb-2"></i>
+                            Manage HR Managers
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'admin_panel:system_settings' %}" class="btn btn-outline-secondary w-100 py-3">
+                            <i class="bi bi-gear display-6 d-block mb-2"></i>
+                            System Settings
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="{% url 'admin_panel:audit_logs' %}" class="btn btn-outline-info w-100 py-3">
+                            <i class="bi bi-file-text display-6 d-block mb-2"></i>
+                            View Audit Logs
+                        </a>
+                    </div>
+                    <div class="col-md-3 mb-3">
+                        <a href="/admin/" class="btn btn-outline-warning w-100 py-3">
+                            <i class="bi bi-tools display-6 d-block mb-2"></i>
+                            Django Admin
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Activity -->
+<div class="row">
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-clock-history me-2"></i>
+                    Recent Users
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    {% for user in recent_users %}
+                    <div class="list-group-item d-flex justify-content-between align-items-start">
+                        <div class="ms-2 me-auto">
+                            <div class="fw-bold">{{ user.get_full_name|default:user.username }}</div>
+                            <small class="text-muted">{{ user.get_role_display }}</small>
+                        </div>
+                        <small class="text-muted">{{ user.date_joined|date:"M d" }}</small>
+                    </div>
+                    {% empty %}
+                    <div class="list-group-item">
+                        <small class="text-muted">No recent users</small>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-md-6 mb-4">
+        <div class="card h-100">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-shield-check me-2"></i>
+                    System Status
+                </h5>
+            </div>
+            <div class="card-body">
+                <div class="list-group list-group-flush">
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Database</div>
+                            <small class="text-muted">Connection status</small>
+                        </div>
+                        <span class="badge bg-success rounded-pill">Online</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Security</div>
+                            <small class="text-muted">RBAC system status</small>
+                        </div>
+                        <span class="badge bg-success rounded-pill">Active</span>
+                    </div>
+                    <div class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <div class="fw-bold">Audit Logging</div>
+                            <small class="text-muted">Security monitoring</small>
+                        </div>
+                        <span class="badge bg-success rounded-pill">Enabled</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
