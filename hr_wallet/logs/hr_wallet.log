@@ -7873,3 +7873,4 @@ INFO 2025-09-15 22:01:44,479 basehttp 14484 6708 "GET /favicon.ico HTTP/1.1" 204
 INFO 2025-09-15 22:01:48,531 middleware 14484 6708 Access: /hr-dashboard/employees/ - User: bob.smith (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
 INFO 2025-09-15 22:01:48,546 basehttp 14484 6708 "GET /hr-dashboard/employees/ HTTP/1.1" 200 37769
 INFO 2025-09-15 22:01:48,603 basehttp 14484 6708 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-16 16:07:18,554 autoreload 9336 10824 Watching for file changes with StatReloader
