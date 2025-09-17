@@ -67,6 +67,14 @@ def manage_employees(request):
         })
 
 
+
+@login_required
+@require_role('hr_manager')
+def departments(request):
+    """Departments management page (uses APIs for data)."""
+    return render(request, 'hr_dashboard/departments.html')
+
+
 @login_required
 @require_role('hr_manager')
 def leave_approvals(request):
@@ -90,29 +98,55 @@ def leave_approvals(request):
 @login_required
 @require_role('hr_manager')
 def attendance_overview(request):
-    """Attendance Overview with optimized queries"""
+    """Attendance Overview with filters and company scoping"""
     try:
-        today = timezone.now().date()
+        target_date_str = (request.GET.get('date') or '').strip()
+        try:
+            target_date = timezone.datetime.strptime(target_date_str, '%Y-%m-%d').date() if target_date_str else timezone.now().date()
+        except Exception:
+            target_date = timezone.now().date()
 
-        # Use select_related for all related objects to avoid N+1 queries
-        employees = Employee.objects.filter(is_active=True).select_related(
-            'user', 'department', 'company'
-        ).order_by('employee_id')
+        status_filter = (request.GET.get('status') or '').strip().lower()
+        dept_id = (request.GET.get('department_id') or '').strip()
+        q = (request.GET.get('q') or '').strip()
 
-        attendance_data = Attendance.objects.filter(date=today).select_related(
-            'employee__user', 'employee__department'
-        ).order_by('employee__employee_id')
+        employees_qs = Employee.objects.filter(is_active=True, company=request.user.company).select_related('user', 'department', 'company')
+        if dept_id:
+            employees_qs = employees_qs.filter(department_id=dept_id)
+        if q:
+            employees_qs = employees_qs.filter(Q(user__first_name__icontains=q) | Q(user__last_name__icontains=q) | Q(employee_id__icontains=q))
+        employees_qs = employees_qs.order_by('employee_id')
+
+        attendance_qs = Attendance.objects.filter(employee__company=request.user.company, date=target_date).select_related('employee__user', 'employee__department')
+        if status_filter in ['present', 'absent', 'late', 'half_day']:
+            attendance_qs = attendance_qs.filter(status=status_filter)
+        attendance_by_emp = {a.employee_id: a for a in attendance_qs}
+
+        rows = []
+        for emp in employees_qs:
+            rows.append({'employee': emp, 'attendance': attendance_by_emp.get(emp.id)})
+
+        departments = Department.objects.filter(company=request.user.company, is_active=True).order_by('name')
+        present_today = Attendance.objects.filter(employee__company=request.user.company, date=target_date, status__in=['present', 'late']).count()
 
         return render(request, 'hr_dashboard/attendance.html', {
-            'employees': employees,
-            'attendance_data': attendance_data,
-            'today': today
+            'rows': rows,
+            'departments': departments,
+            'present_today': present_today,
+            'today': target_date,
+            'filters': {
+                'date': target_date.strftime('%Y-%m-%d'),
+                'status': status_filter,
+                'department_id': dept_id,
+                'q': q,
+            }
         })
     except Exception as e:
         return render(request, 'hr_dashboard/attendance.html', {
-            'employees': [],
-            'attendance_data': [],
+            'rows': [],
+            'departments': Department.objects.none(),
             'today': timezone.now().date(),
+            'filters': {},
             'error': 'Unable to load attendance data.'
         })
 
@@ -122,3 +156,294 @@ def attendance_overview(request):
 def create_employee(request):
     """Create Employee form page"""
     return render(request, 'hr_dashboard/create_employee.html')
+
+
+from django.views.decorators.http import require_http_methods
+from django.http import JsonResponse, HttpResponse
+from django.db import transaction
+from django.db.models import Q
+import json
+import csv
+from io import StringIO
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["PATCH"])
+def change_leave_status_api(request, pk):
+    try:
+        data = json.loads(request.body or '{}')
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    new_status = (data.get('status') or '').lower()
+    if new_status not in ['approved', 'rejected']:
+        return JsonResponse({'error': 'Invalid status'}, status=400)
+
+    leave = get_object_or_404(
+        LeaveRequest.objects.select_related('employee__user', 'employee__company'),
+        pk=pk,
+        employee__company=request.user.company
+    )
+
+    if leave.status != 'pending':
+        return JsonResponse({'error': 'Only pending requests can be updated'}, status=400)
+
+    with transaction.atomic():
+        leave.status = new_status
+        leave.approved_by = request.user
+        leave.save()
+
+        # Adjust leave balance on approval
+        if new_status == 'approved':
+            lb = None
+            try:
+                lb = leave.employee.leavebalance
+            except Exception:
+                lb = None
+            if lb:
+                if leave.leave_type == 'annual':
+                    lb.annual_leave_used = (lb.annual_leave_used or 0) + leave.days_requested
+                elif leave.leave_type == 'sick':
+                    lb.sick_leave_used = (lb.sick_leave_used or 0) + leave.days_requested
+                elif leave.leave_type == 'personal':
+                    lb.personal_leave_used = (lb.personal_leave_used or 0) + leave.days_requested
+                lb.save()
+
+    return JsonResponse({'success': True})
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["POST"])
+def bulk_change_leaves_api(request):
+    try:
+        data = json.loads(request.body or '{}')
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON'}, status=400)
+
+    ids = data.get('ids') or []
+    status_target = (data.get('status') or '').lower()
+    if not isinstance(ids, list) or status_target not in ['approved', 'rejected']:
+        return JsonResponse({'error': 'ids (list) and valid status are required'}, status=400)
+
+    leaves = LeaveRequest.objects.filter(
+        id__in=ids, status='pending', employee__company=request.user.company
+    )
+
+    updated = 0
+    with transaction.atomic():
+        for leave in leaves.select_related('employee'):
+            leave.status = status_target
+            leave.approved_by = request.user
+            leave.save()
+            updated += 1
+            if status_target == 'approved':
+                try:
+                    lb = leave.employee.leavebalance
+                    if leave.leave_type == 'annual':
+                        lb.annual_leave_used = (lb.annual_leave_used or 0) + leave.days_requested
+                    elif leave.leave_type == 'sick':
+                        lb.sick_leave_used = (lb.sick_leave_used or 0) + leave.days_requested
+                    elif leave.leave_type == 'personal':
+                        lb.personal_leave_used = (lb.personal_leave_used or 0) + leave.days_requested
+                    lb.save()
+                except Exception:
+                    pass
+
+    return JsonResponse({'success': True, 'updated': updated})
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["GET"])
+def export_leaves_api(request):
+    qs = LeaveRequest.objects.filter(employee__company=request.user.company).select_related('employee__user', 'employee__department')
+
+    status_filter = (request.GET.get('status') or '').lower()
+    if status_filter in ['pending', 'approved', 'rejected']:
+        qs = qs.filter(status=status_filter)
+
+    q = (request.GET.get('q') or '').strip()
+    if q:
+        qs = qs.filter(
+            Q(employee__user__first_name__icontains=q) |
+            Q(employee__user__last_name__icontains=q) |
+            Q(employee__employee_id__icontains=q)
+        )
+
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(['Employee', 'Employee ID', 'Department', 'Type', 'Start', 'End', 'Days', 'Status', 'Submitted'])
+    for leave in qs.order_by('-created_at'):
+        writer.writerow([
+            leave.employee.user.get_full_name(),
+            leave.employee.employee_id,
+            getattr(getattr(leave.employee, 'department', None), 'name', ''),
+            leave.leave_type,
+            leave.start_date.strftime('%Y-%m-%d'),
+            leave.end_date.strftime('%Y-%m-%d'),
+            leave.days_requested,
+            leave.status,
+            leave.created_at.strftime('%Y-%m-%d %H:%M')
+        ])
+
+    resp = HttpResponse(buffer.getvalue(), content_type='text/csv')
+    resp['Content-Disposition'] = 'attachment; filename="leave_requests.csv"'
+    return resp
+
+# -------------------- Attendance APIs --------------------
+from decimal import Decimal
+from datetime import datetime, date, time as dt_time, timedelta
+
+
+def _get_employee_for_company_or_404(request, employee_pk):
+    return get_object_or_404(Employee.objects.select_related('company'), pk=employee_pk, company=request.user.company)
+
+
+def _parse_date(value):
+    if not value:
+        return timezone.now().date()
+    try:
+        return datetime.strptime(value, '%Y-%m-%d').date()
+    except Exception:
+        return timezone.now().date()
+
+
+def _parse_time(value):
+    if not value:
+        return None
+    try:
+        return datetime.strptime(value, '%H:%M').time()
+    except Exception:
+        return None
+
+
+def _recompute_total_hours(att):
+    if att.clock_in and att.clock_out:
+        dt_in = datetime.combine(att.date, att.clock_in)
+        dt_out = datetime.combine(att.date, att.clock_out)
+        if dt_out < dt_in:
+            dt_out = dt_out + timedelta(days=1)
+        delta = dt_out - dt_in
+        if att.break_duration:
+            delta -= att.break_duration
+        hours = Decimal(delta.total_seconds() / 3600.0).quantize(Decimal('0.01'))
+        att.total_hours = hours
+    return att
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["POST"])
+def attendance_clock_in_api(request):
+    data = json.loads(request.body or '{}')
+    employee_pk = data.get('employee_pk')
+    if not employee_pk:
+        return JsonResponse({'error': 'employee_pk is required'}, status=400)
+    target_date = _parse_date(data.get('date'))
+    t = _parse_time(data.get('time')) or timezone.now().time()
+
+    emp = _get_employee_for_company_or_404(request, employee_pk)
+    att, _created = Attendance.objects.get_or_create(employee=emp, date=target_date)
+    att.clock_in = t
+    # simple status heuristic
+    att.status = att.status or 'present'
+    att = _recompute_total_hours(att)
+    att.save()
+    return JsonResponse({'success': True})
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["POST"])
+def attendance_clock_out_api(request):
+    data = json.loads(request.body or '{}')
+    employee_pk = data.get('employee_pk')
+    if not employee_pk:
+        return JsonResponse({'error': 'employee_pk is required'}, status=400)
+    target_date = _parse_date(data.get('date'))
+    t = _parse_time(data.get('time')) or timezone.now().time()
+
+    emp = _get_employee_for_company_or_404(request, employee_pk)
+    att, _created = Attendance.objects.get_or_create(employee=emp, date=target_date)
+    att.clock_out = t
+    att = _recompute_total_hours(att)
+    att.save()
+    return JsonResponse({'success': True})
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["PATCH"])
+def update_attendance_api(request):
+    data = json.loads(request.body or '{}')
+    employee_pk = data.get('employee_pk')
+    if not employee_pk:
+        return JsonResponse({'error': 'employee_pk is required'}, status=400)
+    target_date = _parse_date(data.get('date'))
+
+    emp = _get_employee_for_company_or_404(request, employee_pk)
+    att, _ = Attendance.objects.get_or_create(employee=emp, date=target_date)
+
+    ci = _parse_time(data.get('clock_in'))
+    co = _parse_time(data.get('clock_out'))
+    status = data.get('status')
+    notes = data.get('notes')
+
+    if ci is not None:
+        att.clock_in = ci
+    if co is not None:
+        att.clock_out = co
+    if status in ['present', 'absent', 'late', 'half_day']:
+        att.status = status
+    if notes is not None:
+        att.notes = notes
+
+    att = _recompute_total_hours(att)
+    att.save()
+    return JsonResponse({'success': True})
+
+
+@login_required
+@require_role('hr_manager')
+@require_http_methods(["GET"])
+def export_attendance_api(request):
+    target_date = _parse_date(request.GET.get('date'))
+    qs = Attendance.objects.filter(employee__company=request.user.company, date=target_date).select_related('employee__user', 'employee__department')
+
+    status_filter = (request.GET.get('status') or '').lower()
+    if status_filter in ['present', 'absent', 'late', 'half_day']:
+        qs = qs.filter(status=status_filter)
+
+    dept_id = request.GET.get('department_id')
+    if dept_id:
+        qs = qs.filter(employee__department_id=dept_id)
+
+    q = (request.GET.get('q') or '').strip()
+    if q:
+        qs = qs.filter(
+            Q(employee__user__first_name__icontains=q) |
+            Q(employee__user__last_name__icontains=q) |
+            Q(employee__employee_id__icontains=q)
+        )
+
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(['Employee', 'Employee ID', 'Department', 'Date', 'Clock In', 'Clock Out', 'Hours', 'Status'])
+    for att in qs.order_by('employee__employee_id'):
+        writer.writerow([
+            att.employee.user.get_full_name(),
+            att.employee.employee_id,
+            getattr(getattr(att.employee, 'department', None), 'name', ''),
+            att.date.strftime('%Y-%m-%d'),
+            att.clock_in.strftime('%H:%M') if att.clock_in else '',
+            att.clock_out.strftime('%H:%M') if att.clock_out else '',
+            str(att.total_hours or ''),
+            att.status
+        ])
+
+    resp = HttpResponse(buffer.getvalue(), content_type='text/csv')
+    resp['Content-Disposition'] = f'attachment; filename="attendance_{target_date.strftime("%Y%m%d")}.csv"'
+    return resp
+

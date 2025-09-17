@@ -62,10 +62,13 @@
                     Pending Leave Requests
                 </h5>
                 <div>
-                    <button class="btn btn-outline-primary btn-sm me-2">
+                    <button id="leaveExportBtn" class="btn btn-outline-secondary btn-sm me-2">
+                        <i class="bi bi-download me-1"></i>Export CSV
+                    </button>
+                    <button id="leaveFilterBtn" class="btn btn-outline-primary btn-sm me-2">
                         <i class="bi bi-funnel me-1"></i>Filter
                     </button>
-                    <button class="btn btn-outline-success btn-sm">
+                    <button id="leaveBulkApproveBtn" class="btn btn-outline-success btn-sm">
                         <i class="bi bi-check-all me-1"></i>Bulk Approve
                     </button>
                 </div>
@@ -92,7 +95,7 @@
                             {% for leave in pending_leaves %}
                             <tr>
                                 <td>
-                                    <input type="checkbox" class="form-check-input">
+                                    <input type="checkbox" class="form-check-input leave-select" value="{{ leave.id }}">
                                 </td>
                                 <td>
                                     <div class="d-flex align-items-center">
@@ -117,10 +120,10 @@
                                 <td>{{ leave.created_at|date:"M d" }}</td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-sm btn-success">
+                                        <button type="button" class="btn btn-sm btn-success leave-approve-btn" data-leave-id="{{ leave.id }}">
                                             <i class="bi bi-check me-1"></i>Approve
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-danger">
+                                        <button type="button" class="btn btn-sm btn-danger leave-reject-btn" data-leave-id="{{ leave.id }}">
                                             <i class="bi bi-x me-1"></i>Reject
                                         </button>
                                         <button type="button" class="btn btn-sm btn-outline-primary">
@@ -143,5 +146,68 @@
             </div>
         </div>
     </div>
-</div>
+
+{% endblock %}
+{% block extra_js %}
+<script>
+(function(){
+  function getCSRF(){ const m=document.cookie.match(/csrftoken=([^;]+)/); return m?m[1]:''; }
+  function showMsg(text, type){
+    const cont=document.querySelector('.container-fluid .main-content .container-fluid')||document.body;
+    const id='msg-'+Date.now();
+    const el=document.createElement('div');
+    el.id=id; el.className=`alert alert-${type||'info'} alert-dismissible fade show`;
+    el.role='alert'; el.innerHTML=`${text}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+    cont.prepend(el); setTimeout(()=>{ try{bootstrap.Alert.getOrCreateInstance(el).close();}catch(_){el.remove();}},4000);
+  }
+
+  document.addEventListener('click', async (e)=>{
+    const approveBtn=e.target.closest('.leave-approve-btn');
+    const rejectBtn=e.target.closest('.leave-reject-btn');
+    if (approveBtn){
+      const id=approveBtn.dataset.leaveId; if(!id) return;
+      approveBtn.disabled=true;
+      try{
+        const resp=await fetch(`/hr-dashboard/api/leaves/${id}/status/`,{method:'PATCH',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify({status:'approved'})});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg('Leave approved','success'); approveBtn.closest('tr').remove(); }
+        else{ showMsg(json.error||'Failed to approve','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ approveBtn.disabled=false; }
+    }
+    if (rejectBtn){
+      const id=rejectBtn.dataset.leaveId; if(!id) return;
+      if(!confirm('Reject this leave request?')) return;
+      rejectBtn.disabled=true;
+      try{
+        const resp=await fetch(`/hr-dashboard/api/leaves/${id}/status/`,{method:'PATCH',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify({status:'rejected'})});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg('Leave rejected','warning'); rejectBtn.closest('tr').remove(); }
+        else{ showMsg(json.error||'Failed to reject','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ rejectBtn.disabled=false; }
+    }
+  });
+
+  const bulkBtn=document.getElementById('leaveBulkApproveBtn');
+  if (bulkBtn){
+    bulkBtn.addEventListener('click', async ()=>{
+      const checks=[...document.querySelectorAll('.leave-select:checked')];
+      if(checks.length===0){ showMsg('Select at least one request','info'); return; }
+      const ids=checks.map(c=>parseInt(c.value)).filter(Boolean);
+      bulkBtn.disabled=true;
+      try{
+        const resp=await fetch('/hr-dashboard/api/leaves/bulk/',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify({ids, status:'approved'})});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg(`Approved ${json.updated} request(s)`,'success'); checks.forEach(c=>c.closest('tr').remove()); }
+        else{ showMsg(json.error||'Bulk approve failed','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ bulkBtn.disabled=false; }
+    });
+  }
+
+  const exportBtn=document.getElementById('leaveExportBtn');
+  if (exportBtn){ exportBtn.addEventListener('click',()=>{ window.location.href='/hr-dashboard/api/leaves/export/?status=pending'; }); }
+})();
+</script>
 {% endblock %}

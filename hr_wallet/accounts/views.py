@@ -5,8 +5,9 @@ from django.contrib import messages
 from django.views.decorators.csrf import csrf_protect
 from django.views.decorators.cache import never_cache
 from django.views.decorators.http import require_http_methods
-from django.http import JsonResponse
+from django.http import JsonResponse, HttpResponse
 from django.db import transaction
+from django.db.models import Q
 from django.utils import timezone
 from .decorators import audit_action
 from .models import User
@@ -288,3 +289,263 @@ def create_user_api(request):
             'roles': [],
             'error': 'Unable to load form data'
         })
+
+# -----------------------------
+# Admin User Management APIs
+# -----------------------------
+
+def _ensure_admin(request):
+    if request.user.role != 'super_admin':
+        return JsonResponse({'error': 'Permission denied'}, status=403)
+    return None
+
+
+def _serialize_user(user):
+    emp = getattr(user, 'employee', None)
+    dept = getattr(emp, 'department', None) if emp else None
+    return {
+        'id': user.id,
+        'username': user.username,
+        'email': user.email,
+        'first_name': user.first_name,
+        'last_name': user.last_name,
+        'full_name': user.get_full_name(),
+        'role': user.role,
+        'is_active': user.is_active,
+        'date_joined': user.date_joined.strftime('%Y-%m-%d %H:%M'),
+        'employee': {
+            'employee_id': getattr(emp, 'employee_id', None),
+            'job_title': getattr(emp, 'job_title', None),
+            'department': {
+                'id': getattr(dept, 'id', None),
+                'name': getattr(dept, 'name', None),
+            } if dept else None,
+        } if emp else None,
+    }
+
+
+@login_required
+@require_http_methods(["GET"])
+def list_users_api(request):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    qs = User.objects.filter(company=request.user.company).select_related('company').prefetch_related('employee__department')
+
+    q = (request.GET.get('q') or '').strip()
+    role = (request.GET.get('role') or '').strip()
+    status = (request.GET.get('status') or '').strip()  # 'active' | 'inactive' | ''
+    dept_id = request.GET.get('department_id')
+
+    if q:
+        qs = qs.filter(
+            Q(username__icontains=q) |
+            Q(email__icontains=q) |
+            Q(first_name__icontains=q) |
+            Q(last_name__icontains=q) |
+            Q(employee__employee_id__icontains=q)
+        )
+    if role:
+        qs = qs.filter(role=role)
+    if status == 'active':
+        qs = qs.filter(is_active=True)
+    elif status == 'inactive':
+        qs = qs.filter(is_active=False)
+    if dept_id and dept_id.isdigit():
+        qs = qs.filter(employee__department_id=int(dept_id))
+
+    qs = qs.order_by('-date_joined')
+
+    try:
+        page = int(request.GET.get('page', '1'))
+        page_size = int(request.GET.get('page_size', '20'))
+    except ValueError:
+        page, page_size = 1, 20
+
+    total = qs.count()
+    start = (page - 1) * page_size
+    end = start + page_size
+    items = [_serialize_user(u) for u in qs[start:end]]
+
+    return JsonResponse({'items': items, 'total': total, 'page': page, 'page_size': page_size})
+
+
+@login_required
+@require_http_methods(["GET"])
+def user_detail_api(request, pk):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    user = get_object_or_404(User.objects.select_related('company').prefetch_related('employee__department'), pk=pk, company=request.user.company)
+    return JsonResponse({'user': _serialize_user(user)})
+
+
+@login_required
+@require_http_methods(["PATCH"])
+def update_user_api(request, pk):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    user = get_object_or_404(User, pk=pk, company=request.user.company)
+    try:
+        data = json.loads(request.body or '{}')
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+    allowed_user_fields = ['first_name', 'last_name', 'email', 'role']
+
+    with transaction.atomic():
+        for f in allowed_user_fields:
+            if f in data and data.get(f) is not None:
+                setattr(user, f, data.get(f))
+        user.save()
+
+        # Update employee profile fields if exists
+        try:
+            emp = user.employee
+        except Employee.DoesNotExist:
+            emp = None
+        if emp:
+            if 'department_id' in data and data.get('department_id'):
+                try:
+                    dept = Department.objects.get(id=int(data['department_id']), company=request.user.company)
+                    emp.department = dept
+                except (Department.DoesNotExist, ValueError):
+                    pass
+            for f in ['job_title', 'phone', 'salary']:
+                if f in data:
+                    setattr(emp, f, data.get(f))
+            emp.save()
+
+    return JsonResponse({'success': True, 'user': _serialize_user(User.objects.select_related('company').prefetch_related('employee__department').get(pk=user.pk))})
+
+
+@login_required
+@require_http_methods(["PATCH"])
+def change_user_status_api(request, pk):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    user = get_object_or_404(User, pk=pk, company=request.user.company)
+    try:
+        data = json.loads(request.body or '{}')
+        is_active = bool(data.get('is_active'))
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+    with transaction.atomic():
+        user.is_active = is_active
+        user.save()
+        try:
+            emp = user.employee
+            emp.is_active = is_active
+            emp.save()
+        except Employee.DoesNotExist:
+            pass
+
+    return JsonResponse({'success': True})
+
+
+@login_required
+@require_http_methods(["POST"])
+def bulk_update_users_api(request):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    try:
+        data = json.loads(request.body or '{}')
+    except json.JSONDecodeError:
+        return JsonResponse({'error': 'Invalid JSON data'}, status=400)
+
+    ids = data.get('ids') or []
+    action = data.get('action')
+    if not isinstance(ids, list) or not action:
+        return JsonResponse({'error': 'ids (list) and action are required'}, status=400)
+
+    users = User.objects.filter(company=request.user.company, id__in=ids)
+    updated = 0
+
+    with transaction.atomic():
+        if action == 'set_status':
+            is_active = bool(data.get('is_active'))
+            updated = users.update(is_active=is_active)
+            # Mirror to employees
+            Employee.objects.filter(user__in=users).update(is_active=is_active)
+        elif action == 'set_role':
+            role = data.get('role')
+            if role not in dict(User.ROLE_CHOICES):
+                return JsonResponse({'error': 'Invalid role'}, status=400)
+            for u in users:
+                u.role = role
+                u.save()
+                updated += 1
+        elif action == 'transfer_department':
+            dept_id = data.get('department_id')
+            try:
+                dept = Department.objects.get(id=int(dept_id), company=request.user.company)
+            except (Department.DoesNotExist, ValueError, TypeError):
+                return JsonResponse({'error': 'Invalid department'}, status=400)
+            emps = Employee.objects.filter(user__in=users)
+            updated = emps.update(department=dept)
+        else:
+            return JsonResponse({'error': 'Unsupported action'}, status=400)
+
+    return JsonResponse({'success': True, 'updated': updated})
+
+
+@login_required
+@require_http_methods(["GET"])
+def export_users_api(request):
+    deny = _ensure_admin(request)
+    if deny:
+        return deny
+
+    # Reuse filters from list_users_api
+    qs = User.objects.filter(company=request.user.company).select_related('company').prefetch_related('employee__department')
+    q = (request.GET.get('q') or '').strip()
+    role = (request.GET.get('role') or '').strip()
+    status = (request.GET.get('status') or '').strip()
+    dept_id = request.GET.get('department_id')
+
+    if q:
+        qs = qs.filter(
+            Q(username__icontains=q) |
+            Q(email__icontains=q) |
+            Q(first_name__icontains=q) |
+            Q(last_name__icontains=q) |
+            Q(employee__employee_id__icontains=q)
+        )
+    if role:
+        qs = qs.filter(role=role)
+    if status == 'active':
+        qs = qs.filter(is_active=True)
+    elif status == 'inactive':
+        qs = qs.filter(is_active=False)
+    if dept_id and dept_id.isdigit():
+        qs = qs.filter(employee__department_id=int(dept_id))
+
+    import csv
+    from io import StringIO
+
+    buffer = StringIO()
+    writer = csv.writer(buffer)
+    writer.writerow(['ID', 'Username', 'Email', 'Full Name', 'Role', 'Active', 'Employee ID', 'Department', 'Job Title', 'Joined'])
+
+    for u in qs.order_by('-date_joined'):
+        emp = getattr(u, 'employee', None)
+        dept_name = getattr(getattr(emp, 'department', None), 'name', '') if emp else ''
+        writer.writerow([
+            u.id, u.username, u.email, u.get_full_name(), u.get_role_display(),
+            'Yes' if u.is_active else 'No', getattr(emp, 'employee_id', ''), dept_name,
+            getattr(emp, 'job_title', ''), u.date_joined.strftime('%Y-%m-%d %H:%M')
+        ])
+
+    response = HttpResponse(buffer.getvalue(), content_type='text/csv')
+    response['Content-Disposition'] = 'attachment; filename="users_export.csv"'
+    return response
+

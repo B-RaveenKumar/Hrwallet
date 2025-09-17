@@ -20,4 +20,8 @@ urlpatterns = [
 
     # Utility endpoints
     path('departments/', views.list_departments, name='list_departments'),
+    path('departments/create/', views.create_department, name='create_department'),
+    path('departments/<int:pk>/update/', views.update_department, name='update_department'),
+    path('departments/<int:pk>/status/', views.change_department_status, name='change_department_status'),
+
 ]

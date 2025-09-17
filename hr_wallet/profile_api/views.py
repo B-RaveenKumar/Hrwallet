@@ -32,6 +32,90 @@ def list_departments(request):
     data = DepartmentSerializer(qs, many=True).data
     return Response({'success': True, 'data': data}, status=status.HTTP_200_OK)
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def create_department(request):
+    name = (request.data.get('name') or '').strip()
+    description = (request.data.get('description') or '').strip()
+    manager_id = request.data.get('manager_id')
+    if not name:
+        return Response({'success': False, 'message': 'Name is required'}, status=status.HTTP_400_BAD_REQUEST)
+    if Department.objects.filter(company=request.user.company, name__iexact=name).exists():
+        return Response({'success': False, 'message': 'Department with this name already exists'}, status=status.HTTP_400_BAD_REQUEST)
+    dept = Department(company=request.user.company, name=name, description=description)
+    # Optional manager assignment
+    if manager_id:
+        try:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            manager = User.objects.get(pk=manager_id, company=request.user.company)
+            dept.manager = manager
+        except Exception:
+            pass
+    dept.save()
+    return Response({'success': True, 'data': DepartmentSerializer(dept).data}, status=status.HTTP_201_CREATED)
+
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def update_department(request, pk):
+    try:
+        dept = Department.objects.get(pk=pk, company=request.user.company)
+    except Department.DoesNotExist:
+        return Response({'success': False, 'message': 'Department not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    name = request.data.get('name')
+    description = request.data.get('description')
+    manager_id = request.data.get('manager_id')
+    is_active = request.data.get('is_active')
+
+    if name is not None:
+        name = name.strip()
+        if not name:
+            return Response({'success': False, 'message': 'Name cannot be empty'}, status=status.HTTP_400_BAD_REQUEST)
+        if Department.objects.filter(company=request.user.company, name__iexact=name).exclude(pk=dept.pk).exists():
+            return Response({'success': False, 'message': 'Another department with this name exists'}, status=status.HTTP_400_BAD_REQUEST)
+        dept.name = name
+    if description is not None:
+        dept.description = description
+    if manager_id is not None:
+        try:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            manager = User.objects.get(pk=manager_id, company=request.user.company)
+            dept.manager = manager
+        except Exception:
+            dept.manager = None
+    if is_active is not None:
+        is_active_bool = is_active if isinstance(is_active, bool) else str(is_active).lower() in ['1', 'true', 'yes']
+        dept.is_active = is_active_bool
+
+    dept.save()
+    return Response({'success': True, 'data': DepartmentSerializer(dept).data}, status=status.HTTP_200_OK)
+
+
+@api_view(['PATCH'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def change_department_status(request, pk):
+    try:
+        dept = Department.objects.get(pk=pk, company=request.user.company)
+    except Department.DoesNotExist:
+        return Response({'success': False, 'message': 'Department not found'}, status=status.HTTP_404_NOT_FOUND)
+
+    is_active = request.data.get('is_active')
+    if is_active is None:
+        # toggle if not provided
+        dept.is_active = not dept.is_active
+    else:
+        is_active_bool = is_active if isinstance(is_active, bool) else str(is_active).lower() in ['1', 'true', 'yes']
+        dept.is_active = is_active_bool
+    dept.save(update_fields=['is_active'])
+    return Response({'success': True, 'data': DepartmentSerializer(dept).data}, status=status.HTTP_200_OK)
+
+
 
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])

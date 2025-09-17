@@ -26,7 +26,7 @@
                     <div class="col-md-3">
                         <div class="card bg-info text-white">
                             <div class="card-body">
-                                <h3>{{ employees.count|default:"0" }}</h3>
+                                <h3>{{ present_today|default:"0" }}</h3>
                                 <p class="mb-0">Present Today</p>
                             </div>
                         </div>
@@ -61,18 +61,45 @@
                     <i class="bi bi-calendar-day me-2"></i>
                     Today's Attendance
                 </h5>
-                <div>
-                    <button class="btn btn-outline-primary btn-sm me-2">
-                        <i class="bi bi-calendar me-1"></i>Select Date
-                    </button>
-                    <button class="btn btn-outline-secondary btn-sm">
+                <div class="d-flex align-items-center">
+                    <input type="date" id="attendanceDate" class="form-control form-control-sm me-2" value="{{ today|date:'Y-m-d' }}">
+                    <button id="attendanceExportBtn" class="btn btn-outline-secondary btn-sm">
                         <i class="bi bi-download me-1"></i>Export
                     </button>
                 </div>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
+                <form id="attFilterForm" class="row g-2 mb-3" method="get">
+                    <input type="hidden" name="date" id="attDateHidden" value="{{ filters.date|default:today|date:'Y-m-d' }}">
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" name="department_id" id="attDept">
+                            <option value="">All Departments</option>
+                            {% for d in departments %}
+                                <option value="{{ d.id }}" {% if filters.department_id == d.id|stringformat:'s' %}selected{% endif %}>{{ d.name }}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    <div class="col-md-3">
+                        <select class="form-select form-select-sm" name="status" id="attStatus">
+                            <option value="">All Status</option>
+                            <option value="present" {% if filters.status == 'present' %}selected{% endif %}>Present</option>
+                            <option value="late" {% if filters.status == 'late' %}selected{% endif %}>Late</option>
+                            <option value="half_day" {% if filters.status == 'half_day' %}selected{% endif %}>Half Day</option>
+                            <option value="absent" {% if filters.status == 'absent' %}selected{% endif %}>Absent</option>
+                        </select>
+                    </div>
+                    <div class="col-md-4">
+                        <input type="text" class="form-control form-control-sm" placeholder="Search name or ID" name="q" id="attQ" value="{{ filters.q }}">
+                    </div>
+                    <div class="col-md-2 d-grid d-md-block">
+                        <button class="btn btn-primary btn-sm me-2" type="submit"><i class="bi bi-funnel me-1"></i>Apply</button>
+                        <a class="btn btn-outline-secondary btn-sm" href="?date={{ filters.date|default:today|date:'Y-m-d' }}">Reset</a>
+                    </div>
+                </form>
+
                     <table class="table table-hover">
+
                         <thead>
                             <tr>
                                 <th>Employee</th>
@@ -85,60 +112,63 @@
                             </tr>
                         </thead>
                         <tbody>
-                            {% for employee in employees %}
+                            {% for row in rows %}
                             <tr>
                                 <td>
                                     <div class="d-flex align-items-center">
                                         <i class="bi bi-person-circle me-2 text-muted"></i>
                                         <div>
-                                            <div class="fw-bold">{{ employee.user.get_full_name }}</div>
-                                            <small class="text-muted">{{ employee.employee_id }}</small>
+                                            <div class="fw-bold">{{ row.employee.user.get_full_name }}</div>
+                                            <small class="text-muted">{{ row.employee.employee_id }}</small>
                                         </div>
                                     </div>
                                 </td>
-                                <td>{{ employee.department.name|default:"N/A" }}</td>
+                                <td>{{ row.employee.department.name|default:"N/A" }}</td>
                                 <td>
-                                    {% if forloop.counter0|divisibleby:3 %}
-                                        <span class="text-success">09:00 AM</span>
-                                    {% elif forloop.counter0|divisibleby:2 %}
-                                        <span class="text-warning">09:15 AM</span>
+                                    {% if row.attendance and row.attendance.clock_in %}
+                                        <span class="text-success">{{ row.attendance.clock_in|time:"h:i A" }}</span>
                                     {% else %}
                                         <span class="text-muted">--</span>
                                     {% endif %}
                                 </td>
                                 <td>
-                                    {% if forloop.counter0|divisibleby:4 %}
-                                        <span class="text-success">06:00 PM</span>
+                                    {% if row.attendance and row.attendance.clock_out %}
+                                        <span class="text-success">{{ row.attendance.clock_out|time:"h:i A" }}</span>
                                     {% else %}
                                         <span class="text-muted">--</span>
                                     {% endif %}
                                 </td>
                                 <td>
-                                    {% if forloop.counter0|divisibleby:4 %}
-                                        <span class="text-info">9.0 hrs</span>
-                                    {% elif forloop.counter0|divisibleby:3 %}
-                                        <span class="text-info">-- hrs</span>
+                                    {% if row.attendance and row.attendance.total_hours %}
+                                        <span class="text-info">{{ row.attendance.total_hours }} hrs</span>
                                     {% else %}
                                         <span class="text-muted">--</span>
                                     {% endif %}
                                 </td>
                                 <td>
-                                    {% if forloop.counter0|divisibleby:5 %}
-                                        <span class="badge bg-danger">Absent</span>
-                                    {% elif forloop.counter0|divisibleby:3 %}
-                                        <span class="badge bg-success">Present</span>
-                                    {% elif forloop.counter0|divisibleby:2 %}
-                                        <span class="badge bg-warning">Late</span>
+                                    {% if row.attendance %}
+                                        {% if row.attendance.status == 'absent' %}
+                                            <span class="badge bg-danger">Absent</span>
+                                        {% elif row.attendance.status == 'late' %}
+                                            <span class="badge bg-warning">Late</span>
+                                        {% elif row.attendance.status == 'half_day' %}
+                                            <span class="badge bg-info">Half Day</span>
+                                        {% else %}
+                                            <span class="badge bg-success">Present</span>
+                                        {% endif %}
                                     {% else %}
-                                        <span class="badge bg-success">Present</span>
+                                        <span class="badge bg-secondary">--</span>
                                     {% endif %}
                                 </td>
                                 <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-sm btn-outline-primary">
-                                            <i class="bi bi-eye me-1"></i>View
+                                        <button type="button" class="btn btn-sm btn-success att-clock-in-btn" data-employee-pk="{{ row.employee.pk }}">
+                                            <i class="bi bi-play-circle me-1"></i>Clock In
                                         </button>
-                                        <button type="button" class="btn btn-sm btn-outline-warning">
+                                        <button type="button" class="btn btn-sm btn-danger att-clock-out-btn" data-employee-pk="{{ row.employee.pk }}">
+                                            <i class="bi bi-stop-circle me-1"></i>Clock Out
+                                        </button>
+                                        <button type="button" class="btn btn-sm btn-outline-warning att-edit-btn" data-employee-pk="{{ row.employee.pk }}">
                                             <i class="bi bi-pencil me-1"></i>Edit
                                         </button>
                                     </div>
@@ -156,4 +186,87 @@
         </div>
     </div>
 </div>
+
+{% block extra_js %}
+<script>
+(function(){
+  function getCSRF(){ const m=document.cookie.match(/csrftoken=([^;]+)/); return m?m[1]:''; }
+  function showMsg(text, type){
+    const cont=document.querySelector('.container-fluid .main-content .container-fluid')||document.body;
+    const id='msg-'+Date.now();
+    const el=document.createElement('div');
+    el.id=id; el.className=`alert alert-${type||'info'} alert-dismissible fade show`;
+    el.role='alert'; el.innerHTML=`${text}<button type="button" class="btn-close" data-bs-dismiss="alert"></button>`;
+    cont.prepend(el); setTimeout(()=>{ try{bootstrap.Alert.getOrCreateInstance(el).close();}catch(_){el.remove();}},4000);
+  }
+  const dateInput=document.getElementById('attendanceDate');
+  function currentDate(){ return dateInput && dateInput.value ? dateInput.value : (new Date()).toISOString().slice(0,10); }
+
+
+      const filterForm=document.getElementById('attFilterForm');
+      if (filterForm){
+        filterForm.addEventListener('submit', ()=>{
+          const hid=document.getElementById('attDateHidden');
+          if(hid) hid.value=currentDate();
+        });
+      }
+
+  document.addEventListener('click', async (e)=>{
+    const inBtn=e.target.closest('.att-clock-in-btn');
+    const outBtn=e.target.closest('.att-clock-out-btn');
+    const editBtn=e.target.closest('.att-edit-btn');
+    if (inBtn){
+      const pk=inBtn.dataset.employeePk; if(!pk) return;
+      inBtn.disabled=true;
+      try{
+        const resp=await fetch('/hr-dashboard/api/attendance/clock-in/',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify({employee_pk: pk, date: currentDate()})});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg('Clock-in recorded','success'); }
+        else{ showMsg(json.error||'Clock-in failed','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ inBtn.disabled=false; }
+    }
+    if (outBtn){
+      const pk=outBtn.dataset.employeePk; if(!pk) return;
+      outBtn.disabled=true;
+      try{
+        const resp=await fetch('/hr-dashboard/api/attendance/clock-out/',{method:'POST',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify({employee_pk: pk, date: currentDate()})});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg('Clock-out recorded','success'); }
+        else{ showMsg(json.error||'Clock-out failed','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ outBtn.disabled=false; }
+    }
+    if (editBtn){
+      const pk=editBtn.dataset.employeePk; if(!pk) return;
+      const ci=prompt('Clock In (HH:MM) - leave blank to skip');
+      const co=prompt('Clock Out (HH:MM) - leave blank to skip');
+      const status=prompt('Status (present/absent/late/half_day) - leave blank to skip');
+      editBtn.disabled=true;
+      try{
+        const payload={employee_pk: pk, date: currentDate()};
+        if(ci) payload.clock_in=ci; if(co) payload.clock_out=co; if(status) payload.status=status;
+        const resp=await fetch('/hr-dashboard/api/attendance/update/',{method:'PATCH',headers:{'Content-Type':'application/json','X-CSRFToken':getCSRF()},body:JSON.stringify(payload)});
+        const json=await resp.json();
+        if(resp.ok&&json.success){ showMsg('Attendance updated','success'); }
+        else{ showMsg(json.error||'Update failed','danger'); }
+      }catch(_){ showMsg('Network error','danger'); }
+      finally{ editBtn.disabled=false; }
+    }
+  });
+
+  const exportBtn=document.getElementById('attendanceExportBtn');
+  if (exportBtn){
+    exportBtn.addEventListener('click',()=>{
+      const params=new URLSearchParams({date: currentDate()});
+      const dept=document.getElementById('attDept')?.value||''; if(dept) params.set('department_id', dept);
+      const status=document.getElementById('attStatus')?.value||''; if(status) params.set('status', status);
+      const q=document.getElementById('attQ')?.value||''; if(q) params.set('q', q);
+      window.location.href=`/hr-dashboard/api/attendance/export/?${params.toString()}`;
+    });
+  }
+})();
+</script>
+{% endblock %}
+
 {% endblock %}
