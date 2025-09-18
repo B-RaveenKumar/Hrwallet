@@ -108,6 +108,7 @@
                                 <th>Clock Out</th>
                                 <th>Total Hours</th>
                                 <th>Status</th>
+                                <th>Type</th>
                                 <th>Actions</th>
                             </tr>
                         </thead>
@@ -161,22 +162,20 @@
                                     {% endif %}
                                 </td>
                                 <td>
+                                    {% if row.attendance and row.attendance.biometric_events.exists %}
+                                        <span class="badge bg-info">Biometric</span>
+                                    {% else %}
+                                        <span class="badge bg-secondary">Manual</span>
+                                    {% endif %}
+                                </td>
+                                <td>
                                     <div class="btn-group" role="group">
-                                        <button type="button" class="btn btn-sm btn-success att-clock-in-btn" data-employee-pk="{{ row.employee.pk }}">
-                                            <i class="bi bi-play-circle me-1"></i>Clock In
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-danger att-clock-out-btn" data-employee-pk="{{ row.employee.pk }}">
-                                            <i class="bi bi-stop-circle me-1"></i>Clock Out
-                                        </button>
-                                        <button type="button" class="btn btn-sm btn-outline-warning att-edit-btn" data-employee-pk="{{ row.employee.pk }}">
-                                            <i class="bi bi-pencil me-1"></i>Edit
-                                        </button>
                                     </div>
                                 </td>
                             </tr>
                             {% empty %}
                             <tr>
-                                <td colspan="7" class="text-center text-muted">No attendance records found</td>
+                                <td colspan="8" class="text-center text-muted">No attendance records found</td>
                             </tr>
                             {% endfor %}
                         </tbody>

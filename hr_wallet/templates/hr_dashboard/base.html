@@ -98,6 +98,17 @@
                             <i class="bi bi-building me-2"></i>
                             Departments
                         </a>
+                        <a class="nav-link {% if 'biometric' in request.resolver_match.url_name %}active{% endif %}"
+                           href="{% url 'hr_dashboard:hr_biometric' %}">
+                            <i class="bi bi-fingerprint me-2"></i>
+                            Biometric Devices
+                        </a>
+                        <a class="nav-link {% if 'biometric_attendance' in request.resolver_match.url_name %}active{% endif %}"
+                           href="{% url 'hr_dashboard:biometric_attendance_dashboard' %}">
+                            <i class="bi bi-fingerprint me-2"></i>
+                            Biometric Attendance
+                        </a>
+
 
 
                         <hr class="border-light border-opacity-25 mx-3">

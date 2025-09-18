@@ -4,7 +4,7 @@ from django.contrib import messages
 from django.db.models import Count, Q
 from django.utils import timezone
 from accounts.decorators import require_role, audit_action
-from core_hr.models import Employee, Department, LeaveRequest, Attendance
+from core_hr.models import Employee, Department, LeaveRequest, Attendance, BiometricDevice, BiometricEvent
 
 
 @login_required
@@ -73,6 +73,17 @@ def manage_employees(request):
 def departments(request):
     """Departments management page (uses APIs for data)."""
     return render(request, 'hr_dashboard/departments.html')
+
+
+@login_required
+@require_role('hr_manager')
+def biometric_monitor(request):
+    """Read-only Biometric monitoring page for HR Managers with real-time device status."""
+    devices = BiometricDevice.objects.filter(company=request.user.company)
+    return render(request, 'hr_dashboard/biometric.html', {
+        'devices': devices
+    })
+
 
 
 @login_required
@@ -446,4 +457,42 @@ def export_attendance_api(request):
     resp = HttpResponse(buffer.getvalue(), content_type='text/csv')
     resp['Content-Disposition'] = f'attachment; filename="attendance_{target_date.strftime("%Y%m%d")}.csv"'
     return resp
+
+
+@login_required
+@require_role('hr_manager')
+def biometric_attendance_dashboard(request):
+    """Biometric Attendance section with filters, edit, bulk edit, and distinction from manual entries."""
+    # Filters
+    device_id = request.GET.get('device_id')
+    date_from = request.GET.get('date_from')
+    date_to = request.GET.get('date_to')
+    employee_id = request.GET.get('employee_id')
+    status = request.GET.get('status')
+    events = BiometricEvent.objects.filter(company=request.user.company)
+    if device_id:
+        events = events.filter(device_id=device_id)
+    if date_from:
+        events = events.filter(timestamp__gte=date_from)
+    if date_to:
+        events = events.filter(timestamp__lte=date_to)
+    if employee_id:
+        events = events.filter(device_user_id=employee_id)
+    if status:
+        events = events.filter(event_type=status)
+    events = events.select_related('device', 'attendance').order_by('-timestamp')[:200]
+    devices = BiometricDevice.objects.filter(company=request.user.company)
+    employees = Employee.objects.filter(company=request.user.company, is_active=True)
+    return render(request, 'hr_dashboard/biometric_attendance.html', {
+        'events': events,
+        'devices': devices,
+        'employees': employees,
+        'filters': {
+            'device_id': device_id,
+            'date_from': date_from,
+            'date_to': date_to,
+            'employee_id': employee_id,
+            'status': status,
+        }
+    })
 

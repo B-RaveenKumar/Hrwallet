@@ -24,4 +24,27 @@ urlpatterns = [
     path('departments/<int:pk>/update/', views.update_department, name='update_department'),
     path('departments/<int:pk>/status/', views.change_department_status, name='change_department_status'),
 
+
+    # Biometric integration endpoints
+    path('biometric/events/ingest/', views.ingest_biometric_event, name='ingest_biometric_event'),
+    path('biometric/heartbeat/', views.biometric_heartbeat, name='biometric_heartbeat'),
+    path('biometric/devices/', views.list_biometric_devices, name='list_biometric_devices'),
+    path('biometric/devices/register/', views.register_biometric_device, name='register_biometric_device'),
+    path('biometric/devices/<int:pk>/update/', views.update_biometric_device, name='update_biometric_device'),
+    path('biometric/mappings/upsert/', views.upsert_biometric_mapping, name='upsert_biometric_mapping'),
+    path('biometric/status/', views.biometric_status, name='biometric_status'),
+    path('biometric/events/recent/', views.list_recent_biometric_events, name='list_recent_biometric_events'),
+
+    # Biometric attendance management endpoints
+    path('biometric/attendance/', views.biometric_attendance_list, name='biometric_attendance_list'),
+    path('biometric/attendance/<int:pk>/', views.biometric_attendance_edit, name='biometric_attendance_edit'),
+    path('biometric/attendance/bulk-edit/', views.biometric_attendance_bulk_edit, name='biometric_attendance_bulk_edit'),
+    path('biometric/mappings/<int:pk>/correct/', views.biometric_user_map_correction, name='biometric_user_map_correction'),
+
+
+    # Biometric device management extras
+    path('biometric/devices/<int:pk>/delete/', views.delete_biometric_device, name='delete_biometric_device'),
+    path('biometric/devices/<int:pk>/ping/', views.ping_biometric_device, name='ping_biometric_device'),
+    path('biometric/devices/<int:pk>/sync/', views.sync_biometric_device, name='sync_biometric_device'),
+
 ]

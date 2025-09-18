@@ -10,6 +10,8 @@ urlpatterns = [
     path('leave-approvals/', views.leave_approvals, name='hr_leave_approvals'),
     path('attendance/', views.attendance_overview, name='hr_attendance'),
     path('departments/', views.departments, name='hr_departments'),
+    path('biometric/', views.biometric_monitor, name='hr_biometric'),
+    path('biometric/attendance/dashboard/', views.biometric_attendance_dashboard, name='biometric_attendance_dashboard'),
 
 
     # HR APIs: Leave approvals

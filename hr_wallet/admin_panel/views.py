@@ -93,3 +93,11 @@ def audit_logs(request):
     """View Audit Logs"""
     # This would typically fetch from a logging system
     return render(request, 'admin_panel/audit_logs.html')
+
+
+
+@login_required
+@require_role('super_admin')
+def biometric_devices(request):
+    """Manage biometric devices and mappings (Super Admin)."""
+    return render(request, 'admin_panel/biometric_devices.html')

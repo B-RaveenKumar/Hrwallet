@@ -1,7 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from core_hr.models import Employee, Department, Company
+from core_hr.models import Employee, Department, Company, BiometricEvent, BiometricUserMap
 from decimal import Decimal
+from django.utils import timezone
 
 User = get_user_model()
 
@@ -172,3 +173,79 @@ class EmployeeUpdateSerializer(serializers.Serializer):
             return value
         except Department.DoesNotExist:
             raise serializers.ValidationError('Invalid department for your company.')
+
+class BiometricEventSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BiometricEvent
+        fields = [
+            'id', 'company', 'device', 'device_user_id', 'event_type', 'timestamp',
+            'external_event_id', 'raw_payload', 'processed', 'attendance', 'dedupe_hash', 'created_at'
+        ]
+        read_only_fields = ['id', 'company', 'created_at', 'dedupe_hash']
+
+    def validate_timestamp(self, value):
+        # Ensure punch times are reasonable (not in future, not too far past)
+        now = timezone.now()
+        if value > now:
+            raise serializers.ValidationError('Punch time cannot be in the future.')
+        if (now - value).days > 60:
+            raise serializers.ValidationError('Punch time is too far in the past.')
+        return value
+
+    def update(self, instance, validated_data):
+        # Audit trail: log who edited and when
+        request = self.context.get('request')
+        user = getattr(request, 'user', None)
+        old_data = {field: getattr(instance, field) for field in validated_data}
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+        # Log audit (could be to a model or external system)
+        if user:
+            from core_hr.models import AuditLog
+            AuditLog.objects.create(
+                user=user,
+                action='edit_biometric_event',
+                object_id=instance.id,
+                object_type='BiometricEvent',
+                changes=old_data,
+                timestamp=timezone.now()
+            )
+        return instance
+
+class BiometricEventBulkEditSerializer(serializers.Serializer):
+    ids = serializers.ListField(child=serializers.IntegerField(), help_text='IDs of BiometricEvents to edit')
+    event_type = serializers.CharField(required=False)
+    timestamp = serializers.DateTimeField(required=False)
+    device_user_id = serializers.CharField(required=False)
+
+    def validate(self, attrs):
+        # Add custom validation for bulk edits
+        if not attrs.get('ids'):
+            raise serializers.ValidationError('No event IDs provided for bulk edit.')
+        return attrs
+
+class BiometricUserMapCorrectionSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = BiometricUserMap
+        fields = ['id', 'employee', 'device', 'device_user_id', 'global_user_id']
+
+    def update(self, instance, validated_data):
+        # Audit trail for mapping correction
+        request = self.context.get('request')
+        user = getattr(request, 'user', None)
+        old_data = {field: getattr(instance, field) for field in validated_data}
+        for attr, value in validated_data.items():
+            setattr(instance, attr, value)
+        instance.save()
+        if user:
+            from core_hr.models import AuditLog
+            AuditLog.objects.create(
+                user=user,
+                action='edit_biometric_user_map',
+                object_id=instance.id,
+                object_type='BiometricUserMap',
+                changes=old_data,
+                timestamp=timezone.now()
+            )
+        return instance

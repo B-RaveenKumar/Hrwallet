@@ -1,0 +1,505 @@
+{% extends 'admin_panel/base.html' %}
+{% load static %}
+{% block title %}Biometric Devices - HR Wallet{% endblock %}
+{% block page_title %}Biometric Devices{% endblock %}
+
+{% block content %}
+<div class="row g-4">
+  <div class="col-12">
+    <div id="alertBox"></div>
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Registered Devices</h5>
+        <div class="d-flex gap-2">
+          <button class="btn btn-outline-secondary" id="btnRefresh"><i class="bi bi-arrow-clockwise me-1"></i>Refresh</button>
+          <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#createDeviceModal"><i class="bi bi-plus-lg me-1"></i>Add Device</button>
+        </div>
+      </div>
+      <div class="card-body p-0">
+        <div class="table-responsive">
+          <table class="table table-hover mb-0" id="devicesTable">
+            <thead class="table-light">
+              <tr>
+                <th>Name</th>
+                <th>Brand</th>
+                <th>Model</th>
+                <th>IP</th>
+                <th>Port</th>
+                <th>Active</th>
+                <th>Push</th>
+                <th>Last Seen</th>
+                <th>Last Pull</th>
+                <th>Conn</th>
+                <th style="width:220px">Actions</th>
+              </tr>
+            </thead>
+            <tbody></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Mappings</h5>
+        <small class="text-muted">Link a device user ID to an employee</small>
+      </div>
+      <div class="card-body">
+        <form id="mapForm" class="row g-3">
+          <div class="col-md-3">
+            <label class="form-label">Employee ID (DB pk)</label>
+            <input type="number" class="form-control" id="mapEmployeeId" placeholder="e.g. 42" required>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Device</label>
+            <select class="form-select" id="mapDeviceId">
+              <option value="">-- Optional --</option>
+            </select>
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Device User ID</label>
+            <input type="text" class="form-control" id="mapDeviceUserId" placeholder="e.g. 23">
+          </div>
+          <div class="col-md-3">
+            <label class="form-label">Global User ID (Cloud)</label>
+            <input type="text" class="form-control" id="mapGlobalUserId" placeholder="optional">
+          </div>
+          <div class="col-12">
+            <button class="btn btn-success" type="submit"><i class="bi bi-link-45deg me-1"></i>Save Mapping</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-12">
+    <div class="card">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <h5 class="mb-0">Integration Status (last 24h)</h5>
+        <button id="btnStatus" class="btn btn-outline-secondary"><i class="bi bi-arrow-repeat me-1"></i>Refresh</button>
+      </div>
+      <div class="card-body">
+        <div id="statusBox" class="row g-3"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Create Device Modal -->
+<div class="modal fade" id="createDeviceModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Add Biometric Device</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="createForm" class="row g-3">
+          <div class="col-12">
+            <label class="form-label">Name</label>
+            <input type="text" class="form-control" id="name" required>
+          </div>
+          <div class="col-6">
+            <label class="form-label">Brand</label>
+            <input type="text" class="form-control" id="brand" value="ZKTeco">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Model</label>
+            <input type="text" class="form-control" id="model">
+          </div>
+          <div class="col-6">
+            <label class="form-label">Serial Number</label>
+            <input type="text" class="form-control" id="serial_number">
+          </div>
+          <div class="col-4">
+            <label class="form-label">IP Address</label>
+            <input type="text" class="form-control" id="ip_address" placeholder="192.168.1.50">
+          </div>
+          <div class="col-2">
+            <label class="form-label">Port</label>
+            <input type="number" class="form-control" id="port" value="4370">
+          </div>
+          <div class="col-12 form-check">
+            <input class="form-check-input" type="checkbox" id="push_enabled" checked>
+            <label class="form-check-label" for="push_enabled">Enable Push/Webhook</label>
+          </div>
+        </form>
+        <div id="apiKeyBox" class="alert alert-info d-none mt-2">
+          <strong>API Key:</strong> <span id="apiKeyText"></span>
+          <div class="small text-muted mt-1">Provide this key to the device/cloud sender. Keep it secret.</div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btnCreate">Create</button>
+      </div>
+    </div>
+  </div>
+
+<!-- Edit Device Modal -->
+<div class="modal fade" id="editDeviceModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Edit Biometric Device</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <form id="editForm" class="row g-3">
+          <input type="hidden" id="edit_id">
+          <div class="col-12"><label class="form-label">Name</label><input type="text" class="form-control" id="edit_name" required></div>
+          <div class="col-6"><label class="form-label">Brand</label><input type="text" class="form-control" id="edit_brand"></div>
+          <div class="col-6"><label class="form-label">Model</label><input type="text" class="form-control" id="edit_model"></div>
+          <div class="col-6"><label class="form-label">Serial Number</label><input type="text" class="form-control" id="edit_serial"></div>
+          <div class="col-4"><label class="form-label">IP Address</label><input type="text" class="form-control" id="edit_ip"></div>
+          <div class="col-2"><label class="form-label">Port</label><input type="number" class="form-control" id="edit_port" value="4370"></div>
+          <div class="col-6"><label class="form-label">Timezone</label><input type="text" class="form-control" id="edit_tz" placeholder="UTC"></div>
+          <div class="col-6"><label class="form-label">COM Key</label><input type="number" min="0" max="999999" class="form-control" id="edit_comm" placeholder="0"></div>
+          <div class="col-6"><label class="form-label">API Key</label><div class="input-group"><input type="text" class="form-control" id="edit_api" readonly><button class="btn btn-outline-warning" type="button" id="btnRegenInModal"><i class="bi bi-key"></i></button></div></div>
+          <div class="col-6 form-check ms-2"><input class="form-check-input" type="checkbox" id="edit_active"><label class="form-check-label" for="edit_active">Active</label></div>
+          <div class="col-6 form-check ms-2"><input class="form-check-input" type="checkbox" id="edit_push"><label class="form-check-label" for="edit_push">Push Enabled</label></div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" id="btnUpdate">Save Changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Delete Confirm Modal -->
+<div class="modal fade" id="deleteDeviceModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Delete Device</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        <p>Are you sure you want to permanently delete this device? This cannot be undone.</p>
+        <ul class="list-unstyled mb-0">
+          <li><strong>Name:</strong> <span id="del_name"></span></li>
+          <li><strong>IP Address:</strong> <span id="del_ip"></span></li>
+          <li><strong>Serial:</strong> <span id="del_serial"></span></li>
+        </ul>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+        <button type="button" class="btn btn-danger" id="btnConfirmDelete">Delete</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script>
+(function(){
+  const $ = (sel, ctx=document)=>ctx.querySelector(sel);
+  const $$ = (sel, ctx=document)=>Array.from(ctx.querySelectorAll(sel));
+  const csrftoken = document.cookie.match(/csrftoken=([^;]+)/)?.[1];
+  function alertBox(html, cls='success'){ $('#alertBox').innerHTML = `<div class="alert alert-${cls} alert-dismissible fade show">${html}<button type="button" class="btn-close" data-bs-dismiss="alert"></button></div>`; }
+  function fmt(dt){ return dt ? new Date(dt).toLocaleString() : '-'; }
+
+  async function listDevices(){
+    const r = await fetch('/api/biometric/devices/');
+    const j = await r.json();
+    const tbody = $('#devicesTable tbody');
+    tbody.innerHTML = '';
+    if (!j.success) { alertBox('Failed to load devices', 'danger'); return; }
+    j.data.forEach(d => {
+      const tr = document.createElement('tr');
+      tr.innerHTML = `
+        <td>${d.name||''}</td>
+        <td>${d.brand||''}</td>
+        <td>${d.model||''}</td>
+        <td>${d.ip_address||''}</td>
+        <td>${d.port||''}</td>
+        <td><span class="badge ${d.is_active?'bg-success':'bg-secondary'}">${d.is_active?'Yes':'No'}</span></td>
+        <td><span class="badge ${d.push_enabled?'bg-primary':'bg-secondary'}">${d.push_enabled?'Yes':'No'}</span></td>
+        <td>${fmt(d.last_seen)}</td>
+        <td>${fmt(d.last_pull)}</td>
+        <td id="conn-${d.id}"><span class="badge bg-secondary">Unknown</span></td>
+        <td>
+          <div class="btn-group">
+            <button class="btn btn-sm btn-outline-success" title="Check" data-action="ping" data-id="${d.id}"><i class="bi bi-wifi"></i></button>
+            <button class="btn btn-sm btn-outline-secondary" title="Sync" data-action="sync" data-id="${d.id}"><i class="bi bi-arrow-repeat"></i></button>
+            <button class="btn btn-sm btn-outline-primary" title="Edit" data-action="edit" data-id="${d.id}"><i class="bi bi-pencil"></i></button>
+            <button class="btn btn-sm btn-outline-warning" title="Regenerate API Key" data-action="regen" data-id="${d.id}"><i class="bi bi-key"></i></button>
+            <button class="btn btn-sm btn-outline-danger" title="Delete" data-action="delete" data-id="${d.id}"><i class="bi bi-trash"></i></button>
+          </div>
+        </td>`;
+      tbody.appendChild(tr);
+    });
+    // populate device select for mappings
+    const sel = $('#mapDeviceId');
+    sel.innerHTML = '<option value="">-- Optional --</option>';
+    j.data.forEach(d => sel.insertAdjacentHTML('beforeend', `<option value="${d.id}">${d.name}</option>`));
+  }
+
+  async function refreshStatus(){
+    const r = await fetch('/api/biometric/status/');
+    const j = await r.json();
+    const box = $('#statusBox');
+    box.innerHTML = '';
+    if (!j.success) { box.innerHTML = '<div class="text-danger">Failed to load status</div>'; return; }
+    const ev = j.events || {};
+    box.insertAdjacentHTML('beforeend', `<div class="col-md-3"><div class="card stats-card p-3"><div class="h6">Events (24h)</div><div>Processed: <strong>${ev.processed_24h||0}</strong></div><div>Pending: <strong>${ev.pending_24h||0}</strong></div></div></div>`);
+    (j.devices||[]).forEach(d => {
+      box.insertAdjacentHTML('beforeend', `<div class="col-md-3"><div class="card p-3"><div class="fw-bold">${d.name}</div><div class="small">Active: ${d.is_active?'Yes':'No'}</div><div class="small">Push: ${d.push_enabled?'Yes':'No'}</div><div class="small">Last Seen: ${fmt(d.last_seen)}</div><div class="small">Last Pull: ${fmt(d.last_pull)}</div></div></div>`)
+
+      // after rendering row, fire async ping to update connection badge
+      (async ()=>{
+        try{
+          const cell = document.getElementById(`conn-${d.id}`);
+          if(cell){ cell.innerHTML = '<span class="badge bg-warning text-dark">Checking...</span>'; }
+          const r = await fetch(`/api/biometric/devices/${d.id}/ping/`);
+          const j2 = await r.json();
+          if(cell){
+            if(j2.connected){ cell.innerHTML = '<span class="badge bg-success">Connected</span>'; }
+            else { cell.innerHTML = `<span class="badge bg-danger" title="${(j2.message||'Not Connected').replace(/"/g,'&quot;')}">Not Connected</span>`; }
+          }
+        }catch(e){
+          const cell = document.getElementById(`conn-${d.id}`);
+          if(cell) cell.innerHTML = '<span class="badge bg-secondary">Unknown</span>';
+        }
+      })();
+
+    })
+  }
+
+  $('#btnRefresh').addEventListener('click', listDevices);
+  $('#btnStatus').addEventListener('click', refreshStatus);
+
+  $('#btnCreate').addEventListener('click', async ()=>{
+    const payload = {
+      name: $('#name').value.trim(),
+      brand: $('#brand').value.trim(),
+      model: $('#model').value.trim(),
+      serial_number: $('#serial_number').value.trim(),
+      ip_address: $('#ip_address').value.trim(),
+      port: $('#port').value.trim(),
+      push_enabled: $('#push_enabled').checked
+    };
+    const r = await fetch('/api/biometric/devices/register/', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken },
+      body: JSON.stringify(payload)
+    });
+    const j = await r.json();
+    if (j.success){
+      $('#apiKeyText').textContent = j.data.api_key;
+      $('#apiKeyBox').classList.remove('d-none');
+      alertBox('Device created. API Key shown below.');
+      await listDevices();
+    } else {
+      alertBox(j.message || 'Creation failed', 'danger');
+    }
+  });
+
+  // Helpers for device actions
+  const editModal = new bootstrap.Modal(document.getElementById('editDeviceModal'));
+  const deleteModal = new bootstrap.Modal(document.getElementById('deleteDeviceModal'));
+
+  function openEditModal(id){
+    // fetch current row values from the table (or reload list first)
+    const row = [...document.querySelectorAll('#devicesTable tbody tr')].find(tr => tr.querySelector(`[data-id="${id}"]`));
+    document.getElementById('edit_id').value = id;
+    // We will refetch single device details from list API for accuracy
+    fetch('/api/biometric/devices/').then(r=>r.json()).then(j=>{
+      const d = (j.data||[]).find(x=>String(x.id)===String(id));
+      if(!d){ alertBox('Device not found','danger'); return; }
+      document.getElementById('edit_name').value = d.name||'';
+      document.getElementById('edit_brand').value = d.brand||'';
+      document.getElementById('edit_model').value = d.model||'';
+      document.getElementById('edit_serial').value = d.serial_number||'';
+      document.getElementById('edit_ip').value = d.ip_address||'';
+      document.getElementById('edit_port').value = d.port||4370;
+      document.getElementById('edit_tz').value = d.timezone||'UTC';
+      document.getElementById('edit_active').checked = !!d.is_active;
+      document.getElementById('edit_push').checked = !!d.push_enabled;
+      // We do not expose API key from list for security; leave blank
+      document.getElementById('edit_api').value = '••••••••••••••••';
+      editModal.show();
+    });
+  }
+
+  async function pingDevice(id){
+    const cell = document.getElementById(`conn-${id}`);
+    if(cell) cell.innerHTML = '<span class="badge bg-warning text-dark">Checking...</span>';
+    try{
+      const r = await fetch(`/api/biometric/devices/${id}/ping/`);
+      const j = await r.json();
+      if(j.connected){
+        if(cell) cell.innerHTML = '<span class="badge bg-success">Connected</span>';
+      } else {
+        if(cell) cell.innerHTML = `<span class="badge bg-danger" title="${(j.message||'Not Connected').replace(/"/g,'&quot;')}">Not Connected</span>`;
+      }
+    }catch(e){
+      if(cell) cell.innerHTML = '<span class="badge bg-secondary">Unknown</span>';
+    }
+  }
+
+  async function pingAll(){
+    const ids = Array.from(document.querySelectorAll('#devicesTable tbody tr button[data-action="ping"]')).map(btn=>btn.getAttribute('data-id'));
+    ids.forEach(id=> pingDevice(id));
+  }
+
+  // init + auto refresh
+  async function init(){ await listDevices(); await refreshStatus(); pingAll(); }
+  init();
+  setInterval(()=>{ pingAll(); }, 30000);
+
+  async function syncDevice(id, btn){
+    const old = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+    try{
+      const r = await fetch(`/api/biometric/devices/${id}/sync/`, {method:'POST', headers:{'X-CSRFToken': csrftoken, 'Content-Type':'application/json'}, body: JSON.stringify({})});
+      const j = await r.json();
+      if(j.success){
+        alertBox(`Sync completed. Ingested: <strong>${j.ingested||0}</strong>, Duplicates: ${j.duplicates||0}, Errors: ${j.errors||0}`);
+        listDevices(); refreshStatus();
+      }else{
+        alertBox(j.message||'Sync failed','danger');
+      }
+    }catch(e){ alertBox('Sync error','danger'); }
+    finally{ btn.disabled=false; btn.innerHTML = old; }
+  }
+
+  // Table actions
+  document.getElementById('devicesTable').addEventListener('click', async (e)=>{
+    const btn = e.target.closest('button[data-action]');
+    if (!btn) return;
+    const id = btn.getAttribute('data-id');
+    const action = btn.getAttribute('data-action');
+    if (action === 'regen'){
+      if (!confirm('Regenerate API key for this device? Existing integrations will break until updated.')) return;
+      const newKey = [...crypto.getRandomValues(new Uint8Array(32))].map(b=>b.toString(16).padStart(2,'0')).join('');
+      const r = await fetch(`/api/biometric/devices/${id}/update/`, { method:'PATCH', headers:{ 'Content-Type':'application/json','X-CSRFToken': csrftoken }, body: JSON.stringify({ api_key: newKey }) });
+      const j = await r.json().catch(()=>({success:r.ok}));
+      if (r.ok){ alertBox('API key regenerated. Save the new key securely.'); }
+      else { alertBox(j.message||'Operation failed', 'danger'); }
+    }
+    else if (action === 'edit'){
+      openEditModal(id);
+    }
+    else if (action === 'ping'){
+      pingDevice(id);
+    }
+    else if (action === 'sync'){
+      syncDevice(id, btn);
+    }
+    else if (action === 'delete'){
+      document.getElementById('btnConfirmDelete').setAttribute('data-id', id);
+      // Fetch device details to populate modal
+      fetch('/api/biometric/devices/').then(r=>r.json()).then(j=>{
+        const d = (j.data||[]).find(x=>String(x.id)===String(id));
+        document.getElementById('del_name').textContent = d?.name || '';
+        document.getElementById('del_ip').textContent = d?.ip_address || '-';
+        document.getElementById('del_serial').textContent = d?.serial_number || '-';
+        deleteModal.show();
+      });
+    }
+  });
+
+  // Save changes (Edit modal)
+  document.getElementById('btnUpdate').addEventListener('click', async ()=>{
+    const id = document.getElementById('edit_id').value;
+    const ip = document.getElementById('edit_ip').value.trim();
+    const port = parseInt(document.getElementById('edit_port').value||'4370',10);
+    // Client-side validation
+    const ipOk = ip === '' || /^(\d{1,3}\.){3}\d{1,3}$/.test(ip);
+    if (!ipOk){ alertBox('Invalid IP address format','danger'); return; }
+    if (port < 1 || port > 65535){ alertBox('Port must be between 1 and 65535','danger'); return; }
+
+    const payload = {
+      name: document.getElementById('edit_name').value.trim(),
+      brand: document.getElementById('edit_brand').value.trim(),
+      model: document.getElementById('edit_model').value.trim(),
+      serial_number: document.getElementById('edit_serial').value.trim(),
+      ip_address: ip,
+      port: port,
+      timezone: document.getElementById('edit_tz').value.trim()||'UTC',
+      is_active: document.getElementById('edit_active').checked,
+      push_enabled: document.getElementById('edit_push').checked,
+    };
+    const commVal = document.getElementById('edit_comm').value.trim();
+    if (commVal !== '') payload.comm_key = commVal;
+
+    // Loading state
+    const btn = document.getElementById('btnUpdate');
+    const old = btn.innerHTML; btn.disabled = true; btn.innerHTML = '<span class="spinner-border spinner-border-sm"></span>';
+    try{
+      const r = await fetch(`/api/biometric/devices/${id}/update/`, { method:'PATCH', headers:{ 'Content-Type':'application/json','X-CSRFToken': csrftoken }, body: JSON.stringify(payload) });
+      const j = await r.json().catch(()=>({success:r.ok}));
+      if (r.ok){
+        alertBox('Device updated.'); editModal.hide(); await listDevices(); pingAll();
+      } else {
+        if (j && j.errors){
+          const msgs = Object.entries(j.errors).map(([k,v])=>`${k}: ${v}`).join('<br>');
+          alertBox(msgs || (j.message||'Update failed'), 'danger');
+        } else {
+          alertBox(j.message||'Update failed', 'danger');
+        }
+      }
+    } finally {
+      btn.disabled = false; btn.innerHTML = old;
+    }
+  });
+
+  // Regenerate inside modal
+  document.getElementById('btnRegenInModal').addEventListener('click', async ()=>{
+    const id = document.getElementById('edit_id').value;
+    if (!confirm('Regenerate API key for this device? Existing integrations will break until updated.')) return;
+    const newKey = [...crypto.getRandomValues(new Uint8Array(32))].map(b=>b.toString(16).padStart(2,'0')).join('');
+    const r = await fetch(`/api/biometric/devices/${id}/update/`, { method:'PATCH', headers:{ 'Content-Type':'application/json','X-CSRFToken': csrftoken }, body: JSON.stringify({ api_key: newKey }) });
+    if (r.ok){ document.getElementById('edit_api').value = newKey; alertBox('API key regenerated.'); }
+    else { alertBox('Failed to regenerate key','danger'); }
+  });
+
+  // Confirm delete
+  document.getElementById('btnConfirmDelete').addEventListener('click', async (e)=>{
+    const id = e.currentTarget.getAttribute('data-id');
+    let r = await fetch(`/api/biometric/devices/${id}/delete/`, { method:'DELETE', headers:{'X-CSRFToken': csrftoken} });
+    if (r.status === 409){
+      const j = await r.json().catch(()=>({message:'Device in use'}));
+      if (confirm((j.message||'Device appears to be in use.') + ' Force delete?')){
+        r = await fetch(`/api/biometric/devices/${id}/delete/?force=true`, { method:'DELETE', headers:{'X-CSRFToken': csrftoken} });
+      } else {
+        return;
+      }
+    }
+    const j2 = await r.json().catch(()=>({success:r.ok}));
+    if (r.ok && j2.success){ alertBox('Device deleted.'); deleteModal.hide(); listDevices(); refreshStatus(); }
+    else { alertBox((j2 && (j2.message||j2.detail)) || 'Delete failed','danger'); }
+  });
+
+  $('#mapForm').addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    const payload = {
+      employee_id: $('#mapEmployeeId').value.trim(),
+      device_id: $('#mapDeviceId').value || undefined,
+      device_user_id: $('#mapDeviceUserId').value.trim() || undefined,
+      global_user_id: $('#mapGlobalUserId').value.trim() || undefined,
+    };
+    const r = await fetch('/api/biometric/mappings/upsert/', {
+      method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrftoken }, body: JSON.stringify(payload)
+    });
+    const j = await r.json();
+    if (j.success){ alertBox('Mapping saved.'); e.target.reset(); }
+    else { alertBox(j.message||'Failed to save mapping','danger'); }
+  });
+
+  // init + auto status refresh every 30s
+  async function init(){ await listDevices(); await refreshStatus(); }
+  init();
+  setInterval(refreshStatus, 30000);
+})();
+</script>
+{% endblock %}
+

@@ -103,7 +103,7 @@ class Employee(models.Model):
     class Meta:
         unique_together = ['company', 'employee_id']
         ordering = ['company', 'employee_id']
-    
+
     def get_current_month_hours(self):
         """Get total hours worked in current month"""
         today = timezone.now().date()
@@ -174,10 +174,10 @@ class Attendance(models.Model):
         default='present'
     )
     notes = models.TextField(blank=True)
-    
+
     class Meta:
         unique_together = ['employee', 'date']
-    
+
     def __str__(self):
         return f"{self.employee} - {self.date}"
 
@@ -217,7 +217,7 @@ class LeaveRequest(models.Model):
     )
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-    
+
     def __str__(self):
         return f"{self.employee} - {self.leave_type} ({self.start_date} to {self.end_date})"
 
@@ -307,3 +307,92 @@ class WorkHours(models.Model):
 
     def __str__(self):
         return f"{self.employee} - {self.date} ({self.total_hours}h)"
+
+
+
+class BiometricDevice(models.Model):
+    """Represents a biometric device (e.g., ZKTeco) for attendance integration."""
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='biometric_devices')
+    name = models.CharField(max_length=100)
+    brand = models.CharField(max_length=50, default='ZKTeco')
+    model = models.CharField(max_length=100, blank=True)
+    serial_number = models.CharField(max_length=100, blank=True)
+    ip_address = models.GenericIPAddressField(null=True, blank=True)
+    port = models.PositiveIntegerField(default=4370)
+    # ZKTeco Communication Key (COM key). Usually 0..999999. 0 by default.
+    comm_key = models.PositiveIntegerField(default=0)
+    timezone = models.CharField(max_length=64, default='UTC')
+    api_key = models.CharField(max_length=128, help_text='Shared secret for device push/auth')
+    webhook_secret = models.CharField(max_length=128, blank=True, help_text='Optional secret for cloud webhook HMAC')
+    cloud_endpoint_url = models.URLField(blank=True)
+    push_enabled = models.BooleanField(default=True)
+    is_active = models.BooleanField(default=True)
+    last_seen = models.DateTimeField(null=True, blank=True)
+    last_pull = models.DateTimeField(null=True, blank=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['company', 'serial_number']),
+            models.Index(fields=['company', 'ip_address']),
+            models.Index(fields=['company', 'is_active']),
+        ]
+        unique_together = [('company', 'serial_number')]
+        ordering = ['company', 'name']
+
+    def __str__(self):
+        return f"{self.company.name} - {self.name} ({self.brand} {self.model})"
+
+
+class BiometricUserMap(models.Model):
+    """Maps a device-specific user ID (or global cloud user ID) to an Employee."""
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='biometric_user_maps')
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='biometric_ids')
+    device = models.ForeignKey(BiometricDevice, on_delete=models.CASCADE, null=True, blank=True, related_name='user_maps')
+    device_user_id = models.CharField(max_length=100, help_text='ID on the device (enrolled ID)')
+    global_user_id = models.CharField(max_length=100, blank=True, help_text='Cloud/global user ID if applicable')
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['company', 'device', 'device_user_id']),
+            models.Index(fields=['company', 'global_user_id']),
+        ]
+        unique_together = [
+            ('company', 'device', 'device_user_id'),
+        ]
+
+    def __str__(self):
+        return f"{self.employee} -> {self.device or 'GLOBAL'}:{self.device_user_id or self.global_user_id}"
+
+
+class BiometricEvent(models.Model):
+    """Raw biometric punch events for auditing and idempotent processing."""
+    EVENT_TYPES = (
+        ('checkin', 'Check In'),
+        ('checkout', 'Check Out'),
+        ('unknown', 'Unknown'),
+    )
+    company = models.ForeignKey(Company, on_delete=models.CASCADE, related_name='biometric_events')
+    device = models.ForeignKey(BiometricDevice, on_delete=models.SET_NULL, null=True, blank=True, related_name='events')
+    device_user_id = models.CharField(max_length=100)
+    event_type = models.CharField(max_length=20, choices=EVENT_TYPES, default='unknown')
+    timestamp = models.DateTimeField()
+    external_event_id = models.CharField(max_length=128, blank=True)
+    raw_payload = models.JSONField(default=dict, blank=True)
+    processed = models.BooleanField(default=False)
+    attendance = models.ForeignKey(Attendance, on_delete=models.SET_NULL, null=True, blank=True, related_name='biometric_events')
+    dedupe_hash = models.CharField(max_length=64, unique=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        indexes = [
+            models.Index(fields=['company', 'timestamp']),
+            models.Index(fields=['company', 'device_user_id', 'timestamp']),
+            models.Index(fields=['processed']),
+        ]
+        ordering = ['-timestamp']
+
+    def __str__(self):
+        return f"{self.device_user_id} {self.event_type} @ {self.timestamp}"

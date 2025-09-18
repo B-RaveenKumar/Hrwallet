@@ -10,4 +10,5 @@ urlpatterns = [
     path('hr-managers/create/', views.create_hr_manager, name='create_hr_manager'),
     path('settings/', views.system_settings, name='system_settings'),
     path('audit-logs/', views.audit_logs, name='audit_logs'),
+    path('biometric-devices/', views.biometric_devices, name='biometric_devices'),
 ]
