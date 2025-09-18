@@ -3,4 +3,10 @@ Pillow==10.1.0
 whitenoise==6.6.0
 djangorestframework==3.14.0
 
+# Biometric integration
 zk==0.9.4
+
+# New modules dependencies
+reportlab==4.0.4
+channels==4.3.1
+channels_redis==4.3.0

@@ -1,0 +1,27 @@
+{% extends 'hr_dashboard/base.html' %}
+{% block title %}Performance Reviews{% endblock %}
+{% block page_title %}Performance Reviews{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header"><i class="bi bi-clipboard-data me-2"></i>Reviews</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead><tr><th>Employee</th><th>Period</th><th>Status</th><th>Rating</th></tr></thead>
+        <tbody>
+          {% for r in reviews %}
+          <tr>
+            <td>{{ r.employee }}</td>
+            <td>{{ r.review_period_start }} to {{ r.review_period_end }}</td>
+            <td>{{ r.status }}</td>
+            <td>{{ r.overall_rating }}</td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="4" class="text-center text-muted">No reviews.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

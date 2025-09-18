@@ -1,0 +1,84 @@
+<!-- Real-time notifications WebSocket script -->
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Only connect if user is authenticated
+    {% if user.is_authenticated %}
+    const userId = {{ user.id }};
+    const protocol = window.location.protocol === 'https:' ? 'wss:' : 'ws:';
+    const wsUrl = `${protocol}//${window.location.host}/ws/notifications/${userId}/`;
+    
+    let socket;
+    let reconnectInterval = 1000;
+    const maxReconnectInterval = 30000;
+    
+    function connect() {
+        socket = new WebSocket(wsUrl);
+        
+        socket.onopen = function(e) {
+            console.log('Notifications WebSocket connected');
+            reconnectInterval = 1000; // Reset reconnect interval
+        };
+        
+        socket.onmessage = function(e) {
+            const data = JSON.parse(e.data);
+            if (data.type === 'notification') {
+                showNotification(data.message);
+            }
+        };
+        
+        socket.onclose = function(e) {
+            console.log('Notifications WebSocket closed');
+            // Reconnect with exponential backoff
+            setTimeout(function() {
+                reconnectInterval = Math.min(reconnectInterval * 2, maxReconnectInterval);
+                connect();
+            }, reconnectInterval);
+        };
+        
+        socket.onerror = function(e) {
+            console.error('WebSocket error:', e);
+        };
+    }
+    
+    function showNotification(message) {
+        // Create toast notification
+        const toastHtml = `
+            <div class="toast align-items-center text-white bg-primary border-0" role="alert" aria-live="assertive" aria-atomic="true">
+                <div class="d-flex">
+                    <div class="toast-body">
+                        <strong>${message.title}</strong><br>
+                        ${message.message}
+                    </div>
+                    <button type="button" class="btn-close btn-close-white me-2 m-auto" data-bs-dismiss="toast"></button>
+                </div>
+            </div>
+        `;
+        
+        // Add to toast container
+        let toastContainer = document.getElementById('toast-container');
+        if (!toastContainer) {
+            toastContainer = document.createElement('div');
+            toastContainer.id = 'toast-container';
+            toastContainer.className = 'toast-container position-fixed top-0 end-0 p-3';
+            toastContainer.style.zIndex = '1055';
+            document.body.appendChild(toastContainer);
+        }
+        
+        toastContainer.insertAdjacentHTML('beforeend', toastHtml);
+        
+        // Show the toast
+        const toastElement = toastContainer.lastElementChild;
+        const toast = new bootstrap.Toast(toastElement, { delay: 5000 });
+        toast.show();
+        
+        // Remove from DOM after hiding
+        toastElement.addEventListener('hidden.bs.toast', function() {
+            toastElement.remove();
+        });
+    }
+    
+    // Connect to WebSocket
+    connect();
+    {% endif %}
+});
+</script>

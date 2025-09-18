@@ -49,6 +49,11 @@ urlpatterns = [
 
     # Profile Management API
     path('api/', include('profile_api.urls')),
+
+    # New apps
+    path('payroll/', include('payroll.urls')),
+    path('performance/', include('performance.urls')),
+    path('notifications/', include('notifications.urls')),
 ]
 
 # Serve media files in development

@@ -24,10 +24,11 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    
+
     # Third party apps
     'rest_framework',
-    
+    'channels',
+
     # Local apps
     'accounts',
     'core_hr',
@@ -35,6 +36,9 @@ INSTALLED_APPS = [
     'hr_dashboard',
     'employee_portal',
     'profile_api',
+    'payroll',
+    'performance',
+    'notifications',
 ]
 
 MIDDLEWARE = [
@@ -207,4 +211,16 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 20
+}
+
+# Channels configuration
+ASGI_APPLICATION = 'hr_wallet.asgi.application'
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            "hosts": [('127.0.0.1', 6379)],
+        },
+    },
 }

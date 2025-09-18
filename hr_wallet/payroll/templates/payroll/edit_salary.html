@@ -1,0 +1,22 @@
+{% extends 'hr_dashboard/base.html' %}
+{% block title %}Edit Salary{% endblock %}
+{% block page_title %}Edit Salary - {{ employee }}{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-body">
+    <form method="post">{% csrf_token %}
+      <div class="mb-3">
+        <label class="form-label">Basic Salary</label>
+        <input class="form-control" type="number" step="0.01" name="basic_salary" value="{{ salary.basic_salary }}" />
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Allowance</label>
+        <input class="form-control" type="number" step="0.01" name="allowance" value="{{ salary.allowances.allowance|default:'0.00' }}" />
+      </div>
+      <button type="submit" class="btn btn-primary">Save</button>
+      <a href="{% url 'payroll:salaries' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+  </div>
+</div>
+{% endblock %}
+

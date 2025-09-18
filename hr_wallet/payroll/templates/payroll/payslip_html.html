@@ -1,0 +1,17 @@
+{% extends 'hr_dashboard/base.html' %}
+{% block title %}Payslip{% endblock %}
+{% block page_title %}Payslip{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header"><i class="bi bi-receipt me-2"></i>HTML Fallback</div>
+  <div class="card-body">
+    <div class="row g-3">
+      <div class="col-md-6"><strong>Employee:</strong> {{ slip.employee }}</div>
+      <div class="col-md-6"><strong>Period:</strong> {{ slip.pay_period_start }} to {{ slip.pay_period_end }}</div>
+      <div class="col-md-4"><strong>Gross:</strong> {{ slip.gross_pay }}</div>
+      <div class="col-md-4"><strong>Deductions:</strong> {{ slip.total_deductions }}</div>
+      <div class="col-md-4"><strong>Net:</strong> {{ slip.net_pay }}</div>
+    </div>
+  </div>
+</div>
+{% endblock %}
