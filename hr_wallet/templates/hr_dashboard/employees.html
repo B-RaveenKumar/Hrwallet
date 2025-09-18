@@ -222,11 +222,27 @@
 </div>
 
 <script>
-(function() {
-  const $ = (sel) => document.querySelector(sel);
-  const $$ = (sel) => Array.from(document.querySelectorAll(sel));
-  const employeeModal = new bootstrap.Modal($('#employeeModal'));
-  const detailsModal = new bootstrap.Modal($('#detailsModal'));
+// Wait for Bootstrap to be loaded
+function waitForBootstrap() {
+  return new Promise((resolve) => {
+    if (typeof bootstrap !== 'undefined') {
+      resolve();
+    } else {
+      setTimeout(() => {
+        waitForBootstrap().then(resolve);
+      }, 100);
+    }
+  });
+}
+
+waitForBootstrap().then(() => {
+  console.log('Bootstrap loaded, initializing employee management');
+  
+  (function() {
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+    const employeeModal = new bootstrap.Modal(document.getElementById('employeeModal'));
+    const detailsModal = new bootstrap.Modal(document.getElementById('detailsModal'));
 
   // CSRF helper for POST/PATCH requests
   function getCookie(name) {
@@ -291,37 +307,58 @@
     }
   }
 
-  $('#exportBtn').addEventListener('click', () => {
-    const q = encodeURIComponent($('#searchInput').value.trim());
-    const dept = encodeURIComponent($('#deptFilter').value);
-    const status = encodeURIComponent($('#statusFilter').value);
+  document.getElementById('exportBtn').addEventListener('click', () => {
+    const q = encodeURIComponent(document.getElementById('searchInput').value.trim());
+    const dept = encodeURIComponent(document.getElementById('deptFilter').value);
+    const status = encodeURIComponent(document.getElementById('statusFilter').value);
     window.location = `/api/employees/export/?q=${q}&department_id=${dept}&status=${status}`;
   });
 
-  $('#selectAll').addEventListener('change', (e) => {
-    $$('.row-check').forEach(cb => cb.checked = e.target.checked);
+  document.getElementById('selectAll').addEventListener('change', (e) => {
+    document.querySelectorAll('.row-check').forEach(cb => cb.checked = e.target.checked);
   });
 
+  // Event delegation for dynamically loaded content
   document.addEventListener('click', async (e) => {
     const viewBtn = e.target.closest('.view-btn');
     const editBtn = e.target.closest('.edit-btn');
     const deactBtn = e.target.closest('.deactivate-btn');
+    const attendanceBtn = e.target.closest('.view-attendance');
 
-    if (viewBtn) { e.preventDefault(); await showDetails(viewBtn.dataset.id); }
-    if (editBtn) { e.preventDefault(); await openEdit(editBtn.dataset.id); }
-    if (deactBtn) { e.preventDefault(); await toggleStatus(deactBtn.dataset.id); }
+    if (viewBtn) { 
+      e.preventDefault(); 
+      await showDetails(viewBtn.dataset.id); 
+    }
+    if (editBtn) { 
+      e.preventDefault(); 
+      await openEdit(editBtn.dataset.id); 
+    }
+    if (deactBtn) { 
+      e.preventDefault(); 
+      await toggleStatus(deactBtn.dataset.id); 
+    }
+    if (attendanceBtn) {
+      e.preventDefault();
+      window.location.href = `/hr-dashboard/attendance/?employee_id=${attendanceBtn.dataset.id}`;
+    }
   });
 
   async function showDetails(id) {
-    $('#detailsBody').innerHTML = 'Loading...'; detailsModal.show();
+    document.getElementById('detailsBody').innerHTML = 'Loading...'; 
+    detailsModal.show();
     try {
       const res = await fetch(`/api/employees/${id}/`);
+      if (!res.ok) throw new Error('Failed to fetch employee details');
       const json = await res.json();
-      if (!json.success) throw new Error();
-      const emp = json.data.employee; const lb = json.data.leave_balance; const att = json.data.recent_attendance || [];
-      $('#detailsBody').innerHTML = `
+      if (!json.success) throw new Error(json.message || 'Failed to load employee details');
+      
+      const emp = json.data.employee; 
+      const lb = json.data.leave_balance; 
+      const att = json.data.recent_attendance || [];
+      
+      document.getElementById('detailsBody').innerHTML = `
         <div class="row g-3">
-          <div class="col-md-6"><strong>${emp.full_name}</strong><div class="text-muted">${emp.email}</div></div>
+          <div class="col-md-6"><strong>${emp.full_name || emp.first_name + ' ' + emp.last_name}</strong><div class="text-muted">${emp.email}</div></div>
           <div class="col-md-6 text-end">ID: ${emp.employee_id}</div>
           <div class="col-md-4"><div>Department</div><div class="fw-semibold">${emp.department_name || 'N/A'}</div></div>
           <div class="col-md-4"><div>Job Title</div><div class="fw-semibold">${emp.job_title || ''}</div></div>
@@ -338,60 +375,183 @@
             ${att.length ? `<div class="table-responsive"><table class="table table-sm"><thead><tr><th>Date</th><th>Status</th><th>Hours</th></tr></thead><tbody>${att.map(a => `<tr><td>${a.date}</td><td>${a.status}</td><td>${a.total_hours ?? ''}</td></tr>`).join('')}</tbody></table></div>` : '<div class="text-muted">No records</div>'}
           </div>
         </div>`;
-    } catch(e) { $('#detailsBody').innerHTML = '<div class="text-danger">Failed to load details</div>'; }
+    } catch(e) { 
+      document.getElementById('detailsBody').innerHTML = '<div class="text-danger">Failed to load details: ' + e.message + '</div>'; 
+    }
   }
 
   async function openCreate() {
-    $('#employeeModalTitle').textContent = 'Create Employee'; $('#empId').value = '';
-    $('#fullName').value = ''; $('#email').value = ''; $('#phone').value = '';
-    $('#department').value = ''; $('#jobTitle').value = ''; $('#salary').value = ''; $('#address').value = '';
-    $('#formAlert').classList.add('d-none'); employeeModal.show();
+    document.getElementById('employeeModalTitle').textContent = 'Create Employee'; 
+    document.getElementById('empId').value = '';
+    document.getElementById('fullName').value = ''; 
+    document.getElementById('email').value = ''; 
+    document.getElementById('phone').value = '';
+    document.getElementById('department').value = ''; 
+    document.getElementById('jobTitle').value = ''; 
+    document.getElementById('salary').value = ''; 
+    document.getElementById('address').value = '';
+    document.getElementById('formAlert').classList.add('d-none'); 
+    employeeModal.show();
   }
   async function openEdit(id) {
-    $('#employeeModalTitle').textContent = 'Edit Employee'; $('#empId').value = id; $('#formAlert').classList.add('d-none');
+    document.getElementById('employeeModalTitle').textContent = 'Edit Employee'; 
+    document.getElementById('empId').value = id; 
+    document.getElementById('formAlert').classList.add('d-none');
     try {
-      const res = await fetch(`/api/employees/${id}/`); const json = await res.json(); if (!json.success) throw new Error();
+      const res = await fetch(`/api/employees/${id}/`); 
+      if (!res.ok) throw new Error('Failed to fetch employee data');
+      const json = await res.json(); 
+      if (!json.success) throw new Error(json.message || 'Failed to load employee');
+      
       const emp = json.data.employee;
-      $('#fullName').value = `${emp.first_name || ''} ${emp.last_name || ''}`.trim();
-      $('#email').value = emp.email || ''; $('#phone').value = emp.phone || '';
-      $('#department').value = emp.department_id || ''; $('#jobTitle').value = emp.job_title || '';
-      $('#salary').value = emp.salary || ''; $('#address').value = emp.address || '';
+      document.getElementById('fullName').value = `${emp.first_name || ''} ${emp.last_name || ''}`.trim();
+      document.getElementById('email').value = emp.email || ''; 
+      document.getElementById('phone').value = emp.phone || '';
+      document.getElementById('department').value = emp.department_id || ''; 
+      document.getElementById('jobTitle').value = emp.job_title || '';
+      document.getElementById('salary').value = emp.salary || ''; 
+      document.getElementById('address').value = emp.address || '';
       employeeModal.show();
-    } catch(e) { alert('Failed to load employee'); }
+    } catch(e) { 
+      alert('Failed to load employee: ' + e.message); 
+    }
   }
 
   async function toggleStatus(id) {
-    if (!confirm('Are you sure you want to toggle this employee\'s status?')) return;
+    const row = document.querySelector(`tr[data-id="${id}"]`);
+    if (!row) {
+      alert('Employee not found');
+      return;
+    }
+    
+    const isActive = row.querySelector('.badge.bg-success');
+    const action = isActive ? 'deactivate' : 'activate';
+    
+    if (!confirm(`Are you sure you want to ${action} this employee?`)) return;
+    
     try {
-      const row = document.querySelector(`tr[data-id="${id}"]`);
-      const isActive = row && row.querySelector('.badge.bg-success');
       const body = new URLSearchParams({ is_active: isActive ? 'false' : 'true' });
-      const res = await fetch(`/api/employees/${id}/status/`, { method: 'PATCH', headers: { 'Content-Type': 'application/x-www-form-urlencoded', 'X-CSRFToken': csrfToken }, body });
-      const json = await res.json(); if (!json.success) throw new Error(); await loadEmployees();
-    } catch(e) { alert('Failed to update status'); }
+      const res = await fetch(`/api/employees/${id}/status/`, { 
+        method: 'PATCH', 
+        headers: { 
+          'Content-Type': 'application/x-www-form-urlencoded', 
+          'X-CSRFToken': csrfToken 
+        }, 
+        body 
+      });
+      
+      if (!res.ok) {
+        throw new Error(`HTTP ${res.status}: ${res.statusText}`);
+      }
+      
+      const json = await res.json(); 
+      if (!json.success) {
+        throw new Error(json.message || 'Failed to update status');
+      }
+      
+      // Reload the employee list to reflect changes
+      await loadEmployees();
+      
+      // Show success message
+      const message = `Employee ${action}d successfully`;
+      const alertDiv = document.createElement('div');
+      alertDiv.className = 'alert alert-success alert-dismissible fade show position-fixed';
+      alertDiv.style.top = '20px';
+      alertDiv.style.right = '20px';
+      alertDiv.style.zIndex = '9999';
+      alertDiv.innerHTML = `
+        ${message}
+        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+      `;
+      document.body.appendChild(alertDiv);
+      setTimeout(() => alertDiv.remove(), 3000);
+      
+    } catch(e) { 
+      alert('Failed to update status: ' + e.message); 
+    }
   }
 
-  $('#saveEmployeeBtn').addEventListener('click', async () => {
-    const id = $('#empId').value; const fullName = $('#fullName').value.trim(); const email = $('#email').value.trim();
-    const payloadCreate = { full_name: fullName, email, phone: $('#phone').value.trim(), department_id: $('#department').value, designation: $('#jobTitle').value.trim(), salary: $('#salary').value ? parseFloat($('#salary').value) : null };
+  document.getElementById('saveEmployeeBtn').addEventListener('click', async () => {
+    const id = document.getElementById('empId').value; 
+    const fullName = document.getElementById('fullName').value.trim(); 
+    const email = document.getElementById('email').value.trim();
+    const payloadCreate = { 
+      full_name: fullName, 
+      email, 
+      phone: document.getElementById('phone').value.trim(), 
+      department_id: document.getElementById('department').value, 
+      designation: document.getElementById('jobTitle').value.trim(), 
+      salary: document.getElementById('salary').value ? parseFloat(document.getElementById('salary').value) : null 
+    };
     const [first, ...rest] = fullName.split(' ');
-    const payloadUpdate = { first_name: first || '', last_name: rest.join(' '), email, phone: $('#phone').value.trim(), department_id: $('#department').value || null, job_title: $('#jobTitle').value.trim(), salary: $('#salary').value ? parseFloat($('#salary').value) : null, address: $('#address').value.trim() };
-    const btn = $('#saveEmployeeBtn'); const sp = $('#saveSpinner'); const txt = $('#saveText'); sp.classList.remove('d-none'); txt.textContent = 'Saving...'; btn.disabled = true; $('#formAlert').classList.add('d-none');
+    const payloadUpdate = { 
+      first_name: first || '', 
+      last_name: rest.join(' '), 
+      email, 
+      phone: document.getElementById('phone').value.trim(), 
+      department_id: document.getElementById('department').value || null, 
+      job_title: document.getElementById('jobTitle').value.trim(), 
+      salary: document.getElementById('salary').value ? parseFloat(document.getElementById('salary').value) : null, 
+      address: document.getElementById('address').value.trim() 
+    };
+    const btn = document.getElementById('saveEmployeeBtn'); 
+    const sp = document.getElementById('saveSpinner'); 
+    const txt = document.getElementById('saveText'); 
+    sp.classList.remove('d-none'); 
+    txt.textContent = 'Saving...'; 
+    btn.disabled = true; 
+    document.getElementById('formAlert').classList.add('d-none');
     try {
-      let res, json; if (id) { res = await fetch(`/api/employees/${id}/update/`, { method: 'PATCH', headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken }, body: JSON.stringify(payloadUpdate) }); } else { res = await fetch('/api/employees/', { method: 'POST', headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken }, body: JSON.stringify(payloadCreate) }); }
-      json = await res.json(); if (!res.ok || json.success === false) throw new Error(json.message || 'Failed to save'); employeeModal.hide(); await loadEmployees();
-    } catch(e) { const alert = $('#formAlert'); alert.textContent = e.message || 'Failed to save'; alert.classList.remove('d-none'); }
-    finally { sp.classList.add('d-none'); txt.textContent = 'Save'; btn.disabled = false; }
+      let res, json; 
+      if (id) { 
+        res = await fetch(`/api/employees/${id}/update/`, { 
+          method: 'PATCH', 
+          headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken }, 
+          body: JSON.stringify(payloadUpdate) 
+        }); 
+      } else { 
+        res = await fetch('/api/employees/', { 
+          method: 'POST', 
+          headers: { 'Content-Type': 'application/json', 'X-CSRFToken': csrfToken }, 
+          body: JSON.stringify(payloadCreate) 
+        }); 
+      }
+      json = await res.json(); 
+      if (!res.ok || json.success === false) throw new Error(json.message || 'Failed to save'); 
+      employeeModal.hide(); 
+      await loadEmployees();
+    } catch(e) { 
+      const alert = document.getElementById('formAlert'); 
+      alert.textContent = e.message || 'Failed to save'; 
+      alert.classList.remove('d-none'); 
+    }
+    finally { 
+      sp.classList.add('d-none'); 
+      txt.textContent = 'Save'; 
+      btn.disabled = false; 
+    }
   });
 
-  const addBtn = document.querySelector('a[href$="create_employee"]'); if (addBtn) { addBtn.addEventListener('click', (e) => { e.preventDefault(); openCreate(); }); }
-  $('#searchInput').addEventListener('input', () => { loadEmployees(); });
-  $('#deptFilter').addEventListener('change', () => { loadEmployees(); });
-  $('#statusFilter').addEventListener('change', () => { loadEmployees(); });
+  // Enable create button to open modal instead of navigating
+  const addBtn = document.querySelector('a[href$="create_employee"]'); 
+  if (addBtn) { 
+    addBtn.addEventListener('click', (e) => { 
+      e.preventDefault(); 
+      openCreate(); 
+    }); 
+  }
+
+  // Search and filter event listeners
+  document.getElementById('searchInput').addEventListener('input', () => { loadEmployees(); });
+  document.getElementById('deptFilter').addEventListener('change', () => { loadEmployees(); });
+  document.getElementById('statusFilter').addEventListener('change', () => { loadEmployees(); });
 
   loadDepartments();
-  // loadEmployees(); // Keep server-rendered initial, enable if needed
+  // Load employees dynamically on page load
+  loadEmployees();
 })();
+
+}); // End waitForBootstrap
 </script>
 
 {% endblock %}

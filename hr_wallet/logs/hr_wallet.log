@@ -12733,3 +12733,588 @@ WARNING 2025-09-18 18:49:04,713 log 8724 3716 Not Found: /ws/notifications/1/
 WARNING 2025-09-18 18:49:04,714 basehttp 8724 3716 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
 WARNING 2025-09-18 18:49:06,836 log 8724 8316 Not Found: /ws/notifications/1/
 WARNING 2025-09-18 18:49:06,837 basehttp 8724 8316 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+INFO 2025-09-18 20:15:28,886 autoreload 8724 5668 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 20:15:30,578 autoreload 6364 15596 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 20:15:34,134 autoreload 19232 13600 Watching for file changes with StatReloader
+INFO 2025-09-18 20:15:34,544 autoreload 17232 19836 Watching for file changes with StatReloader
+INFO 2025-09-18 20:19:00,630 autoreload 17232 19836 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-18 20:19:00,739 autoreload 19232 13600 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-18 20:19:02,859 autoreload 15596 6364 Watching for file changes with StatReloader
+INFO 2025-09-18 20:19:02,861 autoreload 17272 17832 Watching for file changes with StatReloader
+INFO 2025-09-18 20:22:06,221 autoreload 2556 20452 Watching for file changes with StatReloader
+INFO 2025-09-18 20:35:14,774 basehttp 17272 11592 "GET / HTTP/1.1" 302 0
+INFO 2025-09-18 20:35:14,838 basehttp 17272 11592 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-18 20:35:15,272 basehttp 17272 11592 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:35:20,542 views 17272 11592 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-18 20:35:20,556 basehttp 17272 11592 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 20:35:20,590 middleware 17272 11592 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:20,592 decorators 17272 11592 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 20:35:20,668 basehttp 17272 11592 "GET /admin-panel/ HTTP/1.1" 200 17762
+WARNING 2025-09-18 20:35:20,754 log 17272 19632 Not Found: /ws/notifications/1/
+WARNING 2025-09-18 20:35:20,755 basehttp 17272 19632 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+INFO 2025-09-18 20:35:20,774 basehttp 17272 11592 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:21,806 log 17272 18628 Not Found: /ws/notifications/1/
+WARNING 2025-09-18 20:35:21,807 basehttp 17272 18628 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+INFO 2025-09-18 20:35:23,029 middleware 17272 11592 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:23,044 basehttp 17272 11592 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15201
+WARNING 2025-09-18 20:35:23,108 log 17272 7456 Not Found: /ws/notifications/1/
+WARNING 2025-09-18 20:35:23,110 basehttp 17272 7456 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+INFO 2025-09-18 20:35:23,126 basehttp 17272 11592 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:24,203 log 17272 1068 Not Found: /ws/notifications/1/
+WARNING 2025-09-18 20:35:24,205 basehttp 17272 1068 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+WARNING 2025-09-18 20:35:26,282 log 17272 5668 Not Found: /ws/notifications/1/
+WARNING 2025-09-18 20:35:26,285 basehttp 17272 5668 "GET /ws/notifications/1/ HTTP/1.1" 404 3896
+INFO 2025-09-18 20:35:29,530 decorators 17272 1328 Audit: logout - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 20:35:29,538 views 17272 1328 User logged out: admin
+INFO 2025-09-18 20:35:29,541 basehttp 17272 1328 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 20:35:29,556 basehttp 17272 1328 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 20:35:29,724 basehttp 17272 1328 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:35:33,774 views 17272 1328 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-18 20:35:33,783 basehttp 17272 1328 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 20:35:33,800 middleware 17272 1328 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:33,802 decorators 17272 1328 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 20:35:33,858 basehttp 17272 1328 "GET /hr-dashboard/ HTTP/1.1" 200 16859
+INFO 2025-09-18 20:35:33,969 basehttp 17272 1328 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:33,988 log 17272 3456 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:33,990 basehttp 17272 3456 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:35:35,079 log 17272 2452 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:35,081 basehttp 17272 2452 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:35:36,834 middleware 17272 19868 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:36,876 basehttp 17272 19868 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+INFO 2025-09-18 20:35:37,088 basehttp 17272 19868 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:37,098 log 17272 15244 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:37,099 basehttp 17272 15244 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:35:38,247 log 17272 19132 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:38,306 basehttp 17272 19132 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:35:40,416 log 17272 6196 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:40,419 basehttp 17272 6196 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:35:44,526 log 17272 12904 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:44,528 basehttp 17272 12904 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:35:45,375 basehttp 17272 16208 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:35:49,884 basehttp 17272 16208 "GET /performance/goals/ HTTP/1.1" 200 10947
+INFO 2025-09-18 20:35:49,948 basehttp 17272 16208 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:50,116 log 17272 18368 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:50,118 basehttp 17272 18368 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:35:51,360 log 17272 18552 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:51,362 basehttp 17272 18552 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:35:52,122 basehttp 17272 16208 "GET /payroll/ HTTP/1.1" 200 10969
+INFO 2025-09-18 20:35:52,193 basehttp 17272 16208 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:52,614 log 17272 704 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:52,617 basehttp 17272 704 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:35:53,621 basehttp 17272 16208 "GET /notifications/settings/ HTTP/1.1" 200 11386
+INFO 2025-09-18 20:35:53,711 basehttp 17272 16208 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:54,718 log 17272 17992 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:54,722 basehttp 17272 17992 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:35:55,330 middleware 17272 18412 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:55,352 basehttp 17272 18412 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+INFO 2025-09-18 20:35:55,445 basehttp 17272 18412 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:35:56,957 middleware 17272 18412 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:56,974 basehttp 17272 18412 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+INFO 2025-09-18 20:35:57,087 basehttp 17272 18412 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:35:57,729 middleware 17272 18412 Access: /hr-dashboard/leave-approvals/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:35:57,751 basehttp 17272 18412 "GET /hr-dashboard/leave-approvals/ HTTP/1.1" 200 18140
+INFO 2025-09-18 20:35:57,840 basehttp 17272 18412 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:35:59,316 log 17272 18304 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:35:59,317 basehttp 17272 18304 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:36:02,463 middleware 17272 18412 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:36:02,499 basehttp 17272 18412 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 30414
+INFO 2025-09-18 20:36:02,606 basehttp 17272 18412 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:36:06,226 log 17272 17136 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:06,228 basehttp 17272 17136 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:36:07,629 middleware 17272 19784 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:36:07,653 basehttp 17272 19784 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+INFO 2025-09-18 20:36:07,742 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:36:11,791 log 17272 2620 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:11,795 basehttp 17272 2620 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:36:15,066 log 17272 11964 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:15,069 basehttp 17272 11964 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:36:20,932 log 17272 20424 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:20,936 basehttp 17272 20424 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:36:20,939 basehttp 17272 20424 - Broken pipe from ('127.0.0.1', 4398)
+WARNING 2025-09-18 20:36:29,126 log 17272 3784 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:29,128 basehttp 17272 3784 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:36:41,687 log 17272 10344 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:41,689 basehttp 17272 10344 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:36:51,845 middleware 17272 19784 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:36:51,859 basehttp 17272 19784 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+INFO 2025-09-18 20:36:51,923 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:36:54,660 log 17272 4764 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:54,663 basehttp 17272 4764 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:36:59,203 log 17272 3804 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:36:59,205 basehttp 17272 3804 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:37:04,191 log 17272 5464 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:37:04,193 basehttp 17272 5464 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:37:07,282 log 17272 19784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:37:07,286 basehttp 17272 19784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+WARNING 2025-09-18 20:37:09,302 log 17272 19752 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:37:09,304 basehttp 17272 19752 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:37:18,418 log 17272 18744 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:37:18,421 basehttp 17272 18744 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:37:34,480 log 17272 4876 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:37:34,482 basehttp 17272 4876 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:37:43,100 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:38:04,502 middleware 17272 19784 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:38:04,503 decorators 17272 19784 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 20:38:04,544 basehttp 17272 19784 "GET /hr-dashboard/ HTTP/1.1" 200 16859
+WARNING 2025-09-18 20:38:04,562 log 17272 19316 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:04,564 basehttp 17272 19316 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:04,670 log 17272 19784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:38:04,672 basehttp 17272 19784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:38:04,810 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:38:04,821 log 17272 8356 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:04,823 basehttp 17272 8356 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:05,907 log 17272 20332 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:05,910 basehttp 17272 20332 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:07,983 log 17272 1184 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:07,985 basehttp 17272 1184 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:12,076 log 17272 6536 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:12,079 basehttp 17272 6536 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:12,530 middleware 17272 19784 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:38:12,565 basehttp 17272 19784 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 30414
+WARNING 2025-09-18 20:38:12,691 log 17272 19784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:38:12,693 basehttp 17272 19784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+WARNING 2025-09-18 20:38:12,810 log 17272 15996 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:12,824 basehttp 17272 15996 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:12,835 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:38:13,884 log 17272 12508 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:13,885 basehttp 17272 12508 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:14,453 middleware 17272 19784 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:38:14,480 basehttp 17272 19784 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 30414
+WARNING 2025-09-18 20:38:14,581 log 17272 19784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:38:14,582 basehttp 17272 19784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:38:14,751 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:38:14,771 log 17272 9568 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:14,773 basehttp 17272 9568 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:15,881 log 17272 19504 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:15,883 basehttp 17272 19504 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:18,028 log 17272 16752 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:18,032 basehttp 17272 16752 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:18,658 middleware 17272 19784 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:38:18,682 basehttp 17272 19784 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38406
+WARNING 2025-09-18 20:38:18,786 log 17272 19784 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:38:18,788 basehttp 17272 19784 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:38:18,934 basehttp 17272 19784 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:38:19,088 log 17272 7424 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:19,090 basehttp 17272 7424 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:19,091 basehttp 17272 7424 - Broken pipe from ('127.0.0.1', 4462)
+WARNING 2025-09-18 20:38:20,470 log 17272 10624 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:20,473 basehttp 17272 10624 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:23,032 log 17272 2960 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:23,034 basehttp 17272 2960 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:27,359 log 17272 8928 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:27,361 basehttp 17272 8928 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:38:37,028 log 17272 9320 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:37,030 basehttp 17272 9320 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:38:43,273 autoreload 17272 17832 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-18 20:38:43,356 autoreload 2556 20452 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-18 20:38:43,355 autoreload 15596 6364 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 20:38:46,442 autoreload 13668 18916 Watching for file changes with StatReloader
+INFO 2025-09-18 20:38:46,501 autoreload 19264 19228 Watching for file changes with StatReloader
+INFO 2025-09-18 20:38:46,596 autoreload 18632 5868 Watching for file changes with StatReloader
+WARNING 2025-09-18 20:38:56,917 log 13668 19976 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:38:56,920 basehttp 13668 19976 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:39:31,841 log 13668 19400 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:39:31,844 basehttp 13668 19400 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:40:02,522 log 13668 15472 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:40:02,528 basehttp 13668 15472 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:40:33,521 log 13668 9480 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:40:33,524 basehttp 13668 9480 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:41:04,510 log 13668 18096 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:41:04,513 basehttp 13668 18096 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:41:35,525 log 13668 17356 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:41:35,528 basehttp 13668 17356 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+WARNING 2025-09-18 20:42:06,464 log 13668 12020 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:42:06,466 basehttp 13668 12020 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:42:08,828 middleware 13668 18488 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:42:08,943 basehttp 13668 18488 "GET /hr-dashboard/employees/ HTTP/1.1" 200 40618
+INFO 2025-09-18 20:42:09,167 basehttp 13668 18488 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:42:09,183 log 13668 17656 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:42:09,184 basehttp 13668 17656 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:42:13,819 middleware 13668 18488 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:42:13,856 basehttp 13668 18488 "GET /hr-dashboard/employees/ HTTP/1.1" 200 41004
+INFO 2025-09-18 20:42:13,982 basehttp 13668 18488 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:42:14,014 log 13668 10336 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:42:14,016 basehttp 13668 10336 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:43:14,978 autoreload 16812 5260 Watching for file changes with StatReloader
+INFO 2025-09-18 20:45:03,504 autoreload 13480 15044 Watching for file changes with StatReloader
+INFO 2025-09-18 20:45:08,885 basehttp 13668 9972 "GET / HTTP/1.1" 302 0
+INFO 2025-09-18 20:45:08,907 middleware 13668 9972 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:45:08,910 decorators 13668 9972 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 20:45:08,967 basehttp 13668 9972 "GET /hr-dashboard/ HTTP/1.1" 200 19071
+INFO 2025-09-18 20:45:09,595 basehttp 13668 9972 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:45:09,635 log 13668 6640 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:45:09,638 basehttp 13668 6640 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:45:12,618 middleware 13668 9972 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:45:12,635 basehttp 13668 9972 "GET /hr-dashboard/employees/ HTTP/1.1" 200 41033
+WARNING 2025-09-18 20:45:12,764 log 13668 20160 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:45:12,767 basehttp 13668 20160 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:45:12,836 basehttp 13668 9972 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:45:12,867 basehttp 13668 12020 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 20:45:12,900 basehttp 13668 16520 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+ERROR 2025-09-18 20:45:21,086 log 13668 16520 Internal Server Error: /api/employees/17/
+ERROR 2025-09-18 20:45:21,088 basehttp 13668 16520 "GET /api/employees/17/ HTTP/1.1" 500 62
+ERROR 2025-09-18 20:45:28,875 log 13668 16520 Internal Server Error: /api/employees/17/
+ERROR 2025-09-18 20:45:28,876 basehttp 13668 16520 "GET /api/employees/17/ HTTP/1.1" 500 62
+INFO 2025-09-18 20:45:34,033 middleware 13668 16520 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:45:34,073 basehttp 13668 16520 "GET /hr-dashboard/attendance/?employee_id=17 HTTP/1.1" 200 32626
+WARNING 2025-09-18 20:45:34,178 log 13668 17956 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:45:34,184 basehttp 13668 17956 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:45:34,194 basehttp 13668 16520 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:45:37,388 middleware 13668 16520 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:45:37,410 basehttp 13668 16520 "GET /hr-dashboard/employees/ HTTP/1.1" 200 41033
+INFO 2025-09-18 20:45:37,500 basehttp 13668 16520 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:45:37,505 log 13668 19548 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:45:37,508 basehttp 13668 19548 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:45:37,586 basehttp 13668 16520 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 20:45:37,596 basehttp 13668 12020 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+ERROR 2025-09-18 20:45:48,437 log 13668 12020 Internal Server Error: /api/employees/17/
+ERROR 2025-09-18 20:45:48,438 basehttp 13668 12020 "GET /api/employees/17/ HTTP/1.1" 500 62
+WARNING 2025-09-18 20:45:53,259 log 13668 12020 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:45:53,260 basehttp 13668 12020 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+ERROR 2025-09-18 20:45:55,993 log 13668 12020 Internal Server Error: /api/employees/17/
+ERROR 2025-09-18 20:45:55,995 basehttp 13668 12020 "GET /api/employees/17/ HTTP/1.1" 500 62
+INFO 2025-09-18 20:46:37,229 basehttp 13668 12020 "GET /payroll/ HTTP/1.1" 200 13181
+WARNING 2025-09-18 20:46:37,316 log 13668 12020 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:46:37,318 basehttp 13668 12020 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:46:37,448 basehttp 13668 12020 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:46:37,458 log 13668 11496 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:46:37,460 basehttp 13668 11496 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:46:39,779 basehttp 13668 12020 "GET /notifications/settings/ HTTP/1.1" 200 13598
+WARNING 2025-09-18 20:46:39,951 log 13668 12020 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:46:39,959 basehttp 13668 12020 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:46:40,095 basehttp 13668 12020 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-18 20:46:40,127 log 13668 20392 Not Found: /ws/notifications/23/
+WARNING 2025-09-18 20:46:40,128 basehttp 13668 20392 "GET /ws/notifications/23/ HTTP/1.1" 404 3899
+INFO 2025-09-18 20:48:27,395 autoreload 18632 5868 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:48:27,460 autoreload 19264 19228 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:48:27,526 autoreload 13668 18916 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:48:29,247 autoreload 6700 8720 Watching for file changes with StatReloader
+INFO 2025-09-18 20:48:29,275 autoreload 19908 18004 Watching for file changes with StatReloader
+INFO 2025-09-18 20:48:29,366 autoreload 1176 7136 Watching for file changes with StatReloader
+INFO 2025-09-18 20:49:34,965 autoreload 13608 10648 Watching for file changes with StatReloader
+INFO 2025-09-18 20:55:02,901 basehttp 6700 14560 "GET /notifications/settings/ HTTP/1.1" 200 11919
+WARNING 2025-09-18 20:55:03,104 log 6700 14560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:55:03,122 basehttp 6700 14560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:55:03,258 basehttp 6700 14560 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:55:06,873 middleware 6700 14560 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 20:55:06,946 basehttp 6700 14560 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39354
+WARNING 2025-09-18 20:55:07,141 log 6700 14560 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 20:55:07,143 basehttp 6700 14560 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 20:55:07,298 basehttp 6700 14560 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 20:55:07,312 basehttp 6700 9384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 20:55:07,326 basehttp 6700 13860 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 20:55:09,423 basehttp 6700 13860 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 20:55:25,320 basehttp 6700 9028 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 20:56:01,613 autoreload 1176 7136 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:56:01,664 autoreload 6700 8720 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:56:01,693 autoreload 19908 18004 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 20:56:03,640 autoreload 17688 12672 Watching for file changes with StatReloader
+INFO 2025-09-18 20:56:03,641 autoreload 17664 13248 Watching for file changes with StatReloader
+INFO 2025-09-18 20:56:03,671 autoreload 2564 19668 Watching for file changes with StatReloader
+INFO 2025-09-18 21:06:56,611 middleware 2564 5384 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:06:56,729 basehttp 2564 5384 "GET /hr-dashboard/employees/ HTTP/1.1" 200 59082
+WARNING 2025-09-18 21:06:56,852 log 2564 5384 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-18 21:06:56,855 basehttp 2564 5384 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-18 21:06:57,039 basehttp 2564 5384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:06:57,131 basehttp 2564 5384 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 21:06:57,146 basehttp 2564 18076 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 21:07:06,971 basehttp 2564 18076 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 21:07:18,088 middleware 2564 18076 Access: /hr-dashboard/leave-approvals/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:07:18,111 basehttp 2564 18076 "GET /hr-dashboard/leave-approvals/ HTTP/1.1" 200 18673
+INFO 2025-09-18 21:07:18,244 basehttp 2564 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:07:20,573 middleware 2564 18076 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:07:20,593 basehttp 2564 18076 "GET /hr-dashboard/employees/ HTTP/1.1" 200 59082
+INFO 2025-09-18 21:07:20,746 basehttp 2564 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:07:20,862 basehttp 2564 18076 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 21:07:20,863 basehttp 2564 5384 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 21:07:36,599 middleware 2564 5384 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:07:36,622 basehttp 2564 5384 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39354
+INFO 2025-09-18 21:07:36,696 basehttp 2564 5384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:07:36,872 basehttp 2564 18076 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 21:07:36,873 basehttp 2564 5384 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 21:07:39,815 basehttp 2564 5384 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 21:07:43,893 basehttp 2564 5384 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 21:08:08,436 basehttp 2564 5384 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 21:09:02,719 basehttp 2564 5384 "GET /payroll/ HTTP/1.1" 200 11502
+INFO 2025-09-18 21:09:02,789 basehttp 2564 5384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:04,500 basehttp 2564 5384 "GET /performance/goals/ HTTP/1.1" 200 11480
+INFO 2025-09-18 21:09:04,588 basehttp 2564 5384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:07,360 middleware 2564 5384 Access: /hr-dashboard/biometric/attendance/dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:07,753 basehttp 2564 5384 "GET /hr-dashboard/biometric/attendance/dashboard/ HTTP/1.1" 200 507283
+INFO 2025-09-18 21:09:08,601 basehttp 2564 5384 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:12,239 middleware 2564 5384 Access: /hr-dashboard/biometric/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:12,255 basehttp 2564 5384 "GET /hr-dashboard/biometric/ HTTP/1.1" 200 30021
+INFO 2025-09-18 21:09:12,379 basehttp 2564 18076 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:09:12,398 basehttp 2564 5384 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:09:12,398 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:12,412 basehttp 2564 20308 "GET /api/biometric/events/recent/?hours=48 HTTP/1.1" 200 4244
+INFO 2025-09-18 21:09:15,368 middleware 2564 20308 Access: /hr-dashboard/departments/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:15,374 basehttp 2564 20308 "GET /hr-dashboard/departments/ HTTP/1.1" 200 22400
+INFO 2025-09-18 21:09:15,474 basehttp 2564 20308 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 21:09:15,482 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:21,156 middleware 2564 11624 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:21,184 basehttp 2564 11624 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 30947
+INFO 2025-09-18 21:09:21,363 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:27,582 decorators 2564 11624 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 21:09:27,588 views 2564 11624 User logged out: Raveen
+INFO 2025-09-18 21:09:27,591 basehttp 2564 11624 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:09:27,614 basehttp 2564 11624 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 21:09:27,716 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:33,998 views 2564 11624 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-18 21:09:34,007 basehttp 2564 11624 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:09:34,025 middleware 2564 11624 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:34,026 decorators 2564 11624 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 21:09:34,056 basehttp 2564 11624 "GET /admin-panel/ HTTP/1.1" 200 18296
+INFO 2025-09-18 21:09:34,170 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:36,534 middleware 2564 11624 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:36,550 basehttp 2564 11624 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15735
+INFO 2025-09-18 21:09:36,619 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:44,655 middleware 2564 11624 Access: /admin-panel/settings/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:44,663 basehttp 2564 11624 "GET /admin-panel/settings/ HTTP/1.1" 200 18284
+INFO 2025-09-18 21:09:44,769 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:46,572 middleware 2564 11624 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:46,576 basehttp 2564 11624 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-18 21:09:46,647 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:49,147 basehttp 2564 11624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:51,042 middleware 2564 11624 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:09:51,053 basehttp 2564 11624 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34837
+INFO 2025-09-18 21:09:51,152 basehttp 2564 20308 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:51,155 basehttp 2564 11624 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:09:51,185 basehttp 2564 11624 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:09:51,195 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:09:51,219 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:09:52,789 basehttp 2564 20308 "GET /payroll/ HTTP/1.1" 200 11510
+INFO 2025-09-18 21:09:52,856 basehttp 2564 20308 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:09:56,922 basehttp 2564 20308 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:10:21,451 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:10:51,443 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:11:21,127 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:11:51,454 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:12:21,521 basehttp 2564 20308 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:12:51,457 basehttp 2564 19944 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:13:21,440 basehttp 2564 13924 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:14:22,155 basehttp 2564 19644 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:15:16,454 basehttp 2564 15864 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:16:16,461 basehttp 2564 4020 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:17:16,468 basehttp 2564 19144 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:18:16,458 basehttp 2564 16216 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:19:16,450 basehttp 2564 17828 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:20:16,448 basehttp 2564 3284 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:21:16,455 basehttp 2564 8884 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:21:47,765 autoreload 8648 16316 Watching for file changes with StatReloader
+INFO 2025-09-18 21:22:16,444 basehttp 2564 10444 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:22:21,117 basehttp 2564 12728 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:22:21,467 middleware 2564 12728 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:22:21,495 basehttp 2564 12728 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34368
+INFO 2025-09-18 21:22:21,796 basehttp 2564 12728 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:22:21,810 basehttp 2564 12728 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:22:21,844 basehttp 2564 12736 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:22:21,858 basehttp 2564 12728 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:22:21,876 basehttp 2564 12728 "GET /api/biometric/status/ HTTP/1.1" 200 75
+ERROR 2025-09-18 21:22:24,810 log 2564 12728 Internal Server Error: /payroll/
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 64, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\payroll\views.py", line 14, in dashboard
+    return render(request, 'payroll/dashboard.html', {'recent_slips': slips})
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 3: 'else'. Did you forget to register or load this tag?
+ERROR 2025-09-18 21:22:24,822 basehttp 2564 12728 "GET /payroll/ HTTP/1.1" 500 199527
+INFO 2025-09-18 21:22:25,254 basehttp 2564 12728 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:22:28,288 basehttp 2564 12728 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:22:52,455 basehttp 2564 5568 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:23:22,448 basehttp 2564 17412 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:23:40,300 autoreload 4764 18204 Watching for file changes with StatReloader
+INFO 2025-09-18 21:23:46,749 middleware 2564 20408 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:23:46,755 basehttp 2564 20408 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34368
+INFO 2025-09-18 21:23:46,840 basehttp 2564 20408 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:23:46,853 basehttp 2564 17784 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:23:46,865 basehttp 2564 20408 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:23:46,876 basehttp 2564 17748 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:23:46,891 basehttp 2564 17748 "GET /api/biometric/status/ HTTP/1.1" 200 75
+ERROR 2025-09-18 21:23:49,116 log 2564 9876 Internal Server Error: /payroll/
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 505, in parse
+    compile_func = self.tags[command]
+KeyError: 'else'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 64, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\payroll\views.py", line 14, in dashboard
+    return render(request, 'payroll/dashboard.html', {'recent_slips': slips})
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 24, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader.py", line 15, in get_template
+    return engine.get_template(template_name)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\backends\django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\engine.py", line 175, in get_template
+    template, origin = self.find_template(template_name)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\engine.py", line 157, in find_template
+    template = loader.get_template(name, skip=skip)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 200, in compile_nodelist
+    return parser.parse()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\defaulttags.py", line 953, in do_if
+    nodelist = parser.parse(("elif", "else", "endif"))
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 513, in parse
+    raise self.error(token, e)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 511, in parse
+    compiled_result = compile_func(self, token)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\loader_tags.py", line 293, in do_extends
+    nodelist = parser.parse()
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 507, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\template\base.py", line 568, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 3: 'else'. Did you forget to register or load this tag?
+ERROR 2025-09-18 21:23:49,121 basehttp 2564 9876 "GET /payroll/ HTTP/1.1" 500 199527
+INFO 2025-09-18 21:23:49,276 basehttp 2564 9876 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:24:41,314 autoreload 4272 12468 Watching for file changes with StatReloader
+INFO 2025-09-18 21:26:37,078 autoreload 17688 12672 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:26:37,734 autoreload 17664 13248 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:26:37,989 autoreload 4764 18204 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:26:38,063 autoreload 2564 19668 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:26:38,201 autoreload 4272 12468 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:26:39,706 autoreload 11484 1152 Watching for file changes with StatReloader
+INFO 2025-09-18 21:26:40,232 autoreload 19976 12588 Watching for file changes with StatReloader
+INFO 2025-09-18 21:26:40,305 autoreload 7160 13264 Watching for file changes with StatReloader
+INFO 2025-09-18 21:26:40,546 autoreload 17632 5548 Watching for file changes with StatReloader
+INFO 2025-09-18 21:26:40,583 autoreload 19580 15228 Watching for file changes with StatReloader
+INFO 2025-09-18 21:28:30,448 basehttp 11484 9468 "GET /payroll/ HTTP/1.1" 200 10553
+INFO 2025-09-18 21:28:30,533 basehttp 11484 9468 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:33,588 middleware 11484 9468 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:33,598 basehttp 11484 9468 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34368
+INFO 2025-09-18 21:28:33,689 basehttp 11484 9468 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:28:33,701 basehttp 11484 9488 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:33,715 basehttp 11484 9468 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 21:28:33,725 basehttp 11484 18540 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:28:33,745 basehttp 11484 18540 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 21:28:35,303 middleware 11484 18540 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:35,309 basehttp 11484 18540 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-18 21:28:35,375 basehttp 11484 18540 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:38,403 basehttp 11484 18540 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:39,637 middleware 11484 17724 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:39,639 decorators 11484 17724 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 21:28:39,668 basehttp 11484 17724 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-18 21:28:39,742 basehttp 11484 17724 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:42,464 decorators 11484 17724 Audit: logout - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 21:28:42,472 views 11484 17724 User logged out: admin
+INFO 2025-09-18 21:28:42,475 basehttp 11484 17724 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:28:42,503 basehttp 11484 17724 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 21:28:42,622 basehttp 11484 17724 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:46,825 views 11484 17724 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-18 21:28:46,832 basehttp 11484 17724 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:28:46,846 middleware 11484 17724 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:46,846 decorators 11484 17724 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 21:28:46,882 basehttp 11484 17724 "GET /hr-dashboard/ HTTP/1.1" 200 16923
+INFO 2025-09-18 21:28:46,971 basehttp 11484 17724 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:48,690 basehttp 11484 17724 "GET /payroll/ HTTP/1.1" 200 11033
+INFO 2025-09-18 21:28:48,764 basehttp 11484 17724 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:50,268 middleware 11484 19548 Access: /hr-dashboard/biometric/attendance/dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:50,538 basehttp 11484 19548 "GET /hr-dashboard/biometric/attendance/dashboard/ HTTP/1.1" 200 506814
+INFO 2025-09-18 21:28:51,057 basehttp 11484 19548 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:52,474 middleware 11484 19548 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:28:52,500 basehttp 11484 19548 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38885
+INFO 2025-09-18 21:28:52,589 basehttp 11484 19548 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:28:52,670 basehttp 11484 19548 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 21:28:52,697 basehttp 11484 5900 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 21:28:58,218 decorators 11484 5900 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 21:28:58,226 views 11484 5900 User logged out: Raveen
+INFO 2025-09-18 21:28:58,230 basehttp 11484 5900 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:28:58,250 basehttp 11484 5900 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 21:28:58,326 basehttp 11484 5900 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:29:09,656 views 11484 8892 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-18 21:29:09,665 basehttp 11484 8892 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 21:29:09,678 middleware 11484 8892 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:29:09,679 decorators 11484 8892 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-18 21:29:09,717 basehttp 11484 8892 "GET /employee-portal/ HTTP/1.1" 200 20469
+INFO 2025-09-18 21:29:09,837 middleware 11484 8892 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:29:09,854 basehttp 11484 8892 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-18 21:29:09,864 basehttp 11484 4836 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:29:12,383 middleware 11484 8088 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:29:12,517 basehttp 11484 8088 "GET /employee-portal/payslips/ HTTP/1.1" 200 13390
+INFO 2025-09-18 21:29:12,901 basehttp 11484 8088 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:29:16,210 middleware 11484 10704 Access: /employee-portal/leave-requests/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 21:29:16,691 basehttp 11484 10704 "GET /employee-portal/leave-requests/ HTTP/1.1" 200 12439
+INFO 2025-09-18 21:29:17,015 basehttp 11484 10704 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 21:29:24,640 autoreload 11484 1152 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:29:25,083 autoreload 19580 15228 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:29:26,131 autoreload 19976 12588 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:29:26,988 autoreload 7160 13264 D:\VISHNRX\SM Product\hr_wallet\payroll\views.py changed, reloading.
+INFO 2025-09-18 21:29:36,470 autoreload 19452 20332 Watching for file changes with StatReloader
+INFO 2025-09-18 21:29:37,469 autoreload 8504 19556 Watching for file changes with StatReloader
+INFO 2025-09-18 21:29:37,511 autoreload 17016 3516 Watching for file changes with StatReloader
+INFO 2025-09-18 21:29:37,783 autoreload 18456 20200 Watching for file changes with StatReloader

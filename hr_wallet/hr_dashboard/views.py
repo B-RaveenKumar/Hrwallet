@@ -53,7 +53,11 @@ def manage_employees(request):
     """Manage Employees with optimized queries and error handling"""
     try:
         # Use select_related for all related objects to avoid N+1 queries
-        employees = Employee.objects.filter(is_active=True).select_related(
+        # Filter by company for security
+        employees = Employee.objects.filter(
+            is_active=True, 
+            company=request.user.company
+        ).select_related(
             'user', 'department', 'company'
         ).order_by('employee_id')
 

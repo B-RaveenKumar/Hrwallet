@@ -11,13 +11,15 @@ from .models import EmployeeSalary, PaySlip
 @login_required
 def dashboard(request):
     slips = PaySlip.objects.order_by('-pay_period_end')[:20]
-    return render(request, 'payroll/dashboard.html', {'recent_slips': slips})
+    template_name = 'payroll/admin_dashboard.html' if request.user.role == 'super_admin' else 'payroll/dashboard.html'
+    return render(request, template_name, {'recent_slips': slips})
 
 @require_roles('super_admin', 'hr_manager')
 @login_required
 def list_salaries(request):
     salaries = EmployeeSalary.objects.select_related('employee__user').order_by('-effective_date')
-    return render(request, 'payroll/salaries.html', {'salaries': salaries})
+    template_name = 'payroll/admin_salaries.html' if request.user.role == 'super_admin' else 'payroll/salaries.html'
+    return render(request, template_name, {'salaries': salaries})
 
 @require_roles('super_admin', 'hr_manager')
 @login_required
@@ -30,18 +32,21 @@ def edit_salary(request, employee_id):
         sal.updated_by = request.user
         sal.save()
         return redirect('payroll:salaries')
-    return render(request, 'payroll/edit_salary.html', {'employee': emp, 'salary': sal})
+    template_name = 'payroll/admin_edit_salary.html' if request.user.role == 'super_admin' else 'payroll/edit_salary.html'
+    return render(request, template_name, {'employee': emp, 'salary': sal})
 
 @login_required
 def list_payslips(request):
     if request.user.role in ('super_admin', 'hr_manager'):
         slips = PaySlip.objects.select_related('employee__user').order_by('-pay_period_end')
+        template_name = 'payroll/admin_payslips_list.html' if request.user.role == 'super_admin' else 'payroll/payslips_list.html'
     else:
         emp = getattr(request.user, 'employee', None)
         if not emp:
             return HttpResponseForbidden()
         slips = PaySlip.objects.filter(employee=emp).order_by('-pay_period_end')
-    return render(request, 'payroll/payslips_list.html', {'slips': slips})
+        template_name = 'payroll/payslips_list.html'
+    return render(request, template_name, {'slips': slips})
 
 @login_required
 def view_payslip_pdf(request, pk):

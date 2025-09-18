@@ -202,14 +202,10 @@ class BiometricEventSerializer(serializers.ModelSerializer):
         instance.save()
         # Log audit (could be to a model or external system)
         if user:
-            from core_hr.models import AuditLog
-            AuditLog.objects.create(
-                user=user,
-                action='edit_biometric_event',
-                object_id=instance.id,
-                object_type='BiometricEvent',
-                changes=old_data,
-                timestamp=timezone.now()
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.info(
+                f"User {user.username} edited BiometricEvent {instance.id}: {old_data}"
             )
         return instance
 
@@ -239,13 +235,9 @@ class BiometricUserMapCorrectionSerializer(serializers.ModelSerializer):
             setattr(instance, attr, value)
         instance.save()
         if user:
-            from core_hr.models import AuditLog
-            AuditLog.objects.create(
-                user=user,
-                action='edit_biometric_user_map',
-                object_id=instance.id,
-                object_type='BiometricUserMap',
-                changes=old_data,
-                timestamp=timezone.now()
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.info(
+                f"User {user.username} edited BiometricUserMap {instance.id}: {old_data}"
             )
         return instance

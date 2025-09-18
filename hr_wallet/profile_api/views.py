@@ -11,7 +11,8 @@ from core_hr.models import Employee, Department, LeaveBalance, Attendance, Biome
 from .serializers import (
     EmployeeCreateSerializer, HRCreateSerializer,
     EmployeeListSerializer, HRListSerializer, DepartmentSerializer,
-    BiometricEventSerializer, BiometricEventBulkEditSerializer, BiometricUserMapCorrectionSerializer
+    BiometricEventSerializer, BiometricEventBulkEditSerializer, BiometricUserMapCorrectionSerializer,
+    EmployeeDetailSerializer
 )
 import logging
 

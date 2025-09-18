@@ -1,0 +1,31 @@
+{% extends 'admin_panel/base.html' %}
+{% block title %}Payslips{% endblock %}
+{% block page_title %}Payslips{% endblock %}
+{% block content %}
+<div class="card">
+  <div class="card-header"><i class="bi bi-receipt me-2"></i>Payslips</div>
+  <div class="card-body">
+    <div class="table-responsive">
+      <table class="table table-striped">
+        <thead><tr><th>Employee</th><th>Period</th><th>Gross</th><th>Deductions</th><th>Net</th><th></th></tr></thead>
+        <tbody>
+          {% for p in slips %}
+          <tr>
+            <td>{{ p.employee }}</td>
+            <td>{{ p.pay_period_start }} to {{ p.pay_period_end }}</td>
+            <td>{{ p.gross_pay }}</td>
+            <td>{{ p.total_deductions }}</td>
+            <td>{{ p.net_pay }}</td>
+            <td>
+              <a class="btn btn-sm btn-outline-primary" href="{% url 'payroll:payslip_pdf' p.id %}"><i class="bi bi-file-earmark-pdf"></i> PDF</a>
+            </td>
+          </tr>
+          {% empty %}
+          <tr><td colspan="6" class="text-center text-muted">No payslips.</td></tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+{% endblock %}

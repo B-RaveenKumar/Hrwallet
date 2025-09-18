@@ -1,0 +1,8 @@
+{% comment %}
+Base template for payroll that handles role-based inheritance
+{% endcomment %}
+{% if user.role == 'super_admin' %}
+  {% include 'payroll/admin_payroll_base.html' %}
+{% else %}
+  {% include 'payroll/hr_payroll_base.html' %}
+{% endif %}
