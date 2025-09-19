@@ -14783,3 +14783,76 @@ INFO 2025-09-19 20:31:56,279 basehttp 15460 884 "GET /admin-panel/ HTTP/1.1" 200
 INFO 2025-09-19 20:31:56,372 basehttp 15460 884 "GET /favicon.ico HTTP/1.1" 204 0
 INFO 2025-09-19 20:32:06,848 basehttp 15460 884 "GET /admin/ HTTP/1.1" 200 13515
 INFO 2025-09-19 20:32:06,941 basehttp 15460 884 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:01,120 autoreload 13852 10608 Watching for file changes with StatReloader
+INFO 2025-09-19 21:13:06,691 basehttp 13852 20232 "GET /admin/ HTTP/1.1" 200 13515
+INFO 2025-09-19 21:13:06,776 basehttp 13852 20232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:10,131 basehttp 13852 20232 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:10,142 basehttp 13852 20232 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:10,161 basehttp 13852 20232 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 21:13:10,386 basehttp 13852 20232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:16,787 views 13852 20232 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-19 21:13:16,794 basehttp 13852 20232 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:16,806 middleware 13852 20232 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:16,807 decorators 13852 20232 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:16,828 basehttp 13852 20232 "GET /employee-portal/ HTTP/1.1" 200 20793
+INFO 2025-09-19 21:13:16,926 middleware 13852 20232 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:16,941 basehttp 13852 20232 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 21:13:16,949 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:19,052 middleware 13852 16780 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:19,068 basehttp 13852 16780 "GET /employee-portal/payslips/ HTTP/1.1" 200 13728
+INFO 2025-09-19 21:13:19,157 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:23,701 middleware 13852 16780 Access: /employee-portal/leave-requests/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:23,761 basehttp 13852 16780 "GET /employee-portal/leave-requests/ HTTP/1.1" 200 12763
+INFO 2025-09-19 21:13:23,854 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:25,260 middleware 13852 16780 Access: /employee-portal/attendance/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:25,288 basehttp 13852 16780 "GET /employee-portal/attendance/ HTTP/1.1" 200 14124
+INFO 2025-09-19 21:13:25,378 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:26,630 middleware 13852 16780 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:26,646 basehttp 13852 16780 "GET /employee-portal/payslips/ HTTP/1.1" 200 13728
+INFO 2025-09-19 21:13:26,721 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:28,687 middleware 13852 16780 Access: /employee-portal/profile/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:28,696 basehttp 13852 16780 "GET /employee-portal/profile/ HTTP/1.1" 200 13785
+INFO 2025-09-19 21:13:28,793 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:31,925 middleware 13852 16780 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:31,927 decorators 13852 16780 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:31,938 basehttp 13852 16780 "GET /employee-portal/ HTTP/1.1" 200 20793
+INFO 2025-09-19 21:13:32,027 middleware 13852 16780 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:32,033 basehttp 13852 20232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:32,042 basehttp 13852 16780 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 21:13:33,558 decorators 13852 16780 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:33,567 views 13852 16780 User logged out: Velu
+INFO 2025-09-19 21:13:33,569 basehttp 13852 16780 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:33,584 basehttp 13852 16780 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 21:13:33,682 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:38,157 views 13852 16780 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 21:13:38,164 basehttp 13852 16780 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:38,180 middleware 13852 16780 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:38,181 decorators 13852 16780 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:38,218 basehttp 13852 16780 "GET /hr-dashboard/ HTTP/1.1" 200 17487
+INFO 2025-09-19 21:13:38,316 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:41,410 middleware 13852 16780 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:41,411 decorators 13852 16780 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:41,437 basehttp 13852 16780 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:13:41,452 middleware 13852 16780 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:41,453 decorators 13852 16780 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:13:41,472 basehttp 13852 16780 "GET /hr-dashboard/ HTTP/1.1" 200 17895
+INFO 2025-09-19 21:13:41,546 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:43,529 basehttp 13852 16780 "GET /payroll/ HTTP/1.1" 200 11832
+INFO 2025-09-19 21:13:43,609 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:45,467 middleware 13852 16780 Access: /hr-dashboard/biometric/attendance/dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:45,675 basehttp 13852 16780 "GET /hr-dashboard/biometric/attendance/dashboard/ HTTP/1.1" 200 507378
+INFO 2025-09-19 21:13:46,173 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:47,349 middleware 13852 16780 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:47,372 basehttp 13852 16780 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39744
+INFO 2025-09-19 21:13:47,493 basehttp 13852 16780 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:47,567 basehttp 13852 16780 "GET /api/departments/ HTTP/1.1" 200 332
+ERROR 2025-09-19 21:13:47,576 log 13852 20232 Internal Server Error: /api/employees/list/
+ERROR 2025-09-19 21:13:47,578 basehttp 13852 20232 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 500 74
+INFO 2025-09-19 21:13:52,181 middleware 13852 20232 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:13:52,197 basehttp 13852 20232 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39744
+INFO 2025-09-19 21:13:52,275 basehttp 13852 20232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:13:52,389 basehttp 13852 20232 "GET /api/departments/ HTTP/1.1" 200 332
+ERROR 2025-09-19 21:13:52,391 log 13852 16780 Internal Server Error: /api/employees/list/
+ERROR 2025-09-19 21:13:52,392 basehttp 13852 16780 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 500 74
+INFO 2025-09-19 21:14:04,883 autoreload 13852 10608 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 21:14:07,258 autoreload 17212 9052 Watching for file changes with StatReloader
