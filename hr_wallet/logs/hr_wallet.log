@@ -13318,3 +13318,923 @@ INFO 2025-09-18 21:29:36,470 autoreload 19452 20332 Watching for file changes wi
 INFO 2025-09-18 21:29:37,469 autoreload 8504 19556 Watching for file changes with StatReloader
 INFO 2025-09-18 21:29:37,511 autoreload 17016 3516 Watching for file changes with StatReloader
 INFO 2025-09-18 21:29:37,783 autoreload 18456 20200 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:14,341 autoreload 8504 19556 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:15,148 autoreload 17016 3516 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:15,209 autoreload 19452 20332 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:15,187 autoreload 18456 20200 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:18,479 autoreload 20304 932 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:18,488 autoreload 12508 8932 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:18,493 autoreload 12392 18156 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:18,503 autoreload 3960 1744 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:26,752 autoreload 12508 8932 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:26,766 autoreload 12392 18156 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:26,794 autoreload 20304 932 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:26,850 autoreload 3960 1744 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:35:28,448 autoreload 18436 13480 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:28,486 autoreload 20204 17632 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:28,502 autoreload 19264 8620 Watching for file changes with StatReloader
+INFO 2025-09-18 21:35:28,523 autoreload 17428 19364 Watching for file changes with StatReloader
+INFO 2025-09-18 21:36:08,775 autoreload 19264 8620 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:36:09,587 autoreload 18436 13480 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:36:09,756 autoreload 20204 17632 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:36:09,853 autoreload 17428 19364 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:36:10,975 autoreload 1156 13128 Watching for file changes with StatReloader
+INFO 2025-09-18 21:36:11,425 autoreload 19440 19340 Watching for file changes with StatReloader
+INFO 2025-09-18 21:36:11,589 autoreload 19160 2072 Watching for file changes with StatReloader
+INFO 2025-09-18 21:36:11,638 autoreload 4040 19528 Watching for file changes with StatReloader
+INFO 2025-09-18 21:41:59,453 autoreload 19440 19340 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:41:59,465 autoreload 1156 13128 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:41:59,711 autoreload 19160 2072 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:41:59,770 autoreload 4040 19528 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:01,192 autoreload 9920 20412 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:01,222 autoreload 2604 1520 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:01,291 autoreload 18500 13428 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:01,312 autoreload 19516 18376 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:22,566 autoreload 9920 20412 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:22,569 autoreload 2604 1520 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:22,599 autoreload 18500 13428 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:22,604 autoreload 19516 18376 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:24,367 autoreload 6888 18916 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:24,377 autoreload 10124 17380 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:24,382 autoreload 9616 16748 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:24,438 autoreload 18476 9380 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:32,195 autoreload 10124 17380 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:32,197 autoreload 6888 18916 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:32,207 autoreload 9616 16748 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:32,210 autoreload 18476 9380 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 21:42:34,280 autoreload 19260 11748 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:34,282 autoreload 1068 13872 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:34,297 autoreload 7040 13592 Watching for file changes with StatReloader
+INFO 2025-09-18 21:42:34,315 autoreload 17204 19460 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:41,415 autoreload 7040 13592 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:41,620 autoreload 17204 19460 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:41,620 autoreload 19260 11748 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:41,802 autoreload 1068 13872 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:43,530 autoreload 17436 20372 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:43,717 autoreload 4916 1152 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:43,745 autoreload 13364 17392 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:43,836 autoreload 13764 17412 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:48,851 autoreload 17436 20372 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:49,098 autoreload 13364 17392 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:49,170 autoreload 4916 1152 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:49,202 autoreload 13764 17412 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:50,818 autoreload 4964 13000 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:50,966 autoreload 7632 19124 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:51,012 autoreload 18212 7144 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:51,037 autoreload 8476 2604 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:57,262 autoreload 18212 7144 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:57,277 autoreload 8476 2604 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:58,136 autoreload 4964 13000 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:58,404 autoreload 7632 19124 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:08:59,609 autoreload 8896 18088 Watching for file changes with StatReloader
+INFO 2025-09-18 22:08:59,612 autoreload 9920 20328 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:00,047 autoreload 6600 18308 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:00,278 autoreload 18196 13548 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:03,758 autoreload 8896 18088 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:03,759 autoreload 9920 20328 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:04,026 autoreload 6600 18308 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:04,120 autoreload 18196 13548 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:06,321 autoreload 1180 15088 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:06,349 autoreload 8008 15652 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:06,425 autoreload 10760 18584 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:06,525 autoreload 19148 17588 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:12,660 autoreload 1180 15088 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:12,680 autoreload 8008 15652 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:12,724 autoreload 10760 18584 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:12,754 autoreload 19148 17588 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:14,556 autoreload 4748 20000 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:14,579 autoreload 1308 9680 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:14,602 autoreload 16888 8248 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:14,604 autoreload 6496 18556 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:22,067 autoreload 16888 8248 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:22,080 autoreload 4748 20000 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:22,112 autoreload 6496 18556 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:22,147 autoreload 1308 9680 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:09:24,284 autoreload 11592 10776 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:24,289 autoreload 3092 8720 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:24,311 autoreload 16896 20308 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:24,330 autoreload 19816 11864 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:34,138 autoreload 11592 10776 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:09:34,192 autoreload 3092 8720 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:09:34,229 autoreload 16896 20308 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:09:34,252 autoreload 19816 11864 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:09:36,101 autoreload 13112 11068 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:36,128 autoreload 16432 5140 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:36,139 autoreload 19228 10680 Watching for file changes with StatReloader
+INFO 2025-09-18 22:09:36,143 autoreload 11676 11872 Watching for file changes with StatReloader
+INFO 2025-09-18 22:10:05,945 autoreload 19228 10680 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:10:06,052 autoreload 16432 5140 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:10:06,125 autoreload 13112 11068 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:10:06,199 autoreload 11676 11872 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:10:07,508 autoreload 18196 18716 Watching for file changes with StatReloader
+INFO 2025-09-18 22:10:07,673 autoreload 15620 17600 Watching for file changes with StatReloader
+INFO 2025-09-18 22:10:07,722 autoreload 9256 11624 Watching for file changes with StatReloader
+INFO 2025-09-18 22:10:07,760 autoreload 19060 3368 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:21,398 autoreload 18196 18716 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:21,405 autoreload 15620 17600 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:21,487 autoreload 9256 11624 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:21,571 autoreload 19060 3368 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:23,173 autoreload 2428 17780 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:23,176 autoreload 17684 5596 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:23,309 autoreload 14252 18472 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:23,500 autoreload 19340 14964 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:33,993 autoreload 2428 17780 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:34,016 autoreload 17684 5596 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:34,078 autoreload 19340 14964 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:34,087 autoreload 14252 18472 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:11:36,069 autoreload 19356 4964 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:36,089 autoreload 3576 3980 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:36,089 autoreload 14748 10632 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:36,102 autoreload 2152 20276 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:55,569 autoreload 14748 10632 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:11:55,693 autoreload 2152 20276 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:11:55,700 autoreload 19356 4964 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:11:55,736 autoreload 3576 3980 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-18 22:11:58,049 autoreload 5140 16432 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:58,072 autoreload 11068 13112 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:58,148 autoreload 16624 17788 Watching for file changes with StatReloader
+INFO 2025-09-18 22:11:58,168 autoreload 18896 18112 Watching for file changes with StatReloader
+INFO 2025-09-18 22:12:33,087 autoreload 18896 18112 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:12:33,919 autoreload 5140 16432 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:12:33,983 autoreload 11068 13112 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:12:34,153 autoreload 16624 17788 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:12:34,948 autoreload 1428 8508 Watching for file changes with StatReloader
+INFO 2025-09-18 22:12:35,716 autoreload 13928 10204 Watching for file changes with StatReloader
+INFO 2025-09-18 22:12:35,837 autoreload 2804 19232 Watching for file changes with StatReloader
+INFO 2025-09-18 22:12:35,897 autoreload 12960 16844 Watching for file changes with StatReloader
+INFO 2025-09-18 22:17:52,851 decorators 1428 14672 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-18 22:17:52,863 views 1428 14672 User logged out: Velu
+INFO 2025-09-18 22:17:52,893 basehttp 1428 14672 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:17:52,944 basehttp 1428 14672 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 22:17:53,367 basehttp 1428 14672 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:17:59,030 views 1428 4752 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-18 22:17:59,036 basehttp 1428 4752 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:17:59,050 middleware 1428 4752 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:17:59,052 decorators 1428 4752 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 22:17:59,095 basehttp 1428 4752 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-18 22:17:59,203 basehttp 1428 4752 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:01,562 basehttp 1428 4752 "GET /payroll/ HTTP/1.1" 200 10553
+INFO 2025-09-18 22:18:01,655 basehttp 1428 4752 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:03,328 middleware 1428 4752 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:03,332 basehttp 1428 4752 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-18 22:18:03,404 basehttp 1428 4752 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:06,272 basehttp 1428 17708 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:08,336 middleware 1428 17708 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:08,345 basehttp 1428 17708 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34368
+INFO 2025-09-18 22:18:08,431 basehttp 1428 17708 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 22:18:08,465 basehttp 1428 17708 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-18 22:18:08,484 basehttp 1428 20100 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:08,489 basehttp 1428 8664 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 22:18:08,507 basehttp 1428 8664 "GET /api/biometric/status/ HTTP/1.1" 200 75
+INFO 2025-09-18 22:18:10,162 middleware 1428 8664 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:10,163 decorators 1428 8664 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 22:18:10,178 basehttp 1428 8664 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-18 22:18:10,251 basehttp 1428 8664 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:11,653 middleware 1428 8664 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:11,666 basehttp 1428 8664 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15266
+INFO 2025-09-18 22:18:11,745 basehttp 1428 8664 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:14,816 decorators 1428 8664 Audit: logout - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-18 22:18:14,824 views 1428 8664 User logged out: admin
+INFO 2025-09-18 22:18:14,826 basehttp 1428 8664 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:18:14,843 basehttp 1428 8664 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 22:18:14,911 basehttp 1428 8664 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:19,659 views 1428 11668 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-18 22:18:19,667 basehttp 1428 11668 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:18:19,681 middleware 1428 11668 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:19,681 decorators 1428 11668 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 22:18:19,718 basehttp 1428 11668 "GET /hr-dashboard/ HTTP/1.1" 200 16923
+INFO 2025-09-18 22:18:19,817 basehttp 1428 11668 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:21,971 basehttp 1428 11668 "GET /payroll/ HTTP/1.1" 200 11033
+INFO 2025-09-18 22:18:22,047 basehttp 1428 11668 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:24,637 middleware 1428 11668 Access: /hr-dashboard/departments/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:24,705 basehttp 1428 11668 "GET /hr-dashboard/departments/ HTTP/1.1" 200 21931
+INFO 2025-09-18 22:18:24,798 basehttp 1428 11668 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 22:18:24,798 basehttp 1428 5256 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:26,518 middleware 1428 19248 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:26,538 basehttp 1428 19248 "GET /hr-dashboard/employees/ HTTP/1.1" 200 38885
+INFO 2025-09-18 22:18:26,628 basehttp 1428 19248 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:26,702 basehttp 1428 19248 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-18 22:18:26,720 basehttp 1428 13080 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-18 22:18:29,877 basehttp 1428 13080 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-18 22:18:33,955 decorators 1428 13080 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-18 22:18:33,965 views 1428 13080 User logged out: Raveen
+INFO 2025-09-18 22:18:33,967 basehttp 1428 13080 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:18:33,986 basehttp 1428 13080 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-18 22:18:34,053 basehttp 1428 13080 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:39,025 views 1428 13004 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-18 22:18:39,031 basehttp 1428 13004 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-18 22:18:39,044 middleware 1428 13004 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:39,045 decorators 1428 13004 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-18 22:18:39,064 basehttp 1428 13004 "GET /employee-portal/ HTTP/1.1" 200 20469
+INFO 2025-09-18 22:18:39,153 middleware 1428 13004 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:39,173 basehttp 1428 13004 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-18 22:18:39,178 basehttp 1428 12332 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:42,512 middleware 1428 12332 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:42,530 basehttp 1428 12332 "GET /employee-portal/payslips/ HTTP/1.1" 200 13390
+INFO 2025-09-18 22:18:42,615 basehttp 1428 12332 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:18:45,557 middleware 1428 15356 Access: /employee-portal/leave-requests/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-18 22:18:45,574 basehttp 1428 15356 "GET /employee-portal/leave-requests/ HTTP/1.1" 200 12439
+INFO 2025-09-18 22:18:45,644 basehttp 1428 15356 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-18 22:30:18,580 autoreload 2804 19232 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 22:30:18,799 autoreload 13928 10204 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-18 22:30:18,953 autoreload 12960 16844 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 22:30:19,121 autoreload 1428 8508 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-18 22:30:22,343 autoreload 10560 3980 Watching for file changes with StatReloader
+INFO 2025-09-18 22:30:22,405 autoreload 7136 19612 Watching for file changes with StatReloader
+INFO 2025-09-18 22:30:22,599 autoreload 6948 7852 Watching for file changes with StatReloader
+INFO 2025-09-18 22:30:22,622 autoreload 12540 16752 Watching for file changes with StatReloader
+INFO 2025-09-19 17:19:03,011 autoreload 13056 15692 Watching for file changes with StatReloader
+INFO 2025-09-19 17:19:56,044 autoreload 10520 17156 Watching for file changes with StatReloader
+INFO 2025-09-19 17:20:41,900 autoreload 18896 8948 Watching for file changes with StatReloader
+INFO 2025-09-19 17:21:17,014 autoreload 11320 9924 Watching for file changes with StatReloader
+INFO 2025-09-19 17:21:57,061 basehttp 11320 17544 "GET / HTTP/1.1" 302 0
+INFO 2025-09-19 17:21:57,431 basehttp 11320 19852 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:22:00,185 basehttp 11320 19852 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:22:00,566 basehttp 11320 4232 "GET / HTTP/1.1" 302 0
+INFO 2025-09-19 17:22:00,692 basehttp 11320 4232 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:22:01,662 basehttp 11320 4232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:02,891 basehttp 11320 4232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:02,978 basehttp 11320 4232 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:08,999 views 11320 19640 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 17:22:09,008 basehttp 11320 19640 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:22:09,037 middleware 11320 19640 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:09,042 decorators 11320 19640 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:22:09,149 basehttp 11320 19640 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-19 17:22:09,389 basehttp 11320 19640 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:14,560 basehttp 11320 15796 "GET /payroll/ HTTP/1.1" 200 10553
+INFO 2025-09-19 17:22:14,668 basehttp 11320 15796 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:28,752 middleware 11320 10756 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:28,769 basehttp 11320 10756 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34368
+INFO 2025-09-19 17:22:28,869 basehttp 11320 10756 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-19 17:22:28,903 basehttp 11320 10756 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-19 17:22:28,904 basehttp 11320 17180 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:28,937 basehttp 11320 7328 "GET /api/biometric/status/ HTTP/1.1" 200 74
+INFO 2025-09-19 17:22:28,965 basehttp 11320 7328 "GET /api/biometric/status/ HTTP/1.1" 200 74
+INFO 2025-09-19 17:22:30,797 middleware 11320 9644 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:30,802 basehttp 11320 9644 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-19 17:22:30,905 basehttp 11320 9644 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:33,111 basehttp 11320 9644 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:34,557 middleware 11320 9644 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:34,572 basehttp 11320 9644 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15266
+INFO 2025-09-19 17:22:34,688 basehttp 11320 9644 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:39,250 decorators 11320 7012 Audit: logout - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:22:39,262 views 11320 7012 User logged out: admin
+INFO 2025-09-19 17:22:39,266 basehttp 11320 7012 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:22:39,288 basehttp 11320 7012 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 17:22:39,398 basehttp 11320 7012 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:43,664 views 11320 13816 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 17:22:43,670 basehttp 11320 13816 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:22:43,689 middleware 11320 13816 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:43,691 decorators 11320 13816 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:22:43,728 basehttp 11320 13816 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:22:43,816 basehttp 11320 13816 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:48,550 middleware 11320 13816 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:22:48,565 basehttp 11320 13816 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39125
+INFO 2025-09-19 17:22:48,652 basehttp 11320 13816 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:22:48,736 basehttp 11320 13816 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-19 17:22:48,744 basehttp 11320 18880 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-19 17:22:52,142 basehttp 11320 10064 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-19 17:22:55,545 basehttp 11320 10064 "GET /api/employees/17/ HTTP/1.1" 200 651
+INFO 2025-09-19 17:23:03,508 middleware 11320 12948 Access: /hr-dashboard/employees/create/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:23:03,519 basehttp 11320 12948 "GET /hr-dashboard/employees/create/ HTTP/1.1" 200 29714
+INFO 2025-09-19 17:23:03,608 basehttp 11320 12948 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:23:24,869 middleware 11320 5200 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:23:24,870 decorators 11320 5200 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+ERROR 2025-09-19 17:23:25,131 log 11320 5200 Internal Server Error: /hr-dashboard/profile/
+Traceback (most recent call last):
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 538, in hr_profile
+    from accounts.models import AuditLog
+ImportError: cannot import name 'AuditLog' from 'accounts.models' (D:\VISHNRX\SM Product\hr_wallet\accounts\models.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 37, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 127, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 586, in hr_profile
+    return redirect('hr_dashboard:dashboard')
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+ERROR 2025-09-19 17:23:25,136 basehttp 11320 5200 "GET /hr-dashboard/profile/ HTTP/1.1" 500 112475
+INFO 2025-09-19 17:23:25,374 basehttp 11320 5200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:23:29,253 basehttp 11320 5200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:23:30,760 basehttp 11320 14188 "GET /payroll/ HTTP/1.1" 200 11767
+INFO 2025-09-19 17:23:30,865 basehttp 11320 14188 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:23:33,559 middleware 11320 14188 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:23:33,559 decorators 11320 14188 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+ERROR 2025-09-19 17:23:33,628 log 11320 14188 Internal Server Error: /hr-dashboard/profile/
+Traceback (most recent call last):
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 538, in hr_profile
+    from accounts.models import AuditLog
+ImportError: cannot import name 'AuditLog' from 'accounts.models' (D:\VISHNRX\SM Product\hr_wallet\accounts\models.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 37, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 127, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 586, in hr_profile
+    return redirect('hr_dashboard:dashboard')
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+ERROR 2025-09-19 17:23:33,631 basehttp 11320 14188 "GET /hr-dashboard/profile/ HTTP/1.1" 500 112453
+INFO 2025-09-19 17:23:33,756 basehttp 11320 14188 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:27:40,255 autoreload 14348 4124 Watching for file changes with StatReloader
+INFO 2025-09-19 17:27:45,347 basehttp 14348 6772 "GET /payroll/ HTTP/1.1" 200 11767
+WARNING 2025-09-19 17:27:45,428 log 14348 18772 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:27:45,429 basehttp 14348 18772 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:27:45,757 basehttp 14348 6772 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:27:48,524 middleware 14348 6772 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:27:48,525 decorators 14348 6772 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+ERROR 2025-09-19 17:27:48,604 log 14348 6772 Internal Server Error: /hr-dashboard/profile/
+Traceback (most recent call last):
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 538, in hr_profile
+    from accounts.models import AuditLog
+ImportError: cannot import name 'AuditLog' from 'accounts.models' (D:\VISHNRX\SM Product\hr_wallet\accounts\models.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 37, in _wrapped_view
+    return view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\accounts\decorators.py", line 127, in _wrapped_view
+    response = view_func(request, *args, **kwargs)
+  File "D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py", line 586, in hr_profile
+    return redirect('hr_dashboard:dashboard')
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 48, in redirect
+    return redirect_class(resolve_url(to, *args, **kwargs))
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\shortcuts.py", line 145, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\base.py", line 88, in reverse
+    return resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+  File "C:\Users\abn\AppData\Roaming\Python\Python310\site-packages\django\urls\resolvers.py", line 828, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'dashboard' not found. 'dashboard' is not a valid view function or pattern name.
+ERROR 2025-09-19 17:27:48,611 basehttp 14348 6772 "GET /hr-dashboard/profile/ HTTP/1.1" 500 112453
+WARNING 2025-09-19 17:27:48,699 log 14348 6772 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:27:48,703 basehttp 14348 6772 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:27:48,906 basehttp 14348 6772 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:29:26,630 autoreload 14348 4124 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 17:29:27,882 autoreload 14052 19088 Watching for file changes with StatReloader
+INFO 2025-09-19 17:30:04,531 autoreload 14052 19088 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 17:30:05,684 autoreload 11736 9576 Watching for file changes with StatReloader
+INFO 2025-09-19 17:31:27,617 autoreload 11736 9576 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 17:31:28,723 autoreload 13844 7784 Watching for file changes with StatReloader
+INFO 2025-09-19 17:31:50,289 autoreload 13844 7784 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 17:31:51,402 autoreload 13380 14208 Watching for file changes with StatReloader
+INFO 2025-09-19 17:32:50,259 autoreload 13380 14208 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 17:32:51,591 autoreload 10804 20408 Watching for file changes with StatReloader
+INFO 2025-09-19 17:32:58,330 autoreload 10804 20408 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 17:32:59,971 autoreload 10364 15560 Watching for file changes with StatReloader
+INFO 2025-09-19 17:33:11,889 autoreload 14028 2716 Watching for file changes with StatReloader
+INFO 2025-09-19 17:33:26,662 autoreload 16392 9100 Watching for file changes with StatReloader
+INFO 2025-09-19 17:33:46,990 autoreload 18872 13724 Watching for file changes with StatReloader
+INFO 2025-09-19 17:35:07,033 autoreload 7252 18248 Watching for file changes with StatReloader
+INFO 2025-09-19 17:35:43,891 autoreload 10840 6544 Watching for file changes with StatReloader
+INFO 2025-09-19 17:36:25,383 autoreload 20476 1424 Watching for file changes with StatReloader
+INFO 2025-09-19 17:36:55,468 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:36:55,473 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:36:55,624 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:36:55,648 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:36:55,649 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:36:55,687 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:36:56,157 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:36:59,983 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:36:59,984 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:00,012 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:00,031 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:00,035 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:00,056 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:00,138 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:02,278 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:02,279 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:02,301 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:02,309 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:02,310 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:02,336 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:02,408 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:04,038 middleware 18872 17484 Access: /hr-dashboard/biometric/attendance/dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:04,494 basehttp 18872 17484 "GET /hr-dashboard/biometric/attendance/dashboard/ HTTP/1.1" 200 507054
+INFO 2025-09-19 17:37:05,024 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:06,742 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:06,743 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:06,760 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:06,773 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:06,774 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:06,790 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:06,872 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:12,290 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:12,290 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:12,318 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:12,330 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:12,331 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:12,348 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:12,415 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:13,516 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:13,516 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:13,536 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:13,548 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:13,550 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:13,562 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:13,631 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:14,438 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:14,439 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:14,458 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:14,471 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:14,472 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:14,487 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:14,548 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:16,110 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:16,111 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:16,128 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:37:16,206 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:18,281 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:18,296 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:18,339 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:18,382 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:18,393 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:18,413 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:37:18,474 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:37:19,788 decorators 18872 17484 Audit: login_attempt - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:19,790 basehttp 18872 17484 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:37:19,799 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:37:19,800 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:37:19,816 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:37:20,123 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:38:29,952 middleware 18872 17484 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:29,953 decorators 18872 17484 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:38:29,978 basehttp 18872 17484 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:38:29,991 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:29,992 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:38:30,008 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:38:30,068 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:38:38,675 middleware 18872 17484 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:38,676 decorators 18872 17484 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:38:38,696 basehttp 18872 17484 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:38:38,753 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:38:42,701 decorators 18872 17484 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:38:42,708 views 18872 17484 User logged out: Raveen
+INFO 2025-09-19 17:38:42,710 basehttp 18872 17484 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:38:42,730 basehttp 18872 17484 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 17:38:42,821 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:38:47,515 views 18872 17484 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 17:38:47,521 basehttp 18872 17484 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:38:47,534 middleware 18872 17484 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:47,535 decorators 18872 17484 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:38:47,550 basehttp 18872 17484 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-19 17:38:47,632 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:38:49,752 middleware 18872 17484 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:49,755 basehttp 18872 17484 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-19 17:38:49,822 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-19 17:38:53,345 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:38:53,346 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:38:55,892 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-19 17:38:55,962 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:38:55,964 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+WARNING 2025-09-19 17:38:56,063 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:38:56,064 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:38:59,103 middleware 18872 17484 Access: /admin-panel/settings/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:38:59,118 basehttp 18872 17484 "GET /admin-panel/settings/ HTTP/1.1" 200 17815
+WARNING 2025-09-19 17:38:59,199 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:38:59,200 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:38:59,327 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:02,030 basehttp 18872 17484 "GET /payroll/ HTTP/1.1" 200 10553
+WARNING 2025-09-19 17:39:02,104 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:39:02,105 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:39:02,195 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:04,224 middleware 18872 17484 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:39:04,228 basehttp 18872 17484 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+WARNING 2025-09-19 17:39:04,310 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:39:04,312 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:39:04,341 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:16,210 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-19 17:39:16,241 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:39:16,245 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+WARNING 2025-09-19 17:39:16,318 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:39:16,320 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:39:17,788 middleware 18872 17484 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:39:17,789 decorators 18872 17484 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:39:17,799 basehttp 18872 17484 "GET /admin-panel/ HTTP/1.1" 200 17827
+WARNING 2025-09-19 17:39:17,879 log 18872 17484 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-09-19 17:39:17,880 basehttp 18872 17484 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3983
+INFO 2025-09-19 17:39:17,997 basehttp 18872 17484 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:21,939 basehttp 18872 17484 "GET /admin/ HTTP/1.1" 200 13193
+INFO 2025-09-19 17:39:22,008 basehttp 18872 17484 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,013 basehttp 18872 8868 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,013 basehttp 18872 20092 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,015 basehttp 18872 8860 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,017 basehttp 18872 13616 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,017 basehttp 18872 14248 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,054 basehttp 18872 14248 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,068 basehttp 18872 8860 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,071 basehttp 18872 13616 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,072 basehttp 18872 14248 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:22,153 basehttp 18872 14248 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:30,324 basehttp 18872 14248 "GET /admin/payroll/deductiontype/ HTTP/1.1" 200 11335
+INFO 2025-09-19 17:39:30,391 basehttp 18872 14248 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,404 basehttp 18872 8860 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,404 basehttp 18872 20092 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,408 basehttp 18872 14248 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,408 basehttp 18872 8868 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,410 basehttp 18872 17484 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,416 basehttp 18872 8860 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,418 basehttp 18872 20092 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,420 basehttp 18872 14248 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,425 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:30,686 basehttp 18872 13616 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,759 basehttp 18872 13616 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:30,806 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:33,685 basehttp 18872 13616 "GET /admin/payroll/deductiontype/add/ HTTP/1.1" 200 14288
+INFO 2025-09-19 17:39:33,716 basehttp 18872 20092 "GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:33,716 basehttp 18872 13616 "GET /static/admin/css/forms.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:33,724 basehttp 18872 14248 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:33,749 basehttp 18872 13616 "GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:33,754 basehttp 18872 13616 "GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:33,906 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:37,383 basehttp 18872 13616 "GET /admin/payroll/payslip/ HTTP/1.1" 200 11639
+INFO 2025-09-19 17:39:37,426 basehttp 18872 14248 "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:39:37,432 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:37,480 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:43,494 autoreload 9492 19860 Watching for file changes with StatReloader
+INFO 2025-09-19 17:39:45,481 basehttp 18872 13616 "GET /admin/payroll/taxbracket/ HTTP/1.1" 200 11008
+INFO 2025-09-19 17:39:45,564 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:45,715 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:47,550 basehttp 18872 13616 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 11036
+INFO 2025-09-19 17:39:47,595 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:47,645 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:53,983 basehttp 18872 13616 "GET /admin/payroll/deductiontype/ HTTP/1.1" 200 11335
+INFO 2025-09-19 17:39:54,054 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:54,131 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:39:57,997 basehttp 18872 13616 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 11036
+INFO 2025-09-19 17:39:58,045 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:39:58,101 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:40:00,327 basehttp 18872 13616 "GET /admin/payroll/employeesalary/add/ HTTP/1.1" 200 23020
+INFO 2025-09-19 17:40:00,401 basehttp 18872 14248 "GET /static/admin/js/calendar.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:00,402 basehttp 18872 8860 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:00,403 basehttp 18872 20092 "GET /static/admin/js/admin/DateTimeShortcuts.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:00,410 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:40:00,499 basehttp 18872 13616 "GET /static/admin/img/icon-calendar.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:00,545 basehttp 18872 20092 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:40:00,735 basehttp 18872 13616 "GET /static/admin/img/icon-clock.svg HTTP/1.1" 200 677
+INFO 2025-09-19 17:40:36,764 basehttp 18872 13616 "GET /admin/accounts/user/1/change/?_to_field=id&_popup=1 HTTP/1.1" 200 26979
+INFO 2025-09-19 17:40:36,799 basehttp 18872 20092 "GET /static/admin/js/SelectBox.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:36,801 basehttp 18872 8860 "GET /static/admin/js/SelectFilter2.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:36,805 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:40:36,855 basehttp 18872 13616 "GET /static/admin/img/selector-icons.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:40:36,899 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:40:49,002 basehttp 18872 13616 "GET /admin/core_hr/employee/16/change/?_to_field=id&_popup=1 HTTP/1.1" 200 14674
+INFO 2025-09-19 17:40:49,055 basehttp 18872 13616 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:40:49,129 basehttp 18872 13616 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:40:52,514 autoreload 3400 13136 Watching for file changes with StatReloader
+INFO 2025-09-19 17:40:59,450 basehttp 18872 13624 "POST /admin/core_hr/employee/16/change/?_to_field=id&_popup=1 HTTP/1.1" 200 416
+INFO 2025-09-19 17:40:59,481 basehttp 18872 13624 "GET /static/admin/js/popup_response.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:41:01,691 basehttp 18872 13624 "GET /admin/core_hr/employee/16/change/?_to_field=id&_popup=1 HTTP/1.1" 200 14674
+INFO 2025-09-19 17:41:01,730 basehttp 18872 13624 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:41:01,797 basehttp 18872 13624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:41:10,355 basehttp 18872 13624 "GET /admin/core_hr/employee/16/change/?_to_field=id HTTP/1.1" 200 21882
+INFO 2025-09-19 17:41:10,410 basehttp 18872 13624 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:41:10,476 basehttp 18872 13624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:41:19,434 basehttp 18872 13624 "GET /admin/core_hr/employee/ HTTP/1.1" 200 16256
+INFO 2025-09-19 17:41:19,483 basehttp 18872 5708 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:41:19,487 basehttp 18872 13624 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:41:19,510 basehttp 18872 13624 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:41:19,577 basehttp 18872 13624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:41:26,903 basehttp 18872 13624 "GET /admin/core_hr/employee/16/change/?_to_field=id HTTP/1.1" 200 21882
+INFO 2025-09-19 17:41:27,000 basehttp 18872 13624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:41:27,862 basehttp 18872 13624 "GET /admin/payroll/employeesalary/add/ HTTP/1.1" 200 23020
+INFO 2025-09-19 17:41:27,971 basehttp 18872 13624 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:01,212 basehttp 18872 4512 "POST /admin/payroll/employeesalary/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:42:01,246 basehttp 18872 4512 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13355
+INFO 2025-09-19 17:42:01,301 basehttp 18872 2132 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:01,310 basehttp 18872 4512 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-09-19 17:42:01,344 basehttp 18872 4512 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:04,341 basehttp 18872 10328 "GET /admin/payroll/employeesalary/?o=4.-3 HTTP/1.1" 200 13578
+INFO 2025-09-19 17:42:04,393 basehttp 18872 10328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:04,443 basehttp 18872 10328 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:11,400 basehttp 18872 10328 "GET /admin/payroll/employeesalary/?o=-4.-3 HTTP/1.1" 200 13588
+INFO 2025-09-19 17:42:11,451 basehttp 18872 10328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:11,518 basehttp 18872 10328 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:21,949 basehttp 18872 10328 "GET /admin/payroll/payslip/ HTTP/1.1" 200 11639
+INFO 2025-09-19 17:42:21,996 basehttp 18872 10328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:22,058 basehttp 18872 10328 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:25,274 basehttp 18872 10328 "GET /admin/payroll/payslip/add/ HTTP/1.1" 200 16833
+INFO 2025-09-19 17:42:25,318 basehttp 18872 10328 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:25,378 basehttp 18872 10328 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:31,631 basehttp 18872 14572 "GET /admin/payroll/taxbracket/ HTTP/1.1" 200 11008
+INFO 2025-09-19 17:42:31,680 basehttp 18872 14572 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:31,738 basehttp 18872 14572 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:34,151 basehttp 18872 14572 "GET /admin/payroll/taxbracket/add/ HTTP/1.1" 200 13323
+INFO 2025-09-19 17:42:34,201 basehttp 18872 14572 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:34,280 basehttp 18872 14572 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:42:59,588 basehttp 18872 18076 "POST /admin/payroll/taxbracket/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:42:59,617 basehttp 18872 18076 "GET /admin/payroll/taxbracket/ HTTP/1.1" 200 13251
+INFO 2025-09-19 17:42:59,670 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:42:59,739 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:10,894 basehttp 18872 18076 "GET /admin/payroll/payslip/ HTTP/1.1" 200 11639
+INFO 2025-09-19 17:43:10,940 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:10,994 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:13,225 basehttp 18872 18076 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13120
+INFO 2025-09-19 17:43:13,272 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:13,329 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:16,429 basehttp 18872 18076 "GET /admin/payroll/employeesalary/?is_active__exact=1 HTTP/1.1" 200 11728
+INFO 2025-09-19 17:43:16,475 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:16,533 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:18,127 basehttp 18872 18076 "GET /admin/payroll/employeesalary/?is_active__exact=0 HTTP/1.1" 200 13448
+INFO 2025-09-19 17:43:18,184 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:18,241 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:26,826 basehttp 18872 18076 "GET /admin/payroll/employeesalary/1/change/?_changelist_filters=is_active__exact%3D0 HTTP/1.1" 200 23456
+INFO 2025-09-19 17:43:26,872 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:26,950 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:34,759 basehttp 18872 18076 "POST /admin/payroll/employeesalary/1/change/?_changelist_filters=is_active__exact%3D0 HTTP/1.1" 302 0
+INFO 2025-09-19 17:43:34,794 basehttp 18872 18076 "GET /admin/payroll/employeesalary/?is_active__exact=0 HTTP/1.1" 200 13685
+INFO 2025-09-19 17:43:34,847 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:34,908 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:37,609 basehttp 18872 18076 "GET /admin/payroll/employeesalary/1/change/?_changelist_filters=is_active__exact%3D0 HTTP/1.1" 200 23456
+INFO 2025-09-19 17:43:37,663 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:37,756 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:45,773 basehttp 18872 18076 "POST /admin/payroll/employeesalary/1/change/?_changelist_filters=is_active__exact%3D0 HTTP/1.1" 302 0
+INFO 2025-09-19 17:43:45,820 basehttp 18872 18076 "GET /admin/payroll/employeesalary/?is_active__exact=0 HTTP/1.1" 200 11965
+INFO 2025-09-19 17:43:45,890 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:45,952 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:43:52,013 basehttp 18872 18076 "GET /admin/payroll/employeesalary/? HTTP/1.1" 200 13120
+INFO 2025-09-19 17:43:52,072 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:43:52,140 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:00,755 basehttp 18872 18076 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:00,763 basehttp 18872 18076 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:00,774 basehttp 18872 18076 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:44:00,837 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:05,023 views 18872 18076 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 17:44:05,028 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:05,041 middleware 18872 18076 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:44:05,042 decorators 18872 18076 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:44:05,052 basehttp 18872 18076 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:44:05,130 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:07,215 middleware 18872 18076 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:44:07,216 decorators 18872 18076 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:44:07,234 basehttp 18872 18076 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:07,245 middleware 18872 18076 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:44:07,245 decorators 18872 18076 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:44:07,259 basehttp 18872 18076 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:44:07,321 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:09,113 basehttp 18872 18076 "GET /payroll/ HTTP/1.1" 200 11273
+INFO 2025-09-19 17:44:09,180 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+WARNING 2025-09-19 17:44:25,512 log 18872 18076 Forbidden (CSRF token from POST incorrect.): /accounts/login/
+WARNING 2025-09-19 17:44:25,514 middleware 18872 18076 403 Forbidden: /accounts/login/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+WARNING 2025-09-19 17:44:25,515 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 403 2518
+INFO 2025-09-19 17:44:25,585 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:35,502 middleware 18872 18076 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:44:35,503 decorators 18872 18076 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:44:35,519 basehttp 18872 18076 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:44:35,590 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:37,822 basehttp 18872 18076 "GET /admin/ HTTP/1.1" 200 8926
+INFO 2025-09-19 17:44:37,889 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:47,703 basehttp 18872 18076 "GET /admin/core_hr/company/ HTTP/1.1" 200 11107
+INFO 2025-09-19 17:44:47,769 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:44:47,833 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:50,243 basehttp 18872 18076 "GET /admin/accounts/user/ HTTP/1.1" 200 13337
+INFO 2025-09-19 17:44:50,332 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:54,350 basehttp 18872 18076 "GET /admin/core_hr/employee/ HTTP/1.1" 200 14734
+INFO 2025-09-19 17:44:54,403 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:44:54,453 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:44:57,861 basehttp 18872 18076 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:57,867 basehttp 18872 18076 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:44:57,881 basehttp 18872 18076 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:44:57,947 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:02,368 views 18872 18076 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 17:45:02,375 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:45:02,387 middleware 18872 18076 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:45:02,388 decorators 18872 18076 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:45:02,396 basehttp 18872 18076 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-19 17:45:02,493 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:06,118 basehttp 18872 18076 "GET /admin/ HTTP/1.1" 200 13427
+INFO 2025-09-19 17:45:06,184 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:08,477 basehttp 18872 18076 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13120
+INFO 2025-09-19 17:45:08,534 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:45:08,586 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:10,759 basehttp 18872 18076 "GET /admin/payroll/employeesalary/1/change/ HTTP/1.1" 200 23331
+INFO 2025-09-19 17:45:10,807 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:45:10,889 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:14,003 basehttp 18872 18076 "GET /admin/payroll/payslip/ HTTP/1.1" 200 11639
+INFO 2025-09-19 17:45:14,049 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:45:14,105 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:16,536 basehttp 18872 18076 "GET /admin/payroll/payslip/add/ HTTP/1.1" 200 16833
+INFO 2025-09-19 17:45:16,572 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:45:16,638 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:45:23,867 basehttp 18872 18076 "GET /static/admin/img/calendar-icons.svg HTTP/1.1" 200 1094
+INFO 2025-09-19 17:45:55,405 basehttp 18872 18076 "POST /admin/payroll/payslip/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:45:55,434 basehttp 18872 18076 "GET /admin/payroll/payslip/ HTTP/1.1" 200 14087
+INFO 2025-09-19 17:45:55,483 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:45:55,549 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:46:03,396 basehttp 18872 18076 "GET /admin/payroll/deductiontype/ HTTP/1.1" 200 11335
+INFO 2025-09-19 17:46:03,454 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:46:03,513 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:46:05,531 basehttp 18872 18076 "GET /admin/payroll/deductiontype/add/ HTTP/1.1" 200 14288
+INFO 2025-09-19 17:46:05,581 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:46:05,638 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:46:51,126 basehttp 18872 18076 "POST /admin/payroll/deductiontype/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:46:51,152 basehttp 18872 18076 "GET /admin/payroll/deductiontype/ HTTP/1.1" 200 13907
+INFO 2025-09-19 17:46:51,187 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:46:51,261 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:46:59,413 basehttp 18872 18076 "GET /admin/payroll/deductiontype/?is_mandatory__exact=1 HTTP/1.1" 200 14137
+INFO 2025-09-19 17:46:59,468 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:46:59,535 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:02,487 basehttp 18872 18076 "GET /admin/payroll/deductiontype/?is_active__exact=1&is_mandatory__exact=1 HTTP/1.1" 200 14408
+INFO 2025-09-19 17:47:02,531 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:47:02,592 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:04,769 basehttp 18872 18076 "GET /admin/payroll/deductiontype/?is_mandatory__exact=1 HTTP/1.1" 200 14137
+INFO 2025-09-19 17:47:04,816 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:47:04,874 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:05,986 basehttp 18872 18076 "GET /admin/payroll/deductiontype/? HTTP/1.1" 200 13686
+INFO 2025-09-19 17:47:06,031 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:47:06,102 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:09,460 basehttp 18872 18076 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:47:09,468 basehttp 18872 18076 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:47:09,484 basehttp 18872 18076 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:47:09,557 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:14,046 views 18872 18076 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 17:47:14,051 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:47:14,062 middleware 18872 18076 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:47:14,063 decorators 18872 18076 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:47:14,074 basehttp 18872 18076 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:47:14,173 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:47:17,768 basehttp 18872 18076 "GET /payroll/ HTTP/1.1" 200 11338
+INFO 2025-09-19 17:47:17,840 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:19,563 decorators 18872 18076 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:48:19,570 views 18872 18076 User logged out: Raveen
+INFO 2025-09-19 17:48:19,574 basehttp 18872 18076 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:48:19,589 basehttp 18872 18076 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 17:48:19,646 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:33,046 views 18872 18076 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-19 17:48:33,052 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:48:33,063 middleware 18872 18076 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:48:33,064 decorators 18872 18076 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 17:48:33,078 basehttp 18872 18076 "GET /employee-portal/ HTTP/1.1" 200 20469
+INFO 2025-09-19 17:48:33,140 basehttp 18872 18076 "GET /static/js/live_updates.js HTTP/1.1" 304 0
+INFO 2025-09-19 17:48:33,164 middleware 18872 18076 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:48:33,185 basehttp 18872 14536 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:33,185 basehttp 18872 18076 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 17:48:34,947 middleware 18872 18076 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:48:34,960 basehttp 18872 18076 "GET /employee-portal/payslips/ HTTP/1.1" 200 13390
+INFO 2025-09-19 17:48:35,035 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:40,335 decorators 18872 18076 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 17:48:40,344 views 18872 18076 User logged out: Velu
+INFO 2025-09-19 17:48:40,346 basehttp 18872 18076 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:48:40,361 basehttp 18872 18076 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 17:48:40,428 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:45,405 views 18872 18076 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 17:48:45,411 basehttp 18872 18076 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:48:45,420 middleware 18872 18076 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:48:45,421 decorators 18872 18076 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:48:45,429 basehttp 18872 18076 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-19 17:48:45,535 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:52,918 basehttp 18872 18076 "GET /admin/ HTTP/1.1" 200 13450
+INFO 2025-09-19 17:48:52,991 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:48:56,248 basehttp 18872 18076 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13120
+INFO 2025-09-19 17:48:56,304 basehttp 18872 18076 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:48:56,367 basehttp 18872 18076 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:49:03,784 basehttp 18872 15364 "GET /admin/payroll/payslip/ HTTP/1.1" 200 13873
+INFO 2025-09-19 17:49:03,840 basehttp 18872 15364 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:49:03,912 basehttp 18872 15364 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:49:06,902 basehttp 18872 15364 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13120
+INFO 2025-09-19 17:49:06,951 basehttp 18872 15364 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:49:07,006 basehttp 18872 15364 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:49:10,056 basehttp 18872 9204 "GET /admin/payroll/employeesalary/add/ HTTP/1.1" 200 23020
+INFO 2025-09-19 17:49:10,107 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:49:10,171 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:49:19,007 basehttp 18872 9204 "GET /admin/core_hr/employee/17/change/?_to_field=id&_popup=1 HTTP/1.1" 200 14674
+INFO 2025-09-19 17:49:19,049 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:49:19,104 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:49:34,035 basehttp 18872 9204 "POST /admin/core_hr/employee/17/change/?_to_field=id&_popup=1 HTTP/1.1" 200 416
+INFO 2025-09-19 17:50:20,107 basehttp 18872 9204 "POST /admin/payroll/employeesalary/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:50:20,136 basehttp 18872 9204 "GET /admin/payroll/employeesalary/ HTTP/1.1" 200 13778
+INFO 2025-09-19 17:50:20,180 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:50:20,243 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:50:25,752 basehttp 18872 9204 "GET /admin/payroll/payslip/ HTTP/1.1" 200 13873
+INFO 2025-09-19 17:50:25,800 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:50:25,866 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:50:28,071 basehttp 18872 9204 "GET /admin/payroll/payslip/add/ HTTP/1.1" 200 16833
+INFO 2025-09-19 17:50:28,114 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:50:28,179 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:02,122 basehttp 18872 9204 "POST /admin/payroll/payslip/add/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:02,180 basehttp 18872 9204 "GET /admin/payroll/payslip/ HTTP/1.1" 200 14514
+INFO 2025-09-19 17:51:02,235 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:51:02,293 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:05,481 basehttp 18872 9204 "GET /admin/payroll/deductiontype/ HTTP/1.1" 200 13686
+INFO 2025-09-19 17:51:05,531 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:51:05,583 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:11,363 basehttp 18872 9204 "GET /admin/payroll/taxbracket/ HTTP/1.1" 200 13033
+INFO 2025-09-19 17:51:11,419 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:51:11,484 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:18,505 basehttp 18872 9204 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:18,514 basehttp 18872 9204 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:18,523 basehttp 18872 9204 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:51:18,579 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:22,696 views 18872 9204 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-19 17:51:22,701 basehttp 18872 9204 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:22,711 middleware 18872 9204 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:51:22,712 decorators 18872 9204 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 17:51:22,721 basehttp 18872 9204 "GET /employee-portal/ HTTP/1.1" 200 20469
+INFO 2025-09-19 17:51:22,806 middleware 18872 9204 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:51:22,823 basehttp 18872 9204 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 17:51:22,823 basehttp 18872 17080 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:24,279 middleware 18872 9204 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:51:24,287 basehttp 18872 9204 "GET /employee-portal/payslips/ HTTP/1.1" 200 13390
+INFO 2025-09-19 17:51:24,352 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:37,847 decorators 18872 9204 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 17:51:38,100 views 18872 9204 User logged out: Velu
+INFO 2025-09-19 17:51:38,583 basehttp 18872 9204 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:39,031 basehttp 18872 9204 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 17:51:39,262 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:48,056 views 18872 9204 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 17:51:48,063 basehttp 18872 9204 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:51:48,157 middleware 18872 9204 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:51:48,157 decorators 18872 9204 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 17:51:48,201 basehttp 18872 9204 "GET /admin-panel/ HTTP/1.1" 200 17827
+INFO 2025-09-19 17:51:48,331 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:50,727 basehttp 18872 9204 "GET /admin/ HTTP/1.1" 200 13519
+INFO 2025-09-19 17:51:50,843 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:54,354 basehttp 18872 9204 "GET /admin/accounts/user/ HTTP/1.1" 200 16898
+INFO 2025-09-19 17:51:54,420 basehttp 18872 9204 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:51:54,505 basehttp 18872 9204 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:51:56,347 basehttp 18872 4864 "GET /admin/accounts/user/23/change/ HTTP/1.1" 200 34620
+INFO 2025-09-19 17:51:56,407 basehttp 18872 4864 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:51:56,465 basehttp 18872 4864 "GET /static/admin/img/icon-unknown.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:51:56,468 basehttp 18872 13200 "GET /static/admin/img/icon-unknown-alt.svg HTTP/1.1" 304 0
+INFO 2025-09-19 17:51:56,545 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:28,534 basehttp 18872 13200 "POST /admin/accounts/user/23/change/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:52:28,561 basehttp 18872 13200 "GET /admin/accounts/user/ HTTP/1.1" 200 17110
+INFO 2025-09-19 17:52:28,609 basehttp 18872 13200 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 17:52:28,667 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:32,145 basehttp 18872 13200 "POST /admin/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:52:32,154 basehttp 18872 13200 "GET /login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:52:32,164 basehttp 18872 13200 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 17:52:32,243 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:36,293 views 18872 13200 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 17:52:36,299 basehttp 18872 13200 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:52:36,309 middleware 18872 13200 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:52:36,310 decorators 18872 13200 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:52:36,322 basehttp 18872 13200 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:52:36,400 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:38,777 middleware 18872 13200 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:52:38,778 decorators 18872 13200 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:52:38,801 basehttp 18872 13200 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 17:52:38,811 middleware 18872 13200 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:52:38,811 decorators 18872 13200 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:52:38,827 basehttp 18872 13200 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 17:52:38,924 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:39,970 basehttp 18872 13200 "GET /payroll/ HTTP/1.1" 200 11502
+INFO 2025-09-19 17:52:40,060 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:46,683 middleware 18872 13200 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 17:52:46,684 decorators 18872 13200 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 17:52:46,706 basehttp 18872 13200 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 17:52:46,806 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:48,803 basehttp 18872 13200 "GET /admin/ HTTP/1.1" 200 10992
+INFO 2025-09-19 17:52:48,881 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 17:52:54,276 basehttp 18872 13200 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 19:56:26,811 basehttp 18872 1000 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 19:56:26,825 basehttp 18872 1000 "GET /login/?next=/hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 19:56:26,858 basehttp 18872 1000 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 19:56:27,108 basehttp 18872 1000 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:08:12,183 autoreload 7728 8304 Watching for file changes with StatReloader

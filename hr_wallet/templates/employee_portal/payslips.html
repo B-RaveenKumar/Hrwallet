@@ -30,9 +30,9 @@
                             {% for payslip in payslips %}
                             <tr>
                                 <td>{{ payslip.month }}</td>
-                                <td>${{ payslip.amount }}</td>
-                                <td>$500</td>
-                                <td>${{ payslip.amount|add:"-500" }}</td>
+                                <td>₹{{ payslip.amount }}</td>
+                                <td>₹500</td>
+                                <td>₹{{ payslip.amount|add:"-500" }}</td>
                                 <td>
                                     <span class="badge bg-success">{{ payslip.status }}</span>
                                 </td>
@@ -68,18 +68,18 @@
                 <div class="row">
                     <div class="col-6">
                         <h6>Total Gross Pay</h6>
-                        <h4 class="text-success">$60,000</h4>
+                        <h4 class="text-success">₹60,000</h4>
                     </div>
                     <div class="col-6">
                         <h6>Total Deductions</h6>
-                        <h4 class="text-danger">$6,000</h4>
+                        <h4 class="text-danger">₹6,000</h4>
                     </div>
                 </div>
                 <hr>
                 <div class="row">
                     <div class="col-12">
                         <h6>Net Pay YTD</h6>
-                        <h3 class="text-primary">$54,000</h3>
+                        <h3 class="text-primary">₹54,000</h3>
                     </div>
                 </div>
             </div>
@@ -98,19 +98,19 @@
                 <div class="list-group list-group-flush">
                     <div class="list-group-item d-flex justify-content-between">
                         <span>Federal Tax</span>
-                        <strong>$3,600</strong>
+                        <strong>₹3,600</strong>
                     </div>
                     <div class="list-group-item d-flex justify-content-between">
                         <span>State Tax</span>
-                        <strong>$1,200</strong>
+                        <strong>₹1,200</strong>
                     </div>
                     <div class="list-group-item d-flex justify-content-between">
                         <span>Social Security</span>
-                        <strong>$720</strong>
+                        <strong>₹720</strong>
                     </div>
                     <div class="list-group-item d-flex justify-content-between">
                         <span>Medicare</span>
-                        <strong>$480</strong>
+                        <strong>₹480</strong>
                     </div>
                 </div>
             </div>

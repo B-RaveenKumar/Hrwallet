@@ -17,17 +17,64 @@ class Command(BaseCommand):
         start = date(year, mon, 1)
         end = date(year, mon, monthrange(year, mon)[1])
         count = 0
+        skipped = 0
+        errors = 0
+
+        self.stdout.write(f'Generating payroll for {options["month"]}...')
+
         with transaction.atomic():
             for emp in Employee.objects.filter(is_active=True):
-                sal = EmployeeSalary.objects.filter(employee=emp, is_active=True).order_by('-effective_date').first()
-                if not sal:
+                try:
+                    # Get the active salary record for the employee
+                    sal = EmployeeSalary.objects.filter(
+                        employee=emp,
+                        is_active=True,
+                        status='approved',
+                        effective_date__lte=end  # Salary must be effective by the end of the period
+                    ).order_by('-effective_date').first()
+
+                    if not sal:
+                        self.stdout.write(
+                            self.style.WARNING(f'No active salary found for {emp.user.get_full_name()} ({emp.employee_id})')
+                        )
+                        skipped += 1
+                        continue
+
+                    # Check if payslip already exists
+                    slip, created = PaySlip.objects.get_or_create(
+                        employee=emp,
+                        pay_period_start=start,
+                        pay_period_end=end,
+                    )
+
+                    if created:
+                        self.stdout.write(f'Creating new payslip for {emp.user.get_full_name()}')
+                    else:
+                        self.stdout.write(f'Updating existing payslip for {emp.user.get_full_name()}')
+
+                    # Calculate payslip amounts using the salary record
+                    slip.calculate_totals(sal)
+                    slip.save()
+
+                    # Generate PDF
+                    pdf_path = slip.generate_pdf()
+                    if pdf_path:
+                        self.stdout.write(f'Generated PDF: {pdf_path}')
+
+                    count += 1
+
+                except Exception as e:
+                    self.stdout.write(
+                        self.style.ERROR(f'Error processing {emp.user.get_full_name()}: {str(e)}')
+                    )
+                    errors += 1
                     continue
-                slip, created = PaySlip.objects.get_or_create(
-                    employee=emp, pay_period_start=start, pay_period_end=end,
-                )
-                slip.calculate_totals(sal)
-                slip.save()
-                slip.generate_pdf()
-                count += 1
-        self.stdout.write(self.style.SUCCESS(f'Payroll generated for {count} employees for {options["month"]}'))
+
+        # Summary
+        self.stdout.write(self.style.SUCCESS(
+            f'Payroll generation completed for {options["month"]}:\n'
+            f'  - Successfully processed: {count} employees\n'
+            f'  - Skipped (no salary): {skipped} employees\n'
+            f'  - Errors: {errors} employees'
+        ))
 

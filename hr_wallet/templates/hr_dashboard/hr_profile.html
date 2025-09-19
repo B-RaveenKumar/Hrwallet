@@ -1,0 +1,312 @@
+{% extends 'hr_dashboard/base.html' %}
+
+{% block title %}My Profile - HR Manager{% endblock %}
+{% block page_title %}My Profile{% endblock %}
+
+{% block content %}
+<div class="row">
+    <!-- Profile Photo & Summary -->
+    <div class="col-md-4 mb-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <div class="mb-3">
+                    <i class="bi bi-person-circle display-1 text-muted"></i>
+                </div>
+                <h5 class="card-title">{{ hr_employee.user.get_full_name|default:hr_employee.user.username }}</h5>
+                <p class="card-text text-muted">{{ hr_employee.job_title|default:"HR Manager" }}</p>
+                <p class="card-text">
+                    <small class="text-muted">Employee ID: {{ hr_employee.employee_id }}</small>
+                </p>
+                <button class="btn btn-success" onclick="uploadPhoto()">
+                    <i class="bi bi-camera me-2"></i>
+                    Update Photo
+                </button>
+            </div>
+        </div>
+
+        <!-- Employment Details -->
+        <div class="card mt-4">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-briefcase me-2"></i>
+                    Employment Details
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="mb-2">
+                    <small class="text-muted">Department</small>
+                    <p class="mb-1">{{ hr_employee.department.name|default:"Not Assigned" }}</p>
+                </div>
+                <div class="mb-2">
+                    <small class="text-muted">Hire Date</small>
+                    <p class="mb-1">{{ hr_employee.hire_date }}</p>
+                </div>
+                <div class="mb-2">
+                    <small class="text-muted">Company</small>
+                    <p class="mb-1">{{ hr_employee.company.name }}</p>
+                </div>
+                {% if current_salary %}
+                <div class="mb-2">
+                    <small class="text-muted">Current Salary</small>
+                    <p class="mb-1 text-success">₹{{ current_salary.basic_salary|floatformat:2 }}</p>
+                    {% if current_salary.total_allowances > 0 %}
+                    <small class="text-muted">+ ₹{{ current_salary.total_allowances|floatformat:2 }} allowances</small>
+                    {% endif %}
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <!-- Personal Information Form -->
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-person-gear me-2"></i>
+                    Personal Information
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="first_name" class="form-label">First Name</label>
+                            <input type="text" class="form-control" id="first_name" name="first_name"
+                                   value="{{ hr_employee.user.first_name }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="last_name" class="form-label">Last Name</label>
+                            <input type="text" class="form-control" id="last_name" name="last_name"
+                                   value="{{ hr_employee.user.last_name }}" required>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="email" class="form-label">Email Address</label>
+                            <input type="email" class="form-control" id="email" name="email"
+                                   value="{{ hr_employee.user.email }}" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="phone" class="form-label">Phone Number</label>
+                            <input type="text" class="form-control" id="phone" name="phone"
+                                   value="{{ hr_employee.phone }}" placeholder="Enter phone number">
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label for="job_title" class="form-label">Job Title</label>
+                            <input type="text" class="form-control" id="job_title" name="job_title"
+                                   value="{{ hr_employee.job_title }}" placeholder="Enter job title">
+                        </div>
+                        <div class="col-md-6">
+                            <label for="department" class="form-label">Department</label>
+                            <input type="text" class="form-control" id="department" name="department"
+                                   value="{{ hr_employee.department.name }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <textarea class="form-control" id="address" name="address" rows="3"
+                                  placeholder="Enter your address">{{ hr_employee.address }}</textarea>
+                    </div>
+
+                    <div class="row mb-3">
+                        <div class="col-md-6">
+                            <label class="form-label">Employee ID</label>
+                            <input type="text" class="form-control" value="{{ hr_employee.employee_id }}" readonly>
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label">Date of Joining</label>
+                            <input type="text" class="form-control" value="{{ hr_employee.hire_date }}" readonly>
+                        </div>
+                    </div>
+
+                    <div class="text-end">
+                        <button type="button" class="btn btn-outline-secondary me-2" onclick="resetForm()">Reset</button>
+                        <button type="submit" class="btn btn-success">
+                            <i class="bi bi-check-circle me-2"></i>
+                            Save Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Quick Stats & Actions -->
+<div class="row mt-4">
+    <div class="col-md-8">
+        <!-- Quick Stats -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-graph-up me-2"></i>
+                    HR Dashboard Overview
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row text-center">
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-primary mb-1">{{ stats.total_employees }}</h4>
+                            <small class="text-muted">Total Employees</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-warning mb-1">{{ stats.pending_leaves }}</h4>
+                            <small class="text-muted">Pending Leaves</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <div class="border-end">
+                            <h4 class="text-success mb-1">{{ stats.today_attendance }}</h4>
+                            <small class="text-muted">Present Today</small>
+                        </div>
+                    </div>
+                    <div class="col-md-3">
+                        <h4 class="text-info mb-1">{{ recent_activities|length }}</h4>
+                        <small class="text-muted">Recent Actions</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4">
+        <!-- Quick Actions -->
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-lightning me-2"></i>
+                    Quick Actions
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="d-grid gap-2">
+                    <a href="{% url 'hr_dashboard:create_employee' %}" class="btn btn-outline-primary btn-sm">
+                        <i class="bi bi-person-plus me-2"></i>
+                        Add Employee
+                    </a>
+                    <a href="{% url 'hr_dashboard:hr_leave_approvals' %}" class="btn btn-outline-warning btn-sm">
+                        <i class="bi bi-calendar-check me-2"></i>
+                        Review Leaves
+                    </a>
+                    <a href="{% url 'payroll:salaries' %}" class="btn btn-outline-success btn-sm">
+                        <i class="bi bi-currency-rupee me-2"></i>
+                        Manage Salaries
+                    </a>
+                    <a href="{% url 'hr_dashboard:hr_attendance' %}" class="btn btn-outline-info btn-sm">
+                        <i class="bi bi-clock me-2"></i>
+                        View Attendance
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+
+<!-- Recent Activity -->
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-activity me-2"></i>
+                    Recent Activity
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if recent_activities %}
+                <div class="timeline">
+                    {% for activity in recent_activities %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker bg-primary"></div>
+                        <div class="timeline-content">
+                            <h6 class="mb-1">{{ activity.action }}</h6>
+                            <p class="text-muted mb-1">{{ activity.details|default:"No additional details" }}</p>
+                            <small class="text-muted">{{ activity.timestamp|timesince }} ago</small>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                {% else %}
+                <div class="text-center text-muted py-4">
+                    <i class="bi bi-clock-history display-4 mb-3"></i>
+                    <p>No recent activity to display</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -22px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid var(--bs-primary);
+}
+</style>
+
+<script>
+function uploadPhoto() {
+    // Create file input
+    const input = document.createElement('input');
+    input.type = 'file';
+    input.accept = 'image/*';
+    input.onchange = function(e) {
+        const file = e.target.files[0];
+        if (file) {
+            // Here you would typically upload the file
+            alert('Photo upload functionality will be implemented soon!');
+        }
+    };
+    input.click();
+}
+
+function resetForm() {
+    if (confirm('Are you sure you want to reset all changes?')) {
+        location.reload();
+    }
+}
+</script>
+{% endblock %}

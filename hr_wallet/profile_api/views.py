@@ -12,7 +12,7 @@ from .serializers import (
     EmployeeCreateSerializer, HRCreateSerializer,
     EmployeeListSerializer, HRListSerializer, DepartmentSerializer,
     BiometricEventSerializer, BiometricEventBulkEditSerializer, BiometricUserMapCorrectionSerializer,
-    EmployeeDetailSerializer
+    EmployeeDetailSerializer, EmployeeSalarySerializer, SalaryCreateUpdateSerializer
 )
 import logging
 
@@ -194,6 +194,21 @@ def create_employee(request):
                 is_active=True
             )
 
+            # Create salary record if salary information provided
+            basic_salary = data.get('basic_salary') or data.get('salary')
+            if basic_salary:
+                from payroll.models import EmployeeSalary
+                salary_record = EmployeeSalary.objects.create(
+                    employee=employee,
+                    basic_salary=basic_salary,
+                    allowances=data.get('allowances', {}),
+                    effective_date=data.get('salary_effective_date') or timezone.now().date(),
+                    status='approved',  # Auto-approve for new employees
+                    is_active=True,
+                    created_by=request.user,
+                    updated_by=request.user
+                )
+
             # Create default leave balance
             LeaveBalance.objects.create(
                 employee=employee,
@@ -298,6 +313,21 @@ def create_hr(request):
                 hire_date=timezone.now().date(),
                 is_active=True
             )
+
+            # Create salary record if salary information provided
+            basic_salary = data.get('basic_salary') or data.get('salary')
+            if basic_salary:
+                from payroll.models import EmployeeSalary
+                salary_record = EmployeeSalary.objects.create(
+                    employee=employee,
+                    basic_salary=basic_salary,
+                    allowances=data.get('allowances', {}),
+                    effective_date=data.get('salary_effective_date') or timezone.now().date(),
+                    status='approved',  # Auto-approve for new employees
+                    is_active=True,
+                    created_by=request.user,
+                    updated_by=request.user
+                )
 
             # Create default leave balance
             LeaveBalance.objects.create(
@@ -806,6 +836,210 @@ def ingest_biometric_event(request):
     except Exception as e:
         logger.exception('Error ingesting biometric event')
         return Response({'success': False, 'message': 'Server error'}, status=500)
+
+
+# Salary Management API Endpoints
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def list_employee_salaries(request):
+    """List all employee salaries with filtering and search"""
+    try:
+        from payroll.models import EmployeeSalary
+
+        # Filter by company for security
+        salaries = EmployeeSalary.objects.filter(
+            employee__company=request.user.company
+        ).select_related('employee__user', 'employee__department', 'created_by', 'updated_by')
+
+        # Apply filters
+        employee_id = request.GET.get('employee_id')
+        if employee_id:
+            salaries = salaries.filter(employee__employee_id__icontains=employee_id)
+
+        status_filter = request.GET.get('status')
+        if status_filter:
+            salaries = salaries.filter(status=status_filter)
+
+        is_active = request.GET.get('is_active')
+        if is_active is not None:
+            salaries = salaries.filter(is_active=is_active.lower() == 'true')
+
+        # Order by most recent
+        salaries = salaries.order_by('-effective_date', '-created_at')
+
+        serializer = EmployeeSalarySerializer(salaries, many=True)
+
+        return Response({
+            'success': True,
+            'message': 'Employee salaries retrieved successfully',
+            'data': serializer.data,
+            'count': salaries.count()
+        }, status=status.HTTP_200_OK)
+
+    except Exception as e:
+        logger.error(f"Error listing employee salaries: {str(e)}")
+        return Response({
+            'success': False,
+            'message': 'An error occurred while retrieving employee salaries'
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def create_employee_salary(request):
+    """Create a new salary record for an employee"""
+    try:
+        from payroll.models import EmployeeSalary
+
+        serializer = SalaryCreateUpdateSerializer(data=request.data)
+
+        if not serializer.is_valid():
+            return Response({
+                'success': False,
+                'message': 'Validation failed',
+                'errors': serializer.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Verify employee belongs to user's company
+        employee = serializer.validated_data['employee']
+        if employee.company != request.user.company:
+            return Response({
+                'success': False,
+                'message': 'Employee not found in your company'
+            }, status=status.HTTP_404_NOT_FOUND)
+
+        # Create salary record
+        salary = serializer.save(
+            created_by=request.user,
+            updated_by=request.user
+        )
+
+        # If this is set as active, deactivate others
+        if salary.is_active and salary.status == 'approved':
+            EmployeeSalary.objects.filter(
+                employee=employee
+            ).exclude(pk=salary.pk).update(is_active=False)
+
+        response_serializer = EmployeeSalarySerializer(salary)
+
+        return Response({
+            'success': True,
+            'message': 'Salary record created successfully',
+            'data': response_serializer.data
+        }, status=status.HTTP_201_CREATED)
+
+    except Exception as e:
+        logger.error(f"Error creating employee salary: {str(e)}")
+        return Response({
+            'success': False,
+            'message': 'An error occurred while creating the salary record'
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['PUT'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def update_employee_salary(request, salary_id):
+    """Update an existing salary record"""
+    try:
+        from payroll.models import EmployeeSalary
+
+        salary = EmployeeSalary.objects.select_related('employee').get(
+            id=salary_id,
+            employee__company=request.user.company
+        )
+
+        serializer = SalaryCreateUpdateSerializer(salary, data=request.data, partial=True)
+
+        if not serializer.is_valid():
+            return Response({
+                'success': False,
+                'message': 'Validation failed',
+                'errors': serializer.errors
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Update salary record
+        salary = serializer.save(updated_by=request.user)
+
+        # If this is set as active, deactivate others
+        if salary.is_active and salary.status == 'approved':
+            EmployeeSalary.objects.filter(
+                employee=salary.employee
+            ).exclude(pk=salary.pk).update(is_active=False)
+
+        response_serializer = EmployeeSalarySerializer(salary)
+
+        return Response({
+            'success': True,
+            'message': 'Salary record updated successfully',
+            'data': response_serializer.data
+        }, status=status.HTTP_200_OK)
+
+    except EmployeeSalary.DoesNotExist:
+        return Response({
+            'success': False,
+            'message': 'Salary record not found'
+        }, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        logger.error(f"Error updating employee salary: {str(e)}")
+        return Response({
+            'success': False,
+            'message': 'An error occurred while updating the salary record'
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
+
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+@require_roles('hr_manager', 'super_admin')
+def approve_salary(request, salary_id):
+    """Approve a salary record"""
+    try:
+        from payroll.models import EmployeeSalary
+
+        salary = EmployeeSalary.objects.select_related('employee').get(
+            id=salary_id,
+            employee__company=request.user.company
+        )
+
+        if salary.status == 'approved':
+            return Response({
+                'success': False,
+                'message': 'Salary record is already approved'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        # Approve and activate the salary
+        salary.status = 'approved'
+        salary.is_active = True
+        salary.updated_by = request.user
+        salary.save()
+
+        # Deactivate other salary records for the same employee
+        EmployeeSalary.objects.filter(
+            employee=salary.employee
+        ).exclude(pk=salary.pk).update(is_active=False)
+
+        response_serializer = EmployeeSalarySerializer(salary)
+
+        return Response({
+            'success': True,
+            'message': 'Salary record approved successfully',
+            'data': response_serializer.data
+        }, status=status.HTTP_200_OK)
+
+    except EmployeeSalary.DoesNotExist:
+        return Response({
+            'success': False,
+            'message': 'Salary record not found'
+        }, status=status.HTTP_404_NOT_FOUND)
+    except Exception as e:
+        logger.error(f"Error approving salary: {str(e)}")
+        return Response({
+            'success': False,
+            'message': 'An error occurred while approving the salary record'
+        }, status=status.HTTP_500_INTERNAL_SERVER_ERROR)
 
 
 @api_view(['POST'])

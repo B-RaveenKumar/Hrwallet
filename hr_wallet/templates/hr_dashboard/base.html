@@ -113,6 +113,11 @@
                             <i class="bi bi-cash-stack me-2"></i>
                             Payroll
                         </a>
+                        <a class="nav-link {% if request.resolver_match.url_name == 'hr_profile' %}active{% endif %}"
+                           href="{% url 'hr_dashboard:hr_profile' %}">
+                            <i class="bi bi-person-circle me-2"></i>
+                            My Profile
+                        </a>
 
 
 

@@ -1,8 +1,9 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
 from core_hr.models import Employee, Department, Company, BiometricEvent, BiometricUserMap
-from decimal import Decimal
+from payroll.models import EmployeeSalary
 from django.utils import timezone
+from decimal import Decimal
 
 User = get_user_model()
 
@@ -24,6 +25,12 @@ class EmployeeCreateSerializer(serializers.Serializer):
     designation = serializers.CharField(max_length=100, help_text="Job title/designation")
     salary = serializers.DecimalField(max_digits=10, decimal_places=2, required=False, allow_null=True, help_text="Salary amount")
     employee_id = serializers.CharField(max_length=20, required=False, allow_blank=True, help_text="Employee ID (auto-generated if not provided)")
+
+    # Enhanced salary configuration fields
+    basic_salary = serializers.DecimalField(max_digits=12, decimal_places=2, required=False, allow_null=True, help_text="Basic salary amount")
+    allowances = serializers.JSONField(required=False, default=dict, help_text="Allowances as JSON object")
+    salary_effective_date = serializers.DateField(required=False, allow_null=True, help_text="Salary effective date")
+    salary_notes = serializers.CharField(max_length=500, required=False, allow_blank=True, help_text="Notes about salary configuration")
 
     def validate_email(self, value):
         """Validate email uniqueness"""
@@ -63,6 +70,12 @@ class HRCreateSerializer(serializers.Serializer):
     designation = serializers.CharField(max_length=100, help_text="Job title/designation")
     salary = serializers.DecimalField(max_digits=10, decimal_places=2, required=False, allow_null=True, help_text="Salary amount")
     employee_id = serializers.CharField(max_length=20, required=False, allow_blank=True, help_text="Employee ID (auto-generated if not provided)")
+
+    # Enhanced salary configuration fields
+    basic_salary = serializers.DecimalField(max_digits=12, decimal_places=2, required=False, allow_null=True, help_text="Basic salary amount")
+    allowances = serializers.JSONField(required=False, default=dict, help_text="Allowances as JSON object")
+    salary_effective_date = serializers.DateField(required=False, allow_null=True, help_text="Salary effective date")
+    salary_notes = serializers.CharField(max_length=500, required=False, allow_blank=True, help_text="Notes about salary configuration")
 
     def validate_email(self, value):
         """Validate email uniqueness"""
@@ -106,6 +119,52 @@ class EmployeeListSerializer(serializers.ModelSerializer):
             'department_name', 'job_title', 'salary', 'hire_date', 'is_active',
             'created_at', 'updated_at'
         ]
+
+
+class EmployeeSalarySerializer(serializers.ModelSerializer):
+    """Serializer for employee salary management"""
+    employee_name = serializers.CharField(source='employee.user.get_full_name', read_only=True)
+    employee_id = serializers.CharField(source='employee.employee_id', read_only=True)
+    created_by_name = serializers.CharField(source='created_by.get_full_name', read_only=True)
+    updated_by_name = serializers.CharField(source='updated_by.get_full_name', read_only=True)
+    total_allowances = serializers.SerializerMethodField()
+
+    class Meta:
+        model = EmployeeSalary
+        fields = [
+            'id', 'employee', 'employee_name', 'employee_id', 'basic_salary',
+            'allowances', 'total_allowances', 'effective_date', 'status',
+            'is_active', 'created_at', 'updated_at', 'created_by',
+            'created_by_name', 'updated_by', 'updated_by_name'
+        ]
+        read_only_fields = ['id', 'created_at', 'updated_at', 'created_by', 'updated_by']
+
+    def get_total_allowances(self, obj):
+        """Calculate total allowances"""
+        return obj.total_allowances()
+
+
+class SalaryCreateUpdateSerializer(serializers.ModelSerializer):
+    """Serializer for creating/updating employee salaries"""
+
+    class Meta:
+        model = EmployeeSalary
+        fields = [
+            'employee', 'basic_salary', 'allowances', 'effective_date',
+            'status', 'is_active'
+        ]
+
+    def validate_basic_salary(self, value):
+        """Validate basic salary is positive"""
+        if value <= 0:
+            raise serializers.ValidationError("Basic salary must be greater than 0")
+        return value
+
+    def validate_effective_date(self, value):
+        """Validate effective date is not in the past"""
+        if value < timezone.now().date():
+            raise serializers.ValidationError("Effective date cannot be in the past")
+        return value
 
 
 class HRListSerializer(serializers.ModelSerializer):

@@ -151,13 +151,102 @@
                         </div>
                         <div class="col-md-6">
                             <div class="form-group">
-                                <label for="salary" class="form-label">Salary</label>
+                                <label for="salary" class="form-label">Basic Salary</label>
                                 <div class="input-group">
-                                    <span class="input-group-text">$</span>
-                                    <input type="number" class="form-control" id="salary" name="salary" 
-                                           placeholder="Enter salary amount" step="0.01" min="0">
+                                    <span class="input-group-text">₹</span>
+                                    <input type="number" class="form-control" id="salary" name="salary"
+                                           placeholder="Enter basic salary amount" step="0.01" min="0">
                                 </div>
                                 <div class="invalid-feedback"></div>
+                                <small class="form-text text-muted">This will be used for payroll calculations</small>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Enhanced Salary Configuration -->
+                    <div class="card mb-3">
+                        <div class="card-header">
+                            <h6 class="mb-0">
+                                <i class="bi bi-currency-dollar me-2"></i>
+                                Detailed Salary Configuration (Optional)
+                            </h6>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="basic_salary" class="form-label">Basic Salary</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="basic_salary" name="basic_salary"
+                                                   placeholder="Enter basic salary" step="0.01" min="0">
+                                        </div>
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-group">
+                                        <label for="salary_effective_date" class="form-label">Effective Date</label>
+                                        <input type="date" class="form-control" id="salary_effective_date" name="salary_effective_date">
+                                        <div class="invalid-feedback"></div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label class="form-label">Allowances</label>
+                                <div class="row">
+                                    <div class="col-md-4">
+                                        <label for="allowance_housing" class="form-label">Housing</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_housing" name="allowance_housing" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="allowance_transport" class="form-label">Transport</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_transport" name="allowance_transport" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="allowance_medical" class="form-label">Medical</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_medical" name="allowance_medical" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row mt-2">
+                                    <div class="col-md-4">
+                                        <label for="allowance_food" class="form-label">Food</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_food" name="allowance_food" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="allowance_communication" class="form-label">Communication</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_communication" name="allowance_communication" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                    <div class="col-md-4">
+                                        <label for="allowance_other" class="form-label">Other</label>
+                                        <div class="input-group">
+                                            <span class="input-group-text">₹</span>
+                                            <input type="number" class="form-control" id="allowance_other" name="allowance_other" step="0.01" min="0">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="salary_notes" class="form-label">Notes</label>
+                                <textarea class="form-control" id="salary_notes" name="salary_notes" rows="2"
+                                          placeholder="Any additional notes about the salary configuration"></textarea>
                             </div>
                         </div>
                     </div>
@@ -238,6 +327,16 @@ function createEmployee() {
     $('.form-control').removeClass('is-invalid');
     $('.invalid-feedback').text('');
     
+    // Collect allowances
+    const allowances = {};
+    const allowanceFields = ['housing', 'transport', 'medical', 'food', 'communication', 'other'];
+    allowanceFields.forEach(field => {
+        const value = $(`#allowance_${field}`).val();
+        if (value && parseFloat(value) > 0) {
+            allowances[field] = parseFloat(value);
+        }
+    });
+
     const formData = {
         full_name: $('#full_name').val(),
         email: $('#email').val(),
@@ -246,7 +345,12 @@ function createEmployee() {
         department_id: parseInt($('#department_id').val()),
         designation: $('#designation').val(),
         salary: $('#salary').val() ? parseFloat($('#salary').val()) : null,
-        employee_id: $('#employee_id').val()
+        employee_id: $('#employee_id').val(),
+        // Enhanced salary fields
+        basic_salary: $('#basic_salary').val() ? parseFloat($('#basic_salary').val()) : null,
+        allowances: Object.keys(allowances).length > 0 ? allowances : {},
+        salary_effective_date: $('#salary_effective_date').val() || null,
+        salary_notes: $('#salary_notes').val() || ''
     };
     
     $.ajax({

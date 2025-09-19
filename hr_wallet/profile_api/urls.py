@@ -47,4 +47,10 @@ urlpatterns = [
     path('biometric/devices/<int:pk>/ping/', views.ping_biometric_device, name='ping_biometric_device'),
     path('biometric/devices/<int:pk>/sync/', views.sync_biometric_device, name='sync_biometric_device'),
 
+    # Salary Management
+    path('salaries/', views.list_employee_salaries, name='list_employee_salaries'),
+    path('salaries/create/', views.create_employee_salary, name='create_employee_salary'),
+    path('salaries/<int:salary_id>/update/', views.update_employee_salary, name='update_employee_salary'),
+    path('salaries/<int:salary_id>/approve/', views.approve_salary, name='approve_salary'),
+
 ]

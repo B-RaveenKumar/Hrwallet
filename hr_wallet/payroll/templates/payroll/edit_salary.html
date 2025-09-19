@@ -1,22 +1,191 @@
 {% extends 'hr_dashboard/base.html' %}
-{% block title %}Edit Salary{% endblock %}
-{% block page_title %}Edit Salary - {{ employee }}{% endblock %}
+{% block title %}Edit Salary - {{ employee.user.get_full_name }}{% endblock %}
+{% block page_title %}Edit Salary - {{ employee.user.get_full_name }}{% endblock %}
+
 {% block content %}
-<div class="card">
-  <div class="card-body">
-    <form method="post">{% csrf_token %}
-      <div class="mb-3">
-        <label class="form-label">Basic Salary</label>
-        <input class="form-control" type="number" step="0.01" name="basic_salary" value="{{ salary.basic_salary }}" />
-      </div>
-      <div class="mb-3">
-        <label class="form-label">Allowance</label>
-        <input class="form-control" type="number" step="0.01" name="allowance" value="{{ salary.allowances.allowance|default:'0.00' }}" />
-      </div>
-      <button type="submit" class="btn btn-primary">Save</button>
-      <a href="{% url 'payroll:salaries' %}" class="btn btn-secondary">Cancel</a>
-    </form>
-  </div>
+<div class="row">
+    <div class="col-lg-8">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-currency-rupee me-2"></i>
+                    Salary Configuration
+                </h5>
+            </div>
+            <div class="card-body">
+                <form method="post">
+                    {% csrf_token %}
+
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="basic_salary" class="form-label">Basic Salary <span class="text-danger">*</span></label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₹</span>
+                                    <input type="number" class="form-control" id="basic_salary" name="basic_salary"
+                                           value="{{ salary.basic_salary|default:'0.00' }}" step="0.01" min="0" required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="mb-3">
+                                <label for="effective_date" class="form-label">Effective Date</label>
+                                <input type="date" class="form-control" id="effective_date" name="effective_date"
+                                       value="{{ salary.effective_date|date:'Y-m-d'|default:'' }}">
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="mb-4">
+                        <label class="form-label">Allowances</label>
+                        <div class="row">
+                            {% for allowance_type in allowance_types %}
+                            <div class="col-md-4 mb-3">
+                                <label for="allowance_{{ allowance_type }}" class="form-label text-capitalize">{{ allowance_type }}</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">₹</span>
+                                    <input type="number" class="form-control"
+                                           id="allowance_{{ allowance_type }}"
+                                           name="allowance_{{ allowance_type }}"
+                                           value="{{ salary.allowances|default_if_none:''|lookup:allowance_type|default:'0.00' }}"
+                                           step="0.01" min="0">
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+
+                    <div class="d-flex justify-content-between">
+                        <div>
+                            <button type="submit" class="btn btn-primary">
+                                <i class="bi bi-check-circle me-2"></i>
+                                Save Changes
+                            </button>
+                            <a href="{% url 'payroll:salaries' %}" class="btn btn-secondary">
+                                <i class="bi bi-x-circle me-2"></i>
+                                Cancel
+                            </a>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-lg-4">
+        <!-- Employee Info -->
+        <div class="card mb-4">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-person me-2"></i>
+                    Employee Information
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="text-center mb-3">
+                    <div class="avatar-lg mx-auto mb-3">
+                        <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                             style="width: 60px; height: 60px;">
+                            <i class="bi bi-person-fill text-white" style="font-size: 1.5rem;"></i>
+                        </div>
+                    </div>
+                    <h5 class="mb-1">{{ employee.user.get_full_name }}</h5>
+                    <p class="text-muted mb-0">{{ employee.job_title }}</p>
+                    <small class="text-muted">{{ employee.department.name }}</small>
+                </div>
+
+                <div class="border-top pt-3">
+                    <div class="row text-center">
+                        <div class="col-6">
+                            <div class="border-end">
+                                <p class="text-muted mb-1">Employee ID</p>
+                                <h6 class="mb-0">{{ employee.employee_id }}</h6>
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <p class="text-muted mb-1">Hire Date</p>
+                            <h6 class="mb-0">{{ employee.hire_date }}</h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Salary History -->
+        {% if salary_history %}
+        <div class="card">
+            <div class="card-header">
+                <h6 class="mb-0">
+                    <i class="bi bi-clock-history me-2"></i>
+                    Salary History
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="timeline">
+                    {% for history in salary_history %}
+                    <div class="timeline-item">
+                        <div class="timeline-marker {% if history.is_active %}bg-success{% else %}bg-secondary{% endif %}"></div>
+                        <div class="timeline-content">
+                            <div class="d-flex justify-content-between align-items-start">
+                                <div>
+                                    <h6 class="mb-1">₹{{ history.basic_salary|floatformat:2 }}</h6>
+                                    <p class="text-muted mb-1">{{ history.effective_date }}</p>
+                                    <small class="badge {% if history.status == 'approved' %}bg-success{% elif history.status == 'pending' %}bg-warning{% else %}bg-danger{% endif %}">
+                                        {{ history.get_status_display }}
+                                    </small>
+                                    {% if history.is_active %}
+                                    <small class="badge bg-primary ms-1">Current</small>
+                                    {% endif %}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
 </div>
+
+<style>
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #dee2e6;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -22px;
+    top: 5px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    border: 2px solid #fff;
+    box-shadow: 0 0 0 2px #dee2e6;
+}
+
+.timeline-content {
+    background: #f8f9fa;
+    padding: 15px;
+    border-radius: 8px;
+    border-left: 3px solid #dee2e6;
+}
+</style>
 {% endblock %}
 

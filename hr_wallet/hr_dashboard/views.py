@@ -500,3 +500,88 @@ def biometric_attendance_dashboard(request):
         }
     })
 
+
+@login_required
+@require_role('hr_manager')
+@audit_action('hr_profile_access')
+def hr_profile(request):
+    """HR Manager Profile Management"""
+    try:
+        # Get HR manager's employee record
+        hr_employee = Employee.objects.select_related(
+            'user', 'department', 'company'
+        ).get(user=request.user)
+
+        if request.method == 'POST':
+            # Handle profile update
+            try:
+                # Update user information
+                user = request.user
+                user.first_name = request.POST.get('first_name', '').strip()
+                user.last_name = request.POST.get('last_name', '').strip()
+                user.email = request.POST.get('email', '').strip()
+                user.save()
+
+                # Update employee information
+                hr_employee.phone = request.POST.get('phone', '').strip()
+                hr_employee.job_title = request.POST.get('job_title', '').strip()
+                hr_employee.address = request.POST.get('address', '').strip()
+                hr_employee.save()
+
+                messages.success(request, 'Profile updated successfully!')
+                return redirect('hr_dashboard:hr_profile')
+
+            except Exception as e:
+                messages.error(request, f'Error updating profile: {str(e)}')
+
+        # Get recent activity logs for this HR manager
+        from payroll.models import AuditLog
+        recent_activities = AuditLog.objects.filter(
+            user=request.user
+        ).order_by('-timestamp')[:10]
+
+        # Get statistics for HR dashboard
+        total_employees = Employee.objects.filter(
+            company=request.user.company,
+            is_active=True
+        ).exclude(user__role='hr_manager').count()
+
+        pending_leaves = LeaveRequest.objects.filter(
+            employee__company=request.user.company,
+            status='pending'
+        ).count()
+
+        today_attendance = Attendance.objects.filter(
+            employee__company=request.user.company,
+            date=timezone.now().date(),
+            status__in=['present', 'late']
+        ).count()
+
+        # Get salary information if available
+        from payroll.models import EmployeeSalary
+        current_salary = EmployeeSalary.objects.filter(
+            employee=hr_employee,
+            is_active=True,
+            status='approved'
+        ).order_by('-effective_date').first()
+
+        context = {
+            'hr_employee': hr_employee,
+            'recent_activities': recent_activities,
+            'current_salary': current_salary,
+            'stats': {
+                'total_employees': total_employees,
+                'pending_leaves': pending_leaves,
+                'today_attendance': today_attendance,
+            }
+        }
+
+        return render(request, 'hr_dashboard/hr_profile.html', context)
+
+    except Employee.DoesNotExist:
+        messages.error(request, 'HR employee profile not found.')
+        return redirect('hr_dashboard:hr_dashboard')
+    except Exception as e:
+        messages.error(request, f'Error loading profile: {str(e)}')
+        return redirect('hr_dashboard:hr_dashboard')
+

@@ -34,19 +34,31 @@ class DeductionType(models.Model):
         return self.name
 
 class EmployeeSalary(models.Model):
-    employee = models.OneToOneField(Employee, on_delete=models.CASCADE)
+    SALARY_STATUS_CHOICES = (
+        ('pending', 'Pending'),
+        ('approved', 'Approved'),
+        ('rejected', 'Rejected'),
+    )
+
+    employee = models.ForeignKey(Employee, on_delete=models.CASCADE, related_name='salaries')
     basic_salary = models.DecimalField(max_digits=12, decimal_places=2)
     allowances = models.JSONField(default=dict, blank=True)
     effective_date = models.DateField(default=timezone.now)
-    is_active = models.BooleanField(default=True)
+    status = models.CharField(max_length=10, choices=SALARY_STATUS_CHOICES, default='pending')
+    is_active = models.BooleanField(default=False)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
     updated_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='+')
+    approved_by = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, blank=True, on_delete=models.SET_NULL, related_name='approved_salaries')
+    approved_at = models.DateTimeField(null=True, blank=True)
 
     class Meta:
         ordering = ['-effective_date']
-        indexes = [models.Index(fields=['is_active', 'effective_date'])]
+        indexes = [
+            models.Index(fields=['employee', 'is_active', 'status']),
+            models.Index(fields=['is_active', 'effective_date']),
+        ]
 
     def total_allowances(self) -> Decimal:
         total = Decimal('0')
@@ -56,6 +68,12 @@ class EmployeeSalary(models.Model):
             except Exception:
                 continue
         return total.quantize(TWOPL, rounding=ROUND_HALF_UP)
+
+    def save(self, *args, **kwargs):
+        # If this salary is being activated, deactivate all others for the same employee
+        if self.is_active and self.status == 'approved':
+            EmployeeSalary.objects.filter(employee=self.employee).exclude(pk=self.pk).update(is_active=False)
+        super().save(*args, **kwargs)
 
 class PaySlip(models.Model):
     employee = models.ForeignKey(Employee, on_delete=models.PROTECT)
@@ -88,9 +106,17 @@ class PaySlip(models.Model):
         return tax.quantize(TWOPL, rounding=ROUND_HALF_UP)
 
     def calculate_totals(self, salary: EmployeeSalary, month_days: int = 30):
+        """Calculate payslip totals using provided salary record"""
+        if not salary:
+            self.gross_pay = Decimal('0.00')
+            self.total_deductions = Decimal('0.00')
+            self.net_pay = Decimal('0.00')
+            return
+
         base = Decimal(salary.basic_salary)
         allowances = salary.total_allowances()
         gross = base + allowances
+
         # Mandatory deductions
         deductions = Decimal('0')
         for d in DeductionType.objects.filter(is_active=True, is_mandatory=True):
@@ -98,12 +124,57 @@ class PaySlip(models.Model):
                 deductions += (gross * (Decimal(d.amount_or_percentage) / Decimal('100')))
             else:
                 deductions += Decimal(d.amount_or_percentage)
+
         # Progressive tax on gross
         tax = self._progressive_tax(gross)
         deductions += tax
+
         self.gross_pay = gross.quantize(TWOPL, rounding=ROUND_HALF_UP)
         self.total_deductions = deductions.quantize(TWOPL, rounding=ROUND_HALF_UP)
         self.net_pay = (self.gross_pay - self.total_deductions).quantize(TWOPL, rounding=ROUND_HALF_UP)
+
+    def calculate_amounts(self):
+        """Calculate payslip amounts based on employee's active salary"""
+        try:
+            # Get the employee's active salary that was effective during the pay period
+            salary = EmployeeSalary.objects.filter(
+                employee=self.employee,
+                is_active=True,
+                status='approved',
+                effective_date__lte=self.pay_period_end
+            ).order_by('-effective_date').first()
+
+            if not salary:
+                # Fallback to employee's basic salary field if no salary record exists
+                basic = Decimal(self.employee.salary or '0')
+                if basic > 0:
+                    # Create a temporary salary-like object for calculation
+                    class TempSalary:
+                        def __init__(self, basic_salary):
+                            self.basic_salary = basic_salary
+                            self.allowances = {}
+
+                        def total_allowances(self):
+                            return Decimal('0')
+
+                    temp_salary = TempSalary(basic)
+                    self.calculate_totals(temp_salary)
+                else:
+                    # No salary information available
+                    self.gross_pay = Decimal('0.00')
+                    self.total_deductions = Decimal('0.00')
+                    self.net_pay = Decimal('0.00')
+            else:
+                self.calculate_totals(salary)
+
+        except Exception as e:
+            # Fallback calculation with error logging
+            import logging
+            logger = logging.getLogger(__name__)
+            logger.error(f"Error calculating payslip amounts for {self.employee}: {str(e)}")
+            self.gross_pay = Decimal('0.00')
+            self.total_deductions = Decimal('0.00')
+            self.net_pay = Decimal('0.00')
 
     def generate_pdf(self):
         try:
@@ -131,4 +202,13 @@ class PaySlip(models.Model):
         self.pdf_file_path = filename
         self.save(update_fields=['pdf_file_path'])
         return self.pdf_file_path
+
+class AuditLog(models.Model):
+    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, blank=True)
+    action = models.CharField(max_length=255)
+    timestamp = models.DateTimeField(auto_now_add=True)
+    details = models.TextField(blank=True, null=True)
+
+    def __str__(self):
+        return f'{self.user} - {self.action} at {self.timestamp}'
 

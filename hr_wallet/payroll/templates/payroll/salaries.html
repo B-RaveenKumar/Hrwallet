@@ -1,28 +1,147 @@
 {% extends 'hr_dashboard/base.html' %}
 {% block title %}Employee Salaries{% endblock %}
-{% block page_title %}Employee Salaries{% endblock %}
+{% block page_title %}Employee Salaries Management{% endblock %}
+
 {% block content %}
-<div class="card">
-  <div class="card-header"><i class="bi bi-currency-dollar me-2"></i>Salaries</div>
-  <div class="card-body">
-    <div class="table-responsive">
-      <table class="table table-hover align-middle">
-        <thead><tr><th>Employee</th><th>Basic</th><th>Effective</th><th>Actions</th></tr></thead>
-        <tbody>
-          {% for s in salaries %}
-          <tr>
-            <td>{{ s.employee }}</td>
-            <td>{{ s.basic_salary }}</td>
-            <td>{{ s.effective_date }}</td>
-            <td><a class="btn btn-sm btn-outline-primary" href="{% url 'payroll:edit_salary' s.employee.id %}"><i class="bi bi-pencil"></i> Edit</a></td>
-          </tr>
-          {% empty %}
-          <tr><td colspan="4" class="text-center text-muted">No salary records.</td></tr>
-          {% endfor %}
-        </tbody>
-      </table>
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="mb-1">Employee Salaries</h2>
+                <p class="text-muted mb-0">Manage employee salary records and approvals</p>
+            </div>
+        </div>
     </div>
-  </div>
+</div>
+
+<!-- Filters -->
+<div class="card mb-4">
+    <div class="card-body">
+        <form method="get" class="row g-3">
+            <div class="col-md-3">
+                <label for="search" class="form-label">Search Employee</label>
+                <input type="text" class="form-control" id="search" name="search"
+                       value="{{ search }}" placeholder="Name or Employee ID">
+            </div>
+            <div class="col-md-2">
+                <label for="status" class="form-label">Status</label>
+                <select class="form-select" id="status" name="status">
+                    <option value="">All Status</option>
+                    {% for value, label in status_choices %}
+                    <option value="{{ value }}" {% if status_filter == value %}selected{% endif %}>{{ label }}</option>
+                    {% endfor %}
+                </select>
+            </div>
+            <div class="col-md-2">
+                <label for="is_active" class="form-label">Active</label>
+                <select class="form-select" id="is_active" name="is_active">
+                    <option value="">All</option>
+                    <option value="true" {% if is_active_filter == 'true' %}selected{% endif %}>Active</option>
+                    <option value="false" {% if is_active_filter == 'false' %}selected{% endif %}>Inactive</option>
+                </select>
+            </div>
+            <div class="col-md-3 d-flex align-items-end">
+                <button type="submit" class="btn btn-primary me-2">
+                    <i class="bi bi-search me-1"></i>Filter
+                </button>
+                <a href="{% url 'payroll:salaries' %}" class="btn btn-outline-secondary">
+                    <i class="bi bi-x-circle me-1"></i>Clear
+                </a>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- Salary Records -->
+<div class="card">
+    <div class="card-header">
+        <h5 class="mb-0">
+            <i class="bi bi-currency-rupee me-2"></i>
+            Salary Records
+        </h5>
+    </div>
+    <div class="card-body">
+        <div class="table-responsive">
+            <table class="table table-hover align-middle">
+                <thead class="table-light">
+                    <tr>
+                        <th>Employee</th>
+                        <th>Employee ID</th>
+                        <th>Basic Salary</th>
+                        <th>Allowances</th>
+                        <th>Total</th>
+                        <th>Effective Date</th>
+                        <th>Status</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for s in salaries %}
+                    <tr>
+                        <td>
+                            <div class="d-flex align-items-center">
+                                <div class="avatar-sm me-3">
+                                    <div class="bg-primary rounded-circle d-flex align-items-center justify-content-center"
+                                         style="width: 32px; height: 32px;">
+                                        <i class="bi bi-person-fill text-white"></i>
+                                    </div>
+                                </div>
+                                <div>
+                                    <h6 class="mb-0">{{ s.employee.user.get_full_name }}</h6>
+                                    <small class="text-muted">{{ s.employee.job_title }}</small>
+                                </div>
+                            </div>
+                        </td>
+                        <td>
+                            <span class="badge bg-light text-dark">{{ s.employee.employee_id }}</span>
+                        </td>
+                        <td>
+                            <strong>₹{{ s.basic_salary|floatformat:2 }}</strong>
+                        </td>
+                        <td>
+                            <span class="text-success">₹{{ s.total_allowances|floatformat:2 }}</span>
+                        </td>
+                        <td>
+                            <strong class="text-primary">₹{{ s.basic_salary|add:s.total_allowances|floatformat:2 }}</strong>
+                        </td>
+                        <td>{{ s.effective_date }}</td>
+                        <td>
+                            {% if s.status == 'approved' %}
+                                <span class="badge bg-success">{{ s.get_status_display }}</span>
+                                {% if s.is_active %}
+                                    <span class="badge bg-primary ms-1">Active</span>
+                                {% endif %}
+                            {% elif s.status == 'pending' %}
+                                <span class="badge bg-warning">{{ s.get_status_display }}</span>
+                            {% else %}
+                                <span class="badge bg-danger">{{ s.get_status_display }}</span>
+                            {% endif %}
+                        </td>
+                        <td>
+                            <div class="btn-group" role="group">
+                                <a class="btn btn-sm btn-outline-primary"
+                                   href="{% url 'payroll:edit_salary' s.employee.id %}"
+                                   title="Edit Salary">
+                                    <i class="bi bi-pencil"></i>
+                                </a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% empty %}
+                    <tr>
+                        <td colspan="8" class="text-center text-muted py-4">
+                            <i class="bi bi-currency-rupee display-4 mb-3"></i>
+                            <p>No salary records found.</p>
+                            <a href="{% url 'hr_dashboard:create_employee' %}" class="btn btn-primary">
+                                <i class="bi bi-person-plus me-2"></i>Add Employee
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
 </div>
 {% endblock %}
 
