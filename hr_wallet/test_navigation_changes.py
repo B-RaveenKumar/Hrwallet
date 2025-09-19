@@ -3,17 +3,15 @@
 Test navigation and payroll routing changes
 """
 import os
-import sys
 import django
-from django.test import TestCase, Client
-from django.contrib.auth import get_user_model
+from django.test import Client
 from django.urls import reverse
 
 # Setup Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hr_wallet.settings')
 django.setup()
 
-from accounts.models import User
+# Models will be imported when needed
 
 def test_navigation_templates():
     """Test that navigation templates don't contain Performance and Notifications menu items"""
@@ -107,8 +105,7 @@ def test_payroll_urls_access():
     """Test that payroll URLs are accessible with proper role restrictions"""
     print("\n🔒 Testing Payroll URL Access Control...")
     
-    from django.contrib.auth import get_user_model
-    User = get_user_model()
+    # User model not needed for this test
     
     client = Client()
     

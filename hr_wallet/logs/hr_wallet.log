@@ -14238,3 +14238,548 @@ INFO 2025-09-19 19:56:26,825 basehttp 18872 1000 "GET /login/?next=/hr-dashboard
 INFO 2025-09-19 19:56:26,858 basehttp 18872 1000 "GET /accounts/login/ HTTP/1.1" 200 5650
 INFO 2025-09-19 19:56:27,108 basehttp 18872 1000 "GET /favicon.ico HTTP/1.1" 204 0
 INFO 2025-09-19 20:08:12,183 autoreload 7728 8304 Watching for file changes with StatReloader
+INFO 2025-09-19 20:12:51,737 basehttp 18872 7596 "GET /accounts/login/ HTTP/1.1" 200 5650
+INFO 2025-09-19 20:12:52,000 basehttp 18872 7596 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:12:56,929 views 18872 7596 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 20:12:56,940 basehttp 18872 7596 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:12:56,958 middleware 18872 7596 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:12:56,960 decorators 18872 7596 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:12:57,007 basehttp 18872 7596 "GET /hr-dashboard/ HTTP/1.1" 200 17163
+INFO 2025-09-19 20:12:57,147 basehttp 18872 7596 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:12:59,189 basehttp 18872 12852 "GET /payroll/ HTTP/1.1" 200 11508
+INFO 2025-09-19 20:12:59,251 basehttp 18872 12852 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:00,844 middleware 18872 12852 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:00,845 decorators 18872 12852 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:00,918 basehttp 18872 12852 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:13:00,948 middleware 18872 12852 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:00,950 decorators 18872 12852 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:01,002 basehttp 18872 12852 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 20:13:01,183 basehttp 18872 12852 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:02,545 middleware 18872 12852 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:02,547 decorators 18872 12852 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:02,584 basehttp 18872 12852 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:13:02,603 middleware 18872 12852 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:02,604 decorators 18872 12852 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:02,638 basehttp 18872 12852 "GET /hr-dashboard/ HTTP/1.1" 200 17571
+INFO 2025-09-19 20:13:02,734 basehttp 18872 12852 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:04,319 middleware 18872 12852 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:04,368 basehttp 18872 12852 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 30718
+INFO 2025-09-19 20:13:04,456 basehttp 18872 12852 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:09,882 decorators 18872 4120 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:09,890 views 18872 4120 User logged out: Raveen
+INFO 2025-09-19 20:13:09,895 basehttp 18872 4120 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:13:09,915 basehttp 18872 4120 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 20:13:10,011 basehttp 18872 4120 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:15,843 views 18872 4120 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-19 20:13:15,853 basehttp 18872 4120 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:13:15,874 middleware 18872 4120 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:15,875 decorators 18872 4120 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 20:13:15,916 basehttp 18872 4120 "GET /employee-portal/ HTTP/1.1" 200 20469
+INFO 2025-09-19 20:13:16,009 middleware 18872 4120 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:16,028 basehttp 18872 4120 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 20:13:16,035 basehttp 18872 10028 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:20,303 middleware 18872 14992 Access: /employee-portal/profile/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:20,317 basehttp 18872 14992 "GET /employee-portal/profile/ HTTP/1.1" 200 13461
+INFO 2025-09-19 20:13:20,400 basehttp 18872 14992 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:22,610 middleware 18872 14992 Access: /employee-portal/attendance/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:22,643 basehttp 18872 14992 "GET /employee-portal/attendance/ HTTP/1.1" 200 13800
+INFO 2025-09-19 20:13:22,806 basehttp 18872 14992 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:25,055 middleware 18872 14992 Access: /employee-portal/leave-requests/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:25,080 basehttp 18872 14992 "GET /employee-portal/leave-requests/ HTTP/1.1" 200 12439
+INFO 2025-09-19 20:13:25,142 basehttp 18872 14992 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:13:27,484 middleware 18872 14992 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:13:27,508 basehttp 18872 14992 "GET /employee-portal/payslips/ HTTP/1.1" 200 13404
+INFO 2025-09-19 20:13:27,629 basehttp 18872 14992 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:18:39,587 autoreload 18872 13724 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:39,578 autoreload 10840 6544 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:39,624 autoreload 7728 8304 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:39,604 autoreload 9492 19860 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:39,639 autoreload 3400 13136 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:39,650 autoreload 7252 18248 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:43,971 autoreload 11004 10532 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:44,049 autoreload 17600 13444 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:44,063 autoreload 18612 19988 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:44,093 autoreload 4576 16140 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:44,155 autoreload 2592 14580 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:44,288 autoreload 3492 13192 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:50,319 autoreload 11004 10532 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:50,321 autoreload 2592 14580 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:50,354 autoreload 3492 13192 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:50,358 autoreload 18612 19988 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:50,474 autoreload 17600 13444 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:50,577 autoreload 4576 16140 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:53,515 autoreload 12856 14736 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:53,521 autoreload 19492 3328 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:53,531 autoreload 18280 9872 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:53,545 autoreload 6104 8308 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:53,598 autoreload 948 19572 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:53,637 autoreload 10724 12968 Watching for file changes with StatReloader
+INFO 2025-09-19 20:18:59,789 autoreload 19492 3328 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:59,803 autoreload 10724 12968 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:59,856 autoreload 12856 14736 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:59,880 autoreload 948 19572 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:18:59,914 autoreload 18280 9872 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:00,178 autoreload 6104 8308 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:03,449 autoreload 17276 2564 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:03,501 autoreload 7052 6460 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:03,514 autoreload 8364 5712 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:03,546 autoreload 2860 1140 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:03,618 autoreload 18996 16368 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:03,713 autoreload 4748 11328 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:17,300 autoreload 8364 5712 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:17,316 autoreload 7052 6460 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:18,510 autoreload 2860 1140 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:18,539 autoreload 18996 16368 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:18,577 autoreload 17276 2564 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:18,640 autoreload 4748 11328 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:20,107 autoreload 2904 11412 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:20,184 autoreload 8460 15432 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:21,203 autoreload 8988 11652 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:21,236 autoreload 20408 9268 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:21,271 autoreload 19800 5780 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:21,307 autoreload 16264 9076 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:27,553 autoreload 8460 15432 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:27,553 autoreload 19800 5780 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:27,585 autoreload 8988 11652 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:27,591 autoreload 16264 9076 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:27,591 autoreload 20408 9268 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:27,623 autoreload 2904 11412 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:30,776 autoreload 19424 12228 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:30,804 autoreload 15820 16464 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:30,804 autoreload 18700 4424 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:30,819 autoreload 11840 13936 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:30,920 autoreload 20360 17652 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:30,984 autoreload 4120 4292 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:36,073 autoreload 19424 12228 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:36,169 autoreload 4120 4292 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:36,190 autoreload 15820 16464 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:36,206 autoreload 11840 13936 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:36,353 autoreload 18700 4424 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:36,497 autoreload 20360 17652 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:39,157 autoreload 15784 3572 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:39,174 autoreload 13196 3276 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:39,193 autoreload 19008 12864 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:39,250 autoreload 7128 8912 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:39,274 autoreload 2236 11448 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:39,353 autoreload 2112 19732 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:44,080 autoreload 19008 12864 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:44,083 autoreload 15784 3572 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:44,173 autoreload 13196 3276 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:44,204 autoreload 7128 8912 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:44,235 autoreload 2236 11448 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:44,283 autoreload 2112 19732 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:47,497 autoreload 12572 14204 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:47,505 autoreload 20024 5256 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:47,530 autoreload 6760 8688 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:47,545 autoreload 4288 20100 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:47,626 autoreload 6736 11148 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:47,627 autoreload 7948 10824 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:54,857 autoreload 6736 11148 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:54,876 autoreload 20024 5256 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:54,908 autoreload 6760 8688 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:54,924 autoreload 7948 10824 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:54,926 autoreload 12572 14204 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:54,953 autoreload 4288 20100 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:19:57,863 autoreload 8012 1184 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:57,870 autoreload 15184 19640 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:57,937 autoreload 15696 14208 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:57,966 autoreload 13472 6864 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:57,991 autoreload 16852 11108 Watching for file changes with StatReloader
+INFO 2025-09-19 20:19:58,152 autoreload 13928 13768 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:04,173 autoreload 13472 6864 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:04,195 autoreload 8012 1184 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:04,228 autoreload 15184 19640 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:04,289 autoreload 16852 11108 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:04,365 autoreload 13928 13768 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:04,368 autoreload 15696 14208 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:07,290 autoreload 17792 16688 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:07,301 autoreload 4004 19180 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:07,307 autoreload 1032 6152 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:07,325 autoreload 13276 8744 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:07,338 autoreload 15808 8436 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:07,406 autoreload 8740 16356 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:24,918 autoreload 4004 19180 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:24,919 autoreload 8740 16356 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:24,926 autoreload 1032 6152 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:24,946 autoreload 13276 8744 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:24,995 autoreload 15808 8436 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:25,037 autoreload 17792 16688 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:20:27,793 autoreload 10168 17640 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:27,808 autoreload 17572 3264 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:27,868 autoreload 12640 12080 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:27,918 autoreload 10484 10324 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:28,045 autoreload 17476 8772 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:28,077 autoreload 19308 9308 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:44,308 autoreload 19308 9308 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:44,316 autoreload 10168 17640 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:44,341 autoreload 10484 10324 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:44,346 autoreload 17572 3264 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:44,371 autoreload 17476 8772 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:44,385 autoreload 12640 12080 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:20:47,510 autoreload 168 8832 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:47,514 autoreload 18080 1596 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:47,565 autoreload 17128 17848 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:47,573 autoreload 17272 14068 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:47,763 autoreload 15120 7348 Watching for file changes with StatReloader
+INFO 2025-09-19 20:20:47,768 autoreload 14616 20012 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:01,620 autoreload 17272 14068 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:01,706 autoreload 168 8832 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:01,731 autoreload 17128 17848 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:01,785 autoreload 18080 1596 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:01,788 autoreload 15120 7348 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:01,794 autoreload 14616 20012 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:03,513 autoreload 13320 11636 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:03,539 autoreload 15852 9712 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:03,561 autoreload 13148 12340 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:03,563 autoreload 10592 11672 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:03,582 autoreload 18920 14140 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:03,584 autoreload 1352 10784 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:10,166 autoreload 1352 10784 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:10,171 autoreload 13320 11636 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:10,182 autoreload 15852 9712 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:10,225 autoreload 13148 12340 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:10,250 autoreload 10592 11672 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:10,300 autoreload 18920 14140 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:13,664 autoreload 2080 16808 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:13,665 autoreload 8636 18672 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:13,680 autoreload 20264 14260 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:13,698 autoreload 12372 7772 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:13,799 autoreload 13560 10524 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:13,849 autoreload 19960 1316 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:25,016 autoreload 20264 14260 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:25,038 autoreload 12372 7772 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:25,092 autoreload 8636 18672 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:25,107 autoreload 2080 16808 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:25,131 autoreload 19960 1316 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:25,139 autoreload 13560 10524 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:27,424 autoreload 6120 9212 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:27,425 autoreload 18248 3400 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:27,431 autoreload 15500 10852 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:27,440 autoreload 11396 4064 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:27,443 autoreload 9916 4320 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:27,467 autoreload 7252 4528 Watching for file changes with StatReloader
+INFO 2025-09-19 20:21:36,424 autoreload 11396 4064 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:37,228 autoreload 7252 4528 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:37,389 autoreload 15500 10852 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:37,415 autoreload 9916 4320 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:37,448 autoreload 6120 9212 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:21:37,633 autoreload 18248 3400 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:22:00,623 autoreload 11120 15944 Watching for file changes with StatReloader
+INFO 2025-09-19 20:22:00,675 autoreload 16580 15240 Watching for file changes with StatReloader
+INFO 2025-09-19 20:22:00,691 autoreload 17708 14116 Watching for file changes with StatReloader
+INFO 2025-09-19 20:22:00,726 autoreload 3872 920 Watching for file changes with StatReloader
+INFO 2025-09-19 20:22:00,841 autoreload 11136 17624 Watching for file changes with StatReloader
+INFO 2025-09-19 20:22:00,949 autoreload 8436 2716 Watching for file changes with StatReloader
+INFO 2025-09-19 20:24:58,311 autoreload 16580 15240 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:24:58,322 autoreload 11120 15944 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:24:58,346 autoreload 8436 2716 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:24:58,368 autoreload 17708 14116 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:24:58,374 autoreload 11136 17624 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:24:58,445 autoreload 3872 920 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:01,770 autoreload 7184 15328 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:01,771 autoreload 10784 11004 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:01,798 autoreload 13348 13180 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:01,846 autoreload 19492 6104 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:01,911 autoreload 18952 4372 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:02,003 autoreload 14160 17476 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:06,839 autoreload 7184 15328 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:06,859 autoreload 18952 4372 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:06,874 autoreload 19492 6104 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:06,941 autoreload 10784 11004 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:06,977 autoreload 13348 13180 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:07,041 autoreload 14160 17476 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:10,189 autoreload 11024 3812 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:10,189 autoreload 16116 19900 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:10,189 autoreload 14728 11044 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:10,226 autoreload 2972 13220 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:10,353 autoreload 512 8912 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:10,420 autoreload 18920 8200 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:19,937 autoreload 18920 8200 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:19,944 autoreload 2972 13220 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:20,031 autoreload 512 8912 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:20,040 autoreload 14728 11044 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:20,062 autoreload 11024 3812 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:20,179 autoreload 16116 19900 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:25:22,588 autoreload 10736 10524 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:22,598 autoreload 6032 10648 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:22,625 autoreload 10352 17428 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:22,641 autoreload 6580 7180 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:22,808 autoreload 6500 3784 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:22,896 autoreload 8568 13268 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:32,514 autoreload 10736 10524 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:32,548 autoreload 6500 3784 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:32,597 autoreload 6580 7180 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:32,648 autoreload 8568 13268 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:32,665 autoreload 6032 10648 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:32,666 autoreload 10352 17428 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:35,762 autoreload 14304 10448 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:35,777 autoreload 2400 17884 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:35,782 autoreload 10980 14408 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:35,814 autoreload 15676 19640 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:35,856 autoreload 4124 9684 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:49,372 autoreload 8048 4004 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:49,374 autoreload 10980 14408 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:49,379 autoreload 14304 10448 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:49,408 autoreload 15676 19640 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:49,413 autoreload 2400 17884 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:49,415 autoreload 4124 9684 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:52,177 autoreload 6584 15052 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:52,192 autoreload 14448 15208 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:52,194 autoreload 16344 16760 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:52,195 autoreload 14268 18036 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:52,240 autoreload 10828 8304 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:52,296 autoreload 9148 3044 Watching for file changes with StatReloader
+INFO 2025-09-19 20:25:58,132 autoreload 6584 15052 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:58,136 autoreload 10828 8304 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:58,153 autoreload 14448 15208 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:58,182 autoreload 9148 3044 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:58,191 autoreload 16344 16760 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:25:58,260 autoreload 14268 18036 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:00,957 autoreload 6248 16520 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:00,995 autoreload 9496 8052 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:01,010 autoreload 3804 15372 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:01,027 autoreload 5024 20240 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:01,039 autoreload 11324 17456 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:01,128 autoreload 10608 12796 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:05,716 autoreload 6248 16520 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:05,735 autoreload 9496 8052 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:05,886 autoreload 5024 20240 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:05,958 autoreload 10608 12796 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:05,961 autoreload 11324 17456 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:05,979 autoreload 3804 15372 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:09,455 autoreload 11652 3392 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:09,483 autoreload 3964 15724 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:09,487 autoreload 12072 18880 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:09,503 autoreload 3384 19148 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:09,504 autoreload 18688 2660 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:09,552 autoreload 8056 15572 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:15,537 autoreload 18688 2660 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:15,588 autoreload 12072 18880 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:15,599 autoreload 3384 19148 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:15,601 autoreload 8056 15572 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:15,610 autoreload 11652 3392 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:15,638 autoreload 3964 15724 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:18,149 autoreload 12864 13716 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:18,168 autoreload 11792 17696 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:18,183 autoreload 14244 14276 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:18,194 autoreload 13068 2596 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:18,195 autoreload 2804 15884 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:18,222 autoreload 948 12688 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:25,115 autoreload 12864 13716 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:25,124 autoreload 14244 14276 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:25,128 autoreload 2804 15884 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:25,148 autoreload 948 12688 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:25,163 autoreload 13068 2596 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:25,233 autoreload 11792 17696 D:\VISHNRX\SM Product\hr_wallet\profile_api\serializers.py changed, reloading.
+INFO 2025-09-19 20:26:28,032 autoreload 13872 8628 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:28,047 autoreload 11752 16724 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:28,067 autoreload 10724 2236 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:28,070 autoreload 7748 5060 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:28,076 autoreload 752 5600 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:28,091 autoreload 3572 10104 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:34,012 autoreload 7748 5060 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:34,107 autoreload 752 5600 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:34,204 autoreload 13872 8628 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:34,208 autoreload 3572 10104 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:34,221 autoreload 11752 16724 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:34,242 autoreload 10724 2236 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:26:38,509 autoreload 7444 11612 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:38,695 autoreload 2028 6224 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:38,716 autoreload 8448 12464 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:38,774 autoreload 10188 13848 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:38,807 autoreload 10140 6660 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:38,844 autoreload 13104 10100 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:44,318 autoreload 2028 6224 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:44,390 autoreload 7444 11612 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:45,330 autoreload 8448 12464 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:45,413 autoreload 10140 6660 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:46,397 autoreload 3872 19752 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:46,401 autoreload 19244 4448 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:47,019 autoreload 13804 4052 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:47,087 autoreload 15704 3008 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:51,154 autoreload 13804 4052 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:51,434 autoreload 15704 3008 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:51,695 autoreload 10188 13848 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:51,708 autoreload 13104 10100 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:52,035 autoreload 3872 19752 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:52,117 autoreload 19244 4448 D:\VISHNRX\SM Product\hr_wallet\hr_dashboard\views.py changed, reloading.
+INFO 2025-09-19 20:26:55,106 autoreload 13944 12056 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:55,118 autoreload 7596 17476 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:55,165 autoreload 8236 14508 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:55,256 autoreload 1424 3096 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:55,287 autoreload 19564 5184 Watching for file changes with StatReloader
+INFO 2025-09-19 20:26:55,298 autoreload 18044 16328 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:38,459 autoreload 13944 12056 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:38,463 autoreload 1424 3096 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:38,474 autoreload 7596 17476 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:38,536 autoreload 19564 5184 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:38,592 autoreload 8236 14508 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:38,654 autoreload 18044 16328 D:\VISHNRX\SM Product\hr_wallet\payroll\models.py changed, reloading.
+INFO 2025-09-19 20:27:42,229 autoreload 13040 9888 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:42,272 autoreload 11392 11880 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:42,273 autoreload 10348 7288 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:42,274 autoreload 3908 6356 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:42,343 autoreload 10960 11420 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:42,428 autoreload 15820 10248 Watching for file changes with StatReloader
+INFO 2025-09-19 20:27:57,586 autoreload 10960 11420 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:27:57,596 autoreload 15820 10248 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:27:57,605 autoreload 11392 11880 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:27:58,868 autoreload 13040 9888 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:27:58,903 autoreload 10348 7288 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:27:58,915 autoreload 3908 6356 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:00,612 autoreload 11108 19860 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:00,618 autoreload 1316 19444 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:00,738 autoreload 8908 11736 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:01,716 autoreload 10448 5140 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:01,728 autoreload 10980 14256 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:01,990 autoreload 18076 4064 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:06,109 autoreload 18076 4064 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:06,359 autoreload 1316 19444 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:06,367 autoreload 11108 19860 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:06,465 autoreload 8908 11736 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:07,295 autoreload 10980 14256 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:07,301 autoreload 10448 5140 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:10,087 autoreload 4928 4660 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:10,316 autoreload 5264 16088 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:10,331 autoreload 15696 7996 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:10,359 autoreload 10316 14084 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:10,646 autoreload 12624 6900 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:10,692 autoreload 16460 11344 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:15,677 autoreload 4928 4660 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:15,758 autoreload 5264 16088 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:15,797 autoreload 15696 7996 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:15,828 autoreload 10316 14084 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:16,078 autoreload 16460 11344 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:16,157 autoreload 12624 6900 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:19,026 autoreload 14448 19508 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:19,056 autoreload 18144 6584 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:19,094 autoreload 12476 18036 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:19,143 autoreload 3044 9540 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:19,296 autoreload 19176 14068 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:19,454 autoreload 17484 1916 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:25,207 autoreload 12476 18036 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:25,273 autoreload 18144 6584 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:25,274 autoreload 14448 19508 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:25,306 autoreload 17484 1916 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:25,358 autoreload 19176 14068 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:25,382 autoreload 3044 9540 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
+INFO 2025-09-19 20:28:28,996 autoreload 15460 3168 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:29,002 autoreload 8080 16520 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:29,021 autoreload 5048 6248 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:29,033 autoreload 9496 7932 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:29,059 autoreload 5988 8072 Watching for file changes with StatReloader
+INFO 2025-09-19 20:28:29,208 autoreload 20240 10336 Watching for file changes with StatReloader
+INFO 2025-09-19 20:30:28,961 middleware 15460 16824 Access: /employee-portal/payslips/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:29,095 basehttp 15460 16824 "GET /employee-portal/payslips/ HTTP/1.1" 200 13728
+INFO 2025-09-19 20:30:29,407 basehttp 15460 16824 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:32,216 middleware 15460 16824 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:32,217 decorators 15460 16824 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 20:30:32,257 basehttp 15460 16824 "GET /employee-portal/ HTTP/1.1" 200 20793
+INFO 2025-09-19 20:30:32,356 middleware 15460 16824 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:32,378 basehttp 15460 18720 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:32,378 basehttp 15460 16824 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 20:30:33,867 middleware 15460 16824 Access: /employee-portal/profile/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:33,880 basehttp 15460 16824 "GET /employee-portal/profile/ HTTP/1.1" 200 13785
+INFO 2025-09-19 20:30:34,033 basehttp 15460 16824 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:36,017 middleware 15460 20052 Access: /employee-portal/attendance/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:36,087 basehttp 15460 20052 "GET /employee-portal/attendance/ HTTP/1.1" 200 14124
+INFO 2025-09-19 20:30:36,168 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:38,154 middleware 15460 20052 Access: /employee-portal/leave-requests/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:38,171 basehttp 15460 20052 "GET /employee-portal/leave-requests/ HTTP/1.1" 200 12763
+INFO 2025-09-19 20:30:38,278 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:40,105 decorators 15460 20052 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 20:30:40,118 views 15460 20052 User logged out: Velu
+INFO 2025-09-19 20:30:40,121 basehttp 15460 20052 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:30:40,148 basehttp 15460 20052 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 20:30:40,249 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:45,226 views 15460 20052 Successful login: Raveen (role: hr_manager) at HR Wallet System
+INFO 2025-09-19 20:30:45,234 basehttp 15460 20052 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:30:45,253 middleware 15460 20052 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:45,255 decorators 15460 20052 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:30:45,313 basehttp 15460 20052 "GET /hr-dashboard/ HTTP/1.1" 200 17487
+INFO 2025-09-19 20:30:45,424 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:48,792 middleware 15460 20052 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:48,816 basehttp 15460 20052 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39449
+INFO 2025-09-19 20:30:48,993 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:49,030 basehttp 15460 20052 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-19 20:30:49,073 basehttp 15460 8688 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-19 20:30:51,052 middleware 15460 8688 Access: /hr-dashboard/leave-approvals/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:51,121 basehttp 15460 8688 "GET /hr-dashboard/leave-approvals/ HTTP/1.1" 200 18768
+INFO 2025-09-19 20:30:51,223 basehttp 15460 8688 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:52,447 middleware 15460 8688 Access: /hr-dashboard/attendance/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:52,485 basehttp 15460 8688 "GET /hr-dashboard/attendance/ HTTP/1.1" 200 31042
+INFO 2025-09-19 20:30:52,602 basehttp 15460 8688 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:54,832 middleware 15460 8688 Access: /hr-dashboard/departments/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:54,843 basehttp 15460 8688 "GET /hr-dashboard/departments/ HTTP/1.1" 200 22495
+INFO 2025-09-19 20:30:54,982 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:54,987 basehttp 15460 8688 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-19 20:30:56,344 middleware 15460 8688 Access: /hr-dashboard/biometric/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:56,368 basehttp 15460 8688 "GET /hr-dashboard/biometric/ HTTP/1.1" 200 30116
+INFO 2025-09-19 20:30:56,475 basehttp 15460 20052 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-19 20:30:56,486 basehttp 15460 8688 "GET /api/biometric/status/ HTTP/1.1" 200 74
+INFO 2025-09-19 20:30:56,510 basehttp 15460 20052 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:30:56,519 basehttp 15460 4964 "GET /api/biometric/events/recent/?hours=48 HTTP/1.1" 200 2281
+INFO 2025-09-19 20:30:58,426 middleware 15460 4964 Access: /hr-dashboard/biometric/attendance/dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:30:58,907 basehttp 15460 4964 "GET /hr-dashboard/biometric/attendance/dashboard/ HTTP/1.1" 200 507378
+INFO 2025-09-19 20:30:59,654 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:00,601 basehttp 15460 4964 "GET /payroll/ HTTP/1.1" 200 11832
+INFO 2025-09-19 20:31:00,714 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:02,028 middleware 15460 4964 Access: /hr-dashboard/profile/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:02,029 decorators 15460 4964 Audit: hr_profile_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:02,071 basehttp 15460 4964 "GET /hr-dashboard/profile/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:31:02,084 middleware 15460 4964 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:02,086 decorators 15460 4964 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:02,112 basehttp 15460 4964 "GET /hr-dashboard/ HTTP/1.1" 200 17895
+INFO 2025-09-19 20:31:02,222 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:04,211 decorators 15460 4964 Audit: dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:04,213 basehttp 15460 4964 "GET /accounts/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:31:04,226 middleware 15460 4964 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:04,227 decorators 15460 4964 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:04,260 basehttp 15460 4964 "GET /hr-dashboard/ HTTP/1.1" 200 17487
+INFO 2025-09-19 20:31:04,381 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:07,229 basehttp 15460 4964 "GET /admin/ HTTP/1.1" 200 10992
+INFO 2025-09-19 20:31:07,501 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:11,442 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:14,111 basehttp 15460 4964 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:16,241 decorators 15460 4064 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:16,248 views 15460 4064 User logged out: Raveen
+INFO 2025-09-19 20:31:16,249 basehttp 15460 4064 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:31:16,266 basehttp 15460 4064 "GET /accounts/login/ HTTP/1.1" 200 5952
+INFO 2025-09-19 20:31:16,335 basehttp 15460 4064 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:24,266 views 15460 4064 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 20:31:24,275 basehttp 15460 4064 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 20:31:24,291 middleware 15460 4064 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:24,293 decorators 15460 4064 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:24,320 basehttp 15460 4064 "GET /admin-panel/ HTTP/1.1" 200 18151
+INFO 2025-09-19 20:31:24,432 basehttp 15460 4064 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:27,635 middleware 15460 4064 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:27,648 basehttp 15460 4064 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15590
+INFO 2025-09-19 20:31:27,765 basehttp 15460 4064 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:30,218 middleware 15460 10448 Access: /admin-panel/hr-managers/create/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:30,231 basehttp 15460 10448 "GET /admin-panel/hr-managers/create/ HTTP/1.1" 200 22366
+INFO 2025-09-19 20:31:30,383 basehttp 15460 10448 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:40,836 middleware 15460 10448 Access: /admin-panel/hr-managers/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:40,848 basehttp 15460 10448 "GET /admin-panel/hr-managers/ HTTP/1.1" 200 15590
+INFO 2025-09-19 20:31:41,030 basehttp 15460 10448 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:43,756 middleware 15460 10448 Access: /admin-panel/settings/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:43,770 basehttp 15460 10448 "GET /admin-panel/settings/ HTTP/1.1" 200 18139
+INFO 2025-09-19 20:31:44,003 basehttp 15460 10448 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:45,248 middleware 15460 10448 Access: /admin-panel/audit-logs/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:45,253 basehttp 15460 10448 "GET /admin-panel/audit-logs/ HTTP/1.1" 200 0
+INFO 2025-09-19 20:31:45,328 basehttp 15460 10448 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:47,851 basehttp 15460 10448 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:49,410 middleware 15460 10448 Access: /admin-panel/biometric-devices/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:49,417 basehttp 15460 10448 "GET /admin-panel/biometric-devices/ HTTP/1.1" 200 34692
+INFO 2025-09-19 20:31:49,526 basehttp 15460 10448 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-19 20:31:49,579 basehttp 15460 1356 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:49,579 basehttp 15460 10448 "GET /api/biometric/devices/ HTTP/1.1" 200 26
+INFO 2025-09-19 20:31:49,604 basehttp 15460 16884 "GET /api/biometric/status/ HTTP/1.1" 200 74
+INFO 2025-09-19 20:31:49,640 basehttp 15460 16884 "GET /api/biometric/status/ HTTP/1.1" 200 74
+INFO 2025-09-19 20:31:50,545 basehttp 15460 16884 "GET /payroll/ HTTP/1.1" 200 11112
+INFO 2025-09-19 20:31:50,616 basehttp 15460 16884 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:31:56,261 middleware 15460 884 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 20:31:56,262 decorators 15460 884 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 20:31:56,279 basehttp 15460 884 "GET /admin-panel/ HTTP/1.1" 200 18151
+INFO 2025-09-19 20:31:56,372 basehttp 15460 884 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 20:32:06,848 basehttp 15460 884 "GET /admin/ HTTP/1.1" 200 13515
+INFO 2025-09-19 20:32:06,941 basehttp 15460 884 "GET /favicon.ico HTTP/1.1" 204 0

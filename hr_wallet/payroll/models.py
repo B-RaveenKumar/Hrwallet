@@ -105,7 +105,7 @@ class PaySlip(models.Model):
                 tax += (amount * rate)
         return tax.quantize(TWOPL, rounding=ROUND_HALF_UP)
 
-    def calculate_totals(self, salary: EmployeeSalary, month_days: int = 30):
+    def calculate_totals(self, salary: EmployeeSalary):
         """Calculate payslip totals using provided salary record"""
         if not salary:
             self.gross_pay = Decimal('0.00')
@@ -151,14 +151,15 @@ class PaySlip(models.Model):
                     # Create a temporary salary-like object for calculation
                     class TempSalary:
                         def __init__(self, basic_salary):
-                            self.basic_salary = basic_salary
+                            self.basic_salary = Decimal(str(basic_salary))
                             self.allowances = {}
 
                         def total_allowances(self):
                             return Decimal('0')
 
                     temp_salary = TempSalary(basic)
-                    self.calculate_totals(temp_salary)
+                    # Type ignore for temporary object
+                    self.calculate_totals(temp_salary)  # type: ignore
                 else:
                     # No salary information available
                     self.gross_pay = Decimal('0.00')

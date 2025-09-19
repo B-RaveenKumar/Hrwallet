@@ -5,14 +5,15 @@ from rest_framework.response import Response
 from django.contrib.auth import get_user_model
 from django.db import transaction
 from django.utils import timezone
-from django.core.exceptions import ValidationError
+from decimal import Decimal
 from accounts.decorators import require_role, require_roles
 from core_hr.models import Employee, Department, LeaveBalance, Attendance, BiometricDevice, BiometricEvent, BiometricUserMap
 from .serializers import (
     EmployeeCreateSerializer, HRCreateSerializer,
     EmployeeListSerializer, HRListSerializer, DepartmentSerializer,
     BiometricEventSerializer, BiometricEventBulkEditSerializer, BiometricUserMapCorrectionSerializer,
-    EmployeeDetailSerializer, EmployeeSalarySerializer, SalaryCreateUpdateSerializer
+    EmployeeDetailSerializer, EmployeeSalarySerializer, SalaryCreateUpdateSerializer,
+    EmployeeUpdateSerializer
 )
 import logging
 
@@ -147,17 +148,29 @@ def create_employee(request):
             }, status=status.HTTP_400_BAD_REQUEST)
 
         data = serializer.validated_data
+        if not data or not isinstance(data, dict):
+            return Response({
+                'success': False,
+                'message': 'Invalid data provided'
+            }, status=status.HTTP_400_BAD_REQUEST)
 
         # Split full name into first and last name
-        full_name_parts = data['full_name'].strip().split(' ', 1)
+        full_name = data.get('full_name', '')
+        if not full_name:
+            return Response({
+                'success': False,
+                'message': 'Full name is required'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        full_name_parts = full_name.strip().split(' ', 1)
         first_name = full_name_parts[0]
         last_name = full_name_parts[1] if len(full_name_parts) > 1 else ''
 
         with transaction.atomic():
             # Create user account
             user = User.objects.create_user(
-                username=data['email'],  # Use email as username
-                email=data['email'],
+                username=data.get('email', ''),  # Use email as username
+                email=data.get('email', ''),
                 first_name=first_name,
                 last_name=last_name,
                 role='employee',
@@ -171,14 +184,20 @@ def create_employee(request):
             user.save()
 
             # Get department
-            department = Department.objects.get(id=data['department_id'], company=request.user.company)
+            department_id = data.get('department_id')
+            if not department_id:
+                return Response({
+                    'success': False,
+                    'message': 'Department is required'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            department = Department.objects.get(id=department_id, company=request.user.company)
 
             # Generate employee ID if not provided
             employee_id = data.get('employee_id')
             if not employee_id:
                 # Generate auto employee ID
-                last_employee = Employee.objects.filter(company=request.user.company).order_by('-id').first()
-                next_id = (last_employee.id + 1) if last_employee else 1
+                last_employee = Employee.objects.filter(company=request.user.company).order_by('-pk').first()
+                next_id = (last_employee.pk + 1) if last_employee else 1
                 employee_id = f"EMP{next_id:04d}"
 
             # Create employee profile
@@ -187,7 +206,7 @@ def create_employee(request):
                 company=request.user.company,
                 employee_id=employee_id,
                 department=department,
-                job_title=data['designation'],
+                job_title=data.get('designation', ''),
                 phone=data.get('phone', ''),
                 salary=data.get('salary'),
                 hire_date=timezone.now().date(),
@@ -267,17 +286,29 @@ def create_hr(request):
             }, status=status.HTTP_400_BAD_REQUEST)
 
         data = serializer.validated_data
+        if not data or not isinstance(data, dict):
+            return Response({
+                'success': False,
+                'message': 'Invalid data provided'
+            }, status=status.HTTP_400_BAD_REQUEST)
 
         # Split full name into first and last name
-        full_name_parts = data['full_name'].strip().split(' ', 1)
+        full_name = data.get('full_name', '')
+        if not full_name:
+            return Response({
+                'success': False,
+                'message': 'Full name is required'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
+        full_name_parts = full_name.strip().split(' ', 1)
         first_name = full_name_parts[0]
         last_name = full_name_parts[1] if len(full_name_parts) > 1 else ''
 
         with transaction.atomic():
             # Create user account
             user = User.objects.create_user(
-                username=data['email'],  # Use email as username
-                email=data['email'],
+                username=data.get('email', ''),  # Use email as username
+                email=data.get('email', ''),
                 first_name=first_name,
                 last_name=last_name,
                 role='hr_manager',
@@ -291,14 +322,20 @@ def create_hr(request):
             user.save()
 
             # Get department
-            department = Department.objects.get(id=data['department_id'], company=request.user.company)
+            department_id = data.get('department_id')
+            if not department_id:
+                return Response({
+                    'success': False,
+                    'message': 'Department is required'
+                }, status=status.HTTP_400_BAD_REQUEST)
+            department = Department.objects.get(id=department_id, company=request.user.company)
 
             # Generate employee ID if not provided
             employee_id = data.get('employee_id')
             if not employee_id:
                 # Generate auto employee ID
-                last_employee = Employee.objects.filter(company=request.user.company).order_by('-id').first()
-                next_id = (last_employee.id + 1) if last_employee else 1
+                last_employee = Employee.objects.filter(company=request.user.company).order_by('-pk').first()
+                next_id = (last_employee.pk + 1) if last_employee else 1
                 employee_id = f"HR{next_id:04d}"
 
             # Create employee profile
@@ -307,7 +344,7 @@ def create_hr(request):
                 company=request.user.company,
                 employee_id=employee_id,
                 department=department,
-                job_title=data['designation'],
+                job_title=data.get('designation', ''),
                 phone=data.get('phone', ''),
                 salary=data.get('salary'),
                 hire_date=timezone.now().date(),
@@ -494,18 +531,21 @@ def employee_detail(request, pk: int):
         # Leave balance
         leave = None
         try:
-            lb = employee.leavebalance
-            leave = {
-                'annual_total': lb.annual_leave_total,
-                'annual_used': lb.annual_leave_used,
-                'annual_remaining': lb.annual_leave_total - lb.annual_leave_used,
-                'sick_total': lb.sick_leave_total,
-                'sick_used': lb.sick_leave_used,
-                'sick_remaining': lb.sick_leave_total - lb.sick_leave_used,
-                'personal_total': lb.personal_leave_total,
-                'personal_used': lb.personal_leave_used,
-                'personal_remaining': lb.personal_leave_total - lb.personal_leave_used,
-            }
+            lb = getattr(employee, 'leavebalance', None)
+            if lb:
+                leave = {
+                    'annual_total': lb.annual_leave_total,
+                    'annual_used': lb.annual_leave_used,
+                    'annual_remaining': lb.annual_leave_total - lb.annual_leave_used,
+                    'sick_total': lb.sick_leave_total,
+                    'sick_used': lb.sick_leave_used,
+                    'sick_remaining': lb.sick_leave_total - lb.sick_leave_used,
+                    'personal_total': lb.personal_leave_total,
+                    'personal_used': lb.personal_leave_used,
+                    'personal_remaining': lb.personal_leave_total - lb.personal_leave_used,
+                }
+            else:
+                leave = None
         except Exception:
             leave = None
 
@@ -547,6 +587,13 @@ def update_employee(request, pk: int):
 
     data = serializer.validated_data
     try:
+        # Ensure data is a dictionary
+        if not isinstance(data, dict):
+            return Response({
+                'success': False,
+                'message': 'Invalid data format'
+            }, status=status.HTTP_400_BAD_REQUEST)
+
         with transaction.atomic():
             user = employee.user
             if 'first_name' in data:
@@ -659,7 +706,11 @@ def export_employees(request):
         response_list = list_employees(request)
         if response_list.status_code != 200:
             return response_list
-        data = response_list.data.get('data', [])
+        # Extract data from Response object
+        if hasattr(response_list, 'data') and isinstance(response_list.data, dict):
+            data = response_list.data.get('data', [])
+        else:
+            data = []
 
         # Build CSV
         resp = HttpResponse(content_type='text/csv')
@@ -704,15 +755,15 @@ def _parse_event_timestamp(ts_value, fallback_tz='UTC'):
     if ts_value is None:
         return None
     if isinstance(ts_value, (int, float)):
-        dt = datetime.utcfromtimestamp(float(ts_value))
-        return timezone.make_aware(dt, timezone.utc)
+        dt = datetime.fromtimestamp(float(ts_value), tz=timezone.utc)
+        return dt
     if isinstance(ts_value, str):
         dt = parse_datetime(ts_value)
         if dt is None:
             # try as epoch string
             try:
-                dt = datetime.utcfromtimestamp(float(ts_value))
-                return timezone.make_aware(dt, timezone.utc)
+                dt = datetime.fromtimestamp(float(ts_value), tz=timezone.utc)
+                return dt
             except Exception:
                 return None
         if timezone.is_naive(dt):
@@ -832,7 +883,7 @@ def ingest_biometric_event(request):
         device.last_seen = timezone.now()
         device.save(update_fields=['last_seen'])
         status_text = 'accepted' if ok else 'duplicate'
-        return Response({'success': True, 'status': status_text, 'event_id': ev.id, 'processed': ev.processed}, status=200)
+        return Response({'success': True, 'status': status_text, 'event_id': ev.pk, 'processed': ev.processed}, status=200)
     except Exception as e:
         logger.exception('Error ingesting biometric event')
         return Response({'success': False, 'message': 'Server error'}, status=500)
@@ -1060,7 +1111,7 @@ def biometric_heartbeat(request):
 def list_biometric_devices(request):
     qs = BiometricDevice.objects.filter(company=request.user.company).order_by('name')
     data = [{
-        'id': d.id,
+        'id': d.pk,
         'name': d.name,
         'brand': d.brand,
         'model': d.model,
@@ -1096,7 +1147,7 @@ def register_biometric_device(request):
     api_key = request.data.get('api_key') or secrets.token_hex(32)
     device.api_key = api_key
     device.save()
-    return Response({'success': True, 'data': {'id': device.id, 'api_key': api_key}}, status=201)
+    return Response({'success': True, 'data': {'id': device.pk, 'api_key': api_key}}, status=201)
 
 
 @api_view(['PATCH'])

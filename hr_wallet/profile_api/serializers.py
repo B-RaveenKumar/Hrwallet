@@ -1,9 +1,8 @@
 from rest_framework import serializers
 from django.contrib.auth import get_user_model
-from core_hr.models import Employee, Department, Company, BiometricEvent, BiometricUserMap
+from core_hr.models import Employee, Department, BiometricEvent, BiometricUserMap
 from payroll.models import EmployeeSalary
 from django.utils import timezone
-from decimal import Decimal
 
 User = get_user_model()
 
@@ -225,7 +224,7 @@ class EmployeeUpdateSerializer(serializers.Serializer):
 
     def validate_department_id(self, value):
         request = self.context.get('request')
-        if value is None:
+        if value is None or not request or not hasattr(request, 'user'):
             return value
         try:
             Department.objects.get(id=value, company=request.user.company, is_active=True)

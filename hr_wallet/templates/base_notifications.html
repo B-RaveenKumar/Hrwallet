@@ -1,4 +1,5 @@
 <!-- Real-time notifications (disabled - WebSocket server not configured) -->
+<div id="user-auth-status" data-authenticated="{% if user.is_authenticated %}true{% else %}false{% endif %}" style="display: none;"></div>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     // WebSocket notifications are disabled since the server doesn't support WebSockets
@@ -75,10 +76,12 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
-    {% if user.is_authenticated %}
-    // Notification system is available but WebSocket is disabled
-    console.log('User authenticated - manual notification system ready');
-    {% endif %}
+    // Check if user is authenticated (read from data attribute)
+    const authStatus = document.getElementById('user-auth-status');
+    const isAuthenticated = authStatus && authStatus.dataset.authenticated === 'true';
+    if (isAuthenticated) {
+        // Notification system is available but WebSocket is disabled
+        console.log('User authenticated - manual notification system ready');
+    }
 });
-</script>
 </script>

@@ -3,7 +3,6 @@
 Quick HTTP test for payroll functionality
 """
 import os
-import sys
 import django
 from django.test import Client
 

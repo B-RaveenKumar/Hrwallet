@@ -2,7 +2,6 @@ from datetime import date
 from calendar import monthrange
 from django.core.management.base import BaseCommand
 from django.db import transaction
-from django.utils import timezone
 from core_hr.models import Employee
 from payroll.models import EmployeeSalary, PaySlip
 
@@ -12,7 +11,7 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('--month', required=True, help='Format: YYYY-MM')
 
-    def handle(self, *args, **options):
+    def handle(self, **options):
         year, mon = map(int, options['month'].split('-'))
         start = date(year, mon, 1)
         end = date(year, mon, monthrange(year, mon)[1])

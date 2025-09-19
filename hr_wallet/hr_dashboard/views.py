@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from django.contrib import messages
-from django.db.models import Count, Q
+from django.db.models import Q
 from django.utils import timezone
 from accounts.decorators import require_role, audit_action
 from core_hr.models import Employee, Department, LeaveRequest, Attendance, BiometricDevice, BiometricEvent
@@ -135,11 +135,11 @@ def attendance_overview(request):
         attendance_qs = Attendance.objects.filter(employee__company=request.user.company, date=target_date).select_related('employee__user', 'employee__department')
         if status_filter in ['present', 'absent', 'late', 'half_day']:
             attendance_qs = attendance_qs.filter(status=status_filter)
-        attendance_by_emp = {a.employee_id: a for a in attendance_qs}
+        attendance_by_emp = {a.employee.pk: a for a in attendance_qs}
 
         rows = []
         for emp in employees_qs:
-            rows.append({'employee': emp, 'attendance': attendance_by_emp.get(emp.id)})
+            rows.append({'employee': emp, 'attendance': attendance_by_emp.get(emp.pk)})
 
         departments = Department.objects.filter(company=request.user.company, is_active=True).order_by('name')
         present_today = Attendance.objects.filter(employee__company=request.user.company, date=target_date, status__in=['present', 'late']).count()
@@ -213,7 +213,7 @@ def change_leave_status_api(request, pk):
         if new_status == 'approved':
             lb = None
             try:
-                lb = leave.employee.leavebalance
+                lb = getattr(leave.employee, 'leavebalance', None)
             except Exception:
                 lb = None
             if lb:
@@ -255,14 +255,15 @@ def bulk_change_leaves_api(request):
             updated += 1
             if status_target == 'approved':
                 try:
-                    lb = leave.employee.leavebalance
-                    if leave.leave_type == 'annual':
-                        lb.annual_leave_used = (lb.annual_leave_used or 0) + leave.days_requested
-                    elif leave.leave_type == 'sick':
-                        lb.sick_leave_used = (lb.sick_leave_used or 0) + leave.days_requested
-                    elif leave.leave_type == 'personal':
-                        lb.personal_leave_used = (lb.personal_leave_used or 0) + leave.days_requested
-                    lb.save()
+                    lb = getattr(leave.employee, 'leavebalance', None)
+                    if lb:  # Only proceed if leave balance exists
+                        if leave.leave_type == 'annual':
+                            lb.annual_leave_used = (lb.annual_leave_used or 0) + leave.days_requested
+                        elif leave.leave_type == 'sick':
+                            lb.sick_leave_used = (lb.sick_leave_used or 0) + leave.days_requested
+                        elif leave.leave_type == 'personal':
+                            lb.personal_leave_used = (lb.personal_leave_used or 0) + leave.days_requested
+                        lb.save()
                 except Exception:
                     pass
 
@@ -309,7 +310,7 @@ def export_leaves_api(request):
 
 # -------------------- Attendance APIs --------------------
 from decimal import Decimal
-from datetime import datetime, date, time as dt_time, timedelta
+from datetime import datetime, timedelta
 
 
 def _get_employee_for_company_or_404(request, employee_pk):

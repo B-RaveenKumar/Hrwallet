@@ -3,10 +3,8 @@
 Test payroll template syntax and functionality
 """
 import os
-import sys
 import django
 from django.test import Client
-from django.contrib.auth import get_user_model
 
 # Setup Django
 os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'hr_wallet.settings')
