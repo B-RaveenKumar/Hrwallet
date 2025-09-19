@@ -191,7 +191,7 @@
                             <option value="">-- Select a company --</option>
                             {% for company in companies %}
                                 <option value="{{ company.id }}">
-                                    {{ company.name }}{% if company.employee_count %} ({{ company.employee_count }} employees){% endif %}
+                                    {{ company.name }}
                                 </option>
                             {% endfor %}
                         </select>
