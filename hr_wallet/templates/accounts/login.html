@@ -9,8 +9,14 @@
             <div class="card-header text-center bg-primary text-white">
                 <h4 class="mb-0">
                     <i class="bi bi-box-arrow-in-right me-2"></i>
-                    Login to HR Wallet
+                    {{ page_title|default:"Login to HR Wallet" }}
                 </h4>
+                {% if selected_company_name %}
+                <small class="d-block mt-2 opacity-75">
+                    <i class="bi bi-building me-1"></i>
+                    {{ selected_company_name }}
+                </small>
+                {% endif %}
             </div>
             <div class="card-body p-4">
 
@@ -44,6 +50,15 @@
                         </button>
                     </div>
                 </form>
+
+                {% if selected_company_name %}
+                <div class="text-center mt-3">
+                    <a href="{% url 'accounts:company_selection' %}" class="btn btn-outline-secondary btn-sm">
+                        <i class="bi bi-arrow-left me-1"></i>
+                        Change Company
+                    </a>
+                </div>
+                {% endif %}
             </div>
             <div class="card-footer text-center text-muted">
                 <small>

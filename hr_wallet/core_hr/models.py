@@ -29,6 +29,16 @@ class Company(models.Model):
         return self.name
 
     def get_employee_count(self):
+        """Get number of active employees in this company"""
+        try:
+            return self.employees.filter(is_active=True).count()
+        except Exception:
+            return 0
+
+    def __str__(self):
+        return self.name
+
+    def get_employee_count(self):
         """Get total number of active employees"""
         return self.employees.filter(is_active=True).count()
 

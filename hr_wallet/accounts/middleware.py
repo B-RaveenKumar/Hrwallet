@@ -30,6 +30,9 @@ class RoleBasedAccessMiddleware(MiddlewareMixin):
     
     # URLs that don't require authentication
     PUBLIC_URLS = [
+        '/accounts/company-selection/',
+        '/accounts/login/',
+        '/accounts/logout/',
         '/login/',
         '/logout/',
         '/admin/',

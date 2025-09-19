@@ -10,13 +10,13 @@ from django.shortcuts import redirect
 from django.http import HttpResponse
 
 def root_redirect(request):
-    """Redirect root URL directly to login or dashboard based on user state"""
+    """Redirect root URL to company selection or dashboard based on user state"""
     if request.user.is_authenticated:
         try:
             return redirect(request.user.get_dashboard_url())
         except Exception:
-            return redirect('accounts:login')
-    return redirect('accounts:login')
+            return redirect('accounts:company_selection')
+    return redirect('accounts:company_selection')
 
 def favicon_view(request):
     """Return empty favicon to prevent 404 errors"""
@@ -36,7 +36,7 @@ urlpatterns = [
     path('accounts/', include('accounts.urls')),
 
     # Legacy login/logout redirects
-    path('login/', lambda request: redirect('accounts:login')),
+    path('login/', lambda request: redirect('accounts:company_selection')),
     path('logout/', lambda request: redirect('accounts:logout')),
 
     # Core HR

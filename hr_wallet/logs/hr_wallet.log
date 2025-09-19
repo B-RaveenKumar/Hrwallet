@@ -14856,3 +14856,107 @@ ERROR 2025-09-19 21:13:52,391 log 13852 16780 Internal Server Error: /api/employ
 ERROR 2025-09-19 21:13:52,392 basehttp 13852 16780 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 500 74
 INFO 2025-09-19 21:14:04,883 autoreload 13852 10608 D:\VISHNRX\SM Product\hr_wallet\profile_api\views.py changed, reloading.
 INFO 2025-09-19 21:14:07,258 autoreload 17212 9052 Watching for file changes with StatReloader
+INFO 2025-09-19 21:14:13,980 middleware 17212 16748 Access: /hr-dashboard/employees/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:14:14,060 basehttp 17212 16748 "GET /hr-dashboard/employees/ HTTP/1.1" 200 39449
+INFO 2025-09-19 21:14:14,132 basehttp 17212 16748 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:14:14,252 basehttp 17212 16748 "GET /api/departments/ HTTP/1.1" 200 332
+INFO 2025-09-19 21:14:14,259 basehttp 17212 10592 "GET /api/employees/list/?q=&department_id=&status=active&page_size=200 HTTP/1.1" 200 721
+INFO 2025-09-19 21:14:17,538 middleware 17212 10592 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:14:17,538 decorators 17212 10592 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:14:17,568 basehttp 17212 10592 "GET /hr-dashboard/ HTTP/1.1" 200 17487
+INFO 2025-09-19 21:14:17,665 basehttp 17212 10592 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:14:21,250 basehttp 17212 10592 "GET /admin/ HTTP/1.1" 200 10992
+INFO 2025-09-19 21:14:21,339 basehttp 17212 10592 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:14:23,767 basehttp 17212 10592 "GET /admin/core_hr/company/add/ HTTP/1.1" 200 16970
+INFO 2025-09-19 21:14:23,860 basehttp 17212 10592 "GET /admin/jsi18n/ HTTP/1.1" 200 3343
+INFO 2025-09-19 21:14:24,146 basehttp 17212 10592 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:18:00,646 autoreload 17212 9052 D:\VISHNRX\SM Product\hr_wallet\accounts\views.py changed, reloading.
+INFO 2025-09-19 21:18:02,279 autoreload 1696 18384 Watching for file changes with StatReloader
+INFO 2025-09-19 21:18:13,408 autoreload 1696 18384 D:\VISHNRX\SM Product\hr_wallet\accounts\views.py changed, reloading.
+INFO 2025-09-19 21:18:14,761 autoreload 11424 164 Watching for file changes with StatReloader
+INFO 2025-09-19 21:18:37,885 autoreload 11424 164 D:\VISHNRX\SM Product\hr_wallet\accounts\views.py changed, reloading.
+INFO 2025-09-19 21:18:39,071 autoreload 13760 12420 Watching for file changes with StatReloader
+INFO 2025-09-19 21:18:49,773 autoreload 13760 12420 D:\VISHNRX\SM Product\hr_wallet\accounts\views.py changed, reloading.
+INFO 2025-09-19 21:18:51,062 autoreload 2780 9608 Watching for file changes with StatReloader
+INFO 2025-09-19 21:19:03,402 autoreload 2780 9608 D:\VISHNRX\SM Product\hr_wallet\accounts\urls.py changed, reloading.
+INFO 2025-09-19 21:19:04,746 autoreload 16800 18832 Watching for file changes with StatReloader
+INFO 2025-09-19 21:19:15,829 autoreload 16800 18832 D:\VISHNRX\SM Product\hr_wallet\hr_wallet\urls.py changed, reloading.
+INFO 2025-09-19 21:19:17,239 autoreload 2088 18016 Watching for file changes with StatReloader
+INFO 2025-09-19 21:19:28,799 autoreload 2088 18016 D:\VISHNRX\SM Product\hr_wallet\hr_wallet\urls.py changed, reloading.
+INFO 2025-09-19 21:19:46,895 autoreload 10096 9768 Watching for file changes with StatReloader
+INFO 2025-09-19 21:20:10,889 autoreload 10096 9768 D:\VISHNRX\SM Product\hr_wallet\accounts\middleware.py changed, reloading.
+INFO 2025-09-19 21:20:12,125 autoreload 2584 6700 Watching for file changes with StatReloader
+INFO 2025-09-19 21:20:47,629 autoreload 2584 6700 D:\VISHNRX\SM Product\hr_wallet\core_hr\models.py changed, reloading.
+INFO 2025-09-19 21:20:49,284 autoreload 8532 18116 Watching for file changes with StatReloader
+INFO 2025-09-19 21:21:11,459 autoreload 19624 10656 Watching for file changes with StatReloader
+INFO 2025-09-19 21:21:34,125 basehttp 8532 8656 "GET / HTTP/1.1" 302 0
+INFO 2025-09-19 21:21:34,145 middleware 8532 8656 Access: /hr-dashboard/ - User: Raveen (role: hr_manager) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:21:34,146 decorators 8532 8656 Audit: hr_dashboard_access - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:21:34,210 basehttp 8532 8656 "GET /hr-dashboard/ HTTP/1.1" 200 17487
+INFO 2025-09-19 21:21:34,896 basehttp 8532 8656 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:21:56,970 decorators 8532 8656 Audit: logout - User: Raveen (role: hr_manager) - IP: 127.0.0.1
+INFO 2025-09-19 21:21:56,978 views 8532 8656 User logged out: Raveen
+INFO 2025-09-19 21:21:56,981 basehttp 8532 8656 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:21:56,992 basehttp 8532 8656 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:21:57,016 basehttp 8532 8656 "GET /accounts/company-selection/ HTTP/1.1" 200 9491
+INFO 2025-09-19 21:21:57,233 basehttp 8532 8656 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:22:08,547 basehttp 8532 8656 "POST /accounts/company-selection/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:22:08,566 basehttp 8532 8656 "GET /accounts/login/ HTTP/1.1" 200 6204
+INFO 2025-09-19 21:22:08,639 basehttp 8532 8656 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:22:11,190 basehttp 8532 8656 "GET /accounts/company-selection/ HTTP/1.1" 200 9096
+INFO 2025-09-19 21:22:11,263 basehttp 8532 8656 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:23:15,233 basehttp 8532 16588 "GET /accounts/company-selection/ HTTP/1.1" 200 13419
+INFO 2025-09-19 21:23:15,293 basehttp 8532 16588 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:25:56,454 basehttp 8532 3300 "GET /accounts/company-selection/ HTTP/1.1" 200 13419
+INFO 2025-09-19 21:25:56,773 basehttp 8532 3300 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:26:02,102 basehttp 8532 19872 "POST /accounts/company-selection/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:26:02,120 basehttp 8532 19872 "GET /accounts/login/ HTTP/1.1" 200 6210
+INFO 2025-09-19 21:26:02,279 basehttp 8532 19872 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:26:04,871 basehttp 8532 19872 "GET /accounts/company-selection/ HTTP/1.1" 200 13419
+INFO 2025-09-19 21:26:04,948 basehttp 8532 19872 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:19,228 basehttp 8532 19152 "GET /accounts/company-selection/ HTTP/1.1" 200 8319
+INFO 2025-09-19 21:34:19,362 basehttp 8532 19152 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:38,829 basehttp 8532 14188 "POST /accounts/company-selection/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:38,878 basehttp 8532 14188 "GET /accounts/login/ HTTP/1.1" 200 6204
+INFO 2025-09-19 21:34:39,137 basehttp 8532 14188 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:44,978 views 8532 13472 Successful login: Velu (role: employee) at HR Wallet System
+INFO 2025-09-19 21:34:45,002 basehttp 8532 13472 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:45,037 middleware 8532 13472 Access: /employee-portal/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:34:45,038 decorators 8532 13472 Audit: employee_dashboard_access - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:34:45,073 basehttp 8532 13472 "GET /employee-portal/ HTTP/1.1" 200 20793
+INFO 2025-09-19 21:34:45,245 middleware 8532 13472 Access: /employee-portal/api/dashboard-stats/ - User: Velu (role: employee) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:34:45,261 basehttp 8532 13472 "GET /employee-portal/api/dashboard-stats/ HTTP/1.1" 200 196
+INFO 2025-09-19 21:34:45,311 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:48,256 decorators 8532 18896 Audit: login_attempt - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:34:48,258 basehttp 8532 18896 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:48,376 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:51,520 decorators 8532 18896 Audit: logout - User: Velu (role: employee) - IP: 127.0.0.1
+INFO 2025-09-19 21:34:51,525 views 8532 18896 User logged out: Velu
+INFO 2025-09-19 21:34:51,528 basehttp 8532 18896 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:51,542 basehttp 8532 18896 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:51,576 basehttp 8532 18896 "GET /accounts/company-selection/ HTTP/1.1" 200 8714
+INFO 2025-09-19 21:34:51,645 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:34:58,200 basehttp 8532 18896 "POST /accounts/company-selection/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:34:58,224 basehttp 8532 18896 "GET /accounts/login/ HTTP/1.1" 200 6222
+INFO 2025-09-19 21:34:58,296 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:02,035 basehttp 8532 18896 "POST /accounts/login/ HTTP/1.1" 200 6543
+INFO 2025-09-19 21:35:02,097 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:08,759 basehttp 8532 18896 "POST /accounts/login/ HTTP/1.1" 200 6543
+INFO 2025-09-19 21:35:08,809 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:10,509 basehttp 8532 18896 "GET /accounts/company-selection/ HTTP/1.1" 200 8319
+INFO 2025-09-19 21:35:10,561 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:25,716 basehttp 8532 18896 "POST /accounts/company-selection/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:35:25,738 basehttp 8532 18896 "GET /accounts/login/ HTTP/1.1" 200 6204
+INFO 2025-09-19 21:35:25,813 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:30,061 views 8532 18896 Successful login: admin (role: super_admin) at HR Wallet System
+INFO 2025-09-19 21:35:30,066 basehttp 8532 18896 "POST /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:35:30,077 middleware 8532 18896 Access: /admin-panel/ - User: admin (role: super_admin) - IP: 127.0.0.1 - User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/140.0.0.0 Safari/537.36
+INFO 2025-09-19 21:35:30,078 decorators 8532 18896 Audit: admin_dashboard_access - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 21:35:30,145 basehttp 8532 18896 "GET /admin-panel/ HTTP/1.1" 200 18151
+INFO 2025-09-19 21:35:30,228 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0
+INFO 2025-09-19 21:35:32,503 decorators 8532 18896 Audit: logout - User: admin (role: super_admin) - IP: 127.0.0.1
+INFO 2025-09-19 21:35:32,508 views 8532 18896 User logged out: admin
+INFO 2025-09-19 21:35:32,510 basehttp 8532 18896 "GET /accounts/logout/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:35:32,518 basehttp 8532 18896 "GET /accounts/login/ HTTP/1.1" 302 0
+INFO 2025-09-19 21:35:32,543 basehttp 8532 18896 "GET /accounts/company-selection/ HTTP/1.1" 200 8714
+INFO 2025-09-19 21:35:32,611 basehttp 8532 18896 "GET /favicon.ico HTTP/1.1" 204 0

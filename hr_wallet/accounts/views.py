@@ -18,7 +18,65 @@ import json
 logger = logging.getLogger(__name__)
 
 
-# Company selection view removed - direct login flow implemented
+@csrf_protect
+@never_cache
+def company_selection_view(request):
+    """
+    Company selection page - first step in authentication flow
+    """
+    # If user is already authenticated, redirect to dashboard
+    if request.user.is_authenticated:
+        return redirect(request.user.get_dashboard_url())
+
+    # Handle POST request - company selection
+    if request.method == 'POST':
+        company_id = request.POST.get('company_id')
+
+        if not company_id:
+            messages.error(request, 'Please select a company to continue.')
+        else:
+            try:
+                # Validate company exists and is active
+                company = Company.objects.get(id=company_id, is_active=True)
+
+                # Store selected company in session
+                request.session['selected_company_id'] = company.id
+                request.session['selected_company_name'] = company.name
+
+                # Redirect to login page
+                return redirect('accounts:login')
+
+            except Company.DoesNotExist:
+                messages.error(request, 'Invalid company selection. Please try again.')
+            except Exception as e:
+                logger.error(f"Error in company selection: {str(e)}")
+                messages.error(request, 'An error occurred. Please try again.')
+
+    # Handle GET request - show company selection form
+    try:
+        # Get all active companies
+        companies = Company.objects.filter(is_active=True).order_by('name')
+
+        # Add employee count to each company
+        for company in companies:
+            try:
+                company.employee_count = company.employees.filter(is_active=True).count()
+            except Exception:
+                company.employee_count = 0
+
+        context = {
+            'page_title': 'Select Your Company',
+            'companies': companies,
+        }
+
+        return render(request, 'accounts/company_selection.html', context)
+
+    except Exception as e:
+        logger.error(f"Error loading companies: {str(e)}")
+        messages.error(request, 'Unable to load companies. Please contact support.')
+
+        # Fallback - redirect to login with default company
+        return redirect('accounts:login')
 
 
 @csrf_protect
@@ -26,27 +84,32 @@ logger = logging.getLogger(__name__)
 @audit_action('login_attempt')
 def login_view(request):
     """
-    Simplified login view with direct authentication - no company selection required
+    Login view with company context from session
     """
     if request.user.is_authenticated:
         return redirect(request.user.get_dashboard_url())
 
-    # Get or create default company for system operation
-    default_company = None
+    # Check if company was selected in session
+    selected_company_id = request.session.get('selected_company_id')
+    selected_company_name = request.session.get('selected_company_name')
+
+    # If no company selected, redirect to company selection
+    if not selected_company_id:
+        return redirect('accounts:company_selection')
+
+    # Get the selected company
+    selected_company = None
     try:
-        default_company = Company.objects.first()
-        if not default_company:
-            default_company, created = Company.objects.get_or_create(
-                name='HR Wallet System',
-                defaults={
-                    'address': '123 Business Street',
-                    'phone': '+1-555-0123',
-                    'email': 'info@hrwallet.com',
-                }
-            )
+        selected_company = Company.objects.get(id=selected_company_id, is_active=True)
+    except Company.DoesNotExist:
+        # Company no longer exists or is inactive, clear session and redirect
+        request.session.pop('selected_company_id', None)
+        request.session.pop('selected_company_name', None)
+        messages.error(request, 'Selected company is no longer available. Please select again.')
+        return redirect('accounts:company_selection')
     except Exception as e:
-        logger.error(f"Error accessing company data: {str(e)}")
-        # Continue without company - system will work without it
+        logger.error(f"Error accessing selected company: {str(e)}")
+        return redirect('accounts:company_selection')
 
     if request.method == 'POST':
         username_input = (request.POST.get('username') or '').strip()
@@ -67,10 +130,13 @@ def login_view(request):
                 except Exception:
                     pass
 
-            # 3) Try by employee_id (EMP0001/HR0001 style)
+            # 3) Try by employee_id (EMP0001/HR0001 style) - only within selected company
             if user is None:
                 try:
-                    emp = Employee.objects.filter(employee_id=username_input).select_related('user').first()
+                    emp = Employee.objects.filter(
+                        employee_id=username_input,
+                        company=selected_company
+                    ).select_related('user').first()
                     if emp and emp.user:
                         user = authenticate(request, username=emp.user.username, password=password)
                 except Exception:
@@ -78,32 +144,47 @@ def login_view(request):
 
             if user is not None:
                 if user.is_active:
-                    # Assign default company to user if they don't have one
-                    if default_company and hasattr(user, 'company') and not user.company:
+                    # Verify user belongs to selected company (for employees)
+                    user_company_valid = True
+                    if hasattr(user, 'employee'):
                         try:
-                            user.company = default_company
-                            user.save()
-                        except Exception as e:
-                            logger.warning(f"Could not assign company to user {username_input}: {str(e)}")
+                            if user.employee.company != selected_company:
+                                user_company_valid = False
+                                messages.error(request, f'Your account is not associated with {selected_company.name}.')
+                        except Exception:
+                            pass
 
-                    login(request, user)
-                    # Get role safely
-                    role = getattr(user, 'role', 'employee')
-                    company_name = getattr(default_company, 'name', 'HR Wallet System') if default_company else 'HR Wallet System'
-                    logger.info(f"Successful login: {user.username} (role: {role}) at {company_name}")
+                    # For non-employee users (super_admin), assign selected company
+                    if user_company_valid:
+                        if hasattr(user, 'company') and not user.company:
+                            try:
+                                user.company = selected_company
+                                user.save()
+                            except Exception as e:
+                                logger.warning(f"Could not assign company to user {username_input}: {str(e)}")
 
-                    # Redirect to appropriate dashboard based on role
-                    next_url = request.GET.get('next')
-                    if next_url:
-                        return redirect(next_url)
-                    else:
-                        # Dashboard redirect based on role
-                        if role == 'super_admin':
-                            return redirect('/admin-panel/')
-                        elif role == 'hr_manager':
-                            return redirect('/hr-dashboard/')
+                        login(request, user)
+
+                        # Clear company selection from session after successful login
+                        request.session.pop('selected_company_id', None)
+                        request.session.pop('selected_company_name', None)
+
+                        # Get role safely
+                        role = getattr(user, 'role', 'employee')
+                        logger.info(f"Successful login: {user.username} (role: {role}) at {selected_company.name}")
+
+                        # Redirect to appropriate dashboard based on role
+                        next_url = request.GET.get('next')
+                        if next_url:
+                            return redirect(next_url)
                         else:
-                            return redirect('/employee-portal/')
+                            # Dashboard redirect based on role
+                            if role == 'super_admin':
+                                return redirect('/admin-panel/')
+                            elif role == 'hr_manager':
+                                return redirect('/hr-dashboard/')
+                            else:
+                                return redirect('/employee-portal/')
                 else:
                     messages.error(request, 'Your account is disabled.')
                     logger.warning(f"Login attempt with disabled account: {username_input}")
@@ -114,7 +195,9 @@ def login_view(request):
             messages.error(request, 'Please provide both username and password.')
 
     context = {
-        'page_title': 'Login to HR Wallet'
+        'page_title': f'Login to {selected_company_name}',
+        'selected_company': selected_company,
+        'selected_company_name': selected_company_name,
     }
 
     return render(request, 'accounts/login.html', context)
