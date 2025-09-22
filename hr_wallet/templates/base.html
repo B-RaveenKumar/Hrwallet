@@ -128,10 +128,16 @@
                                 Go to Dashboard
                             </a>
                         {% else %}
-                            <a href="/accounts/company-selection/" class="btn btn-primary btn-lg">
-                                <i class="bi bi-box-arrow-in-right me-2"></i>
-                                Login to Continue
-                            </a>
+                            <div class="d-grid gap-3 d-md-flex justify-content-md-center">
+                                <a href="/accounts/company-selection/" class="btn btn-primary btn-lg">
+                                    <i class="bi bi-box-arrow-in-right me-2"></i>
+                                    Employee Login
+                                </a>
+                                <a href="/admin-panel/company-admin-login/" class="btn btn-outline-secondary btn-lg">
+                                    <i class="bi bi-gear-fill me-2"></i>
+                                    Company Admin Login
+                                </a>
+                            </div>
                         {% endif %}
                     </div>
                 </div>

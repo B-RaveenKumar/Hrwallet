@@ -5,6 +5,8 @@ app_name = 'admin_panel'
 
 urlpatterns = [
     path('', views.dashboard, name='admin_dashboard'),
+    path('company-admin-login/', views.company_admin_login, name='company_admin_login'),
+    path('company-admin/', views.company_admin_dashboard, name='company_admin_dashboard'),
     path('users/', views.user_management, name='user_management'),
     path('hr-managers/', views.manage_hr_managers, name='hr_managers'),
     path('hr-managers/create/', views.create_hr_manager, name='create_hr_manager'),

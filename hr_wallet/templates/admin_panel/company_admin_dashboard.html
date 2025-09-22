@@ -1,0 +1,444 @@
+{% extends 'admin_panel/base.html' %}
+
+{% block title %}Company Admin Dashboard - HR Wallet{% endblock %}
+{% block page_title %}Company Administration{% endblock %}
+
+{% block extra_css %}
+<style>
+    .admin-section {
+        margin-bottom: 30px;
+    }
+    
+    .admin-card {
+        border: none;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        transition: transform 0.2s;
+    }
+    
+    .admin-card:hover {
+        transform: translateY(-2px);
+    }
+    
+    .model-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 15px 20px;
+        margin: -15px -20px 20px -20px;
+        border-radius: 10px 10px 0 0;
+    }
+    
+    .action-buttons .btn {
+        margin-right: 10px;
+        margin-bottom: 10px;
+    }
+    
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 20px;
+        margin-bottom: 30px;
+    }
+    
+    .stat-card {
+        background: white;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        text-align: center;
+    }
+    
+    .stat-icon {
+        font-size: 2.5rem;
+        margin-bottom: 10px;
+    }
+    
+    .table-responsive {
+        max-height: 400px;
+        overflow-y: auto;
+    }
+    
+    .model-section {
+        background: white;
+        border-radius: 10px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    }
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="row mb-4">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center">
+            <div>
+                <h2 class="mb-1">Company Administration</h2>
+                <p class="text-muted mb-0">
+                    {% if is_super_admin %}
+                        Super Administrator - Full System Access
+                    {% else %}
+                        HR Manager - Company: {{ user.company.name }}
+                    {% endif %}
+                </p>
+            </div>
+            <div>
+                <a href="{% url 'accounts:logout' %}" class="btn btn-outline-danger">
+                    <i class="fas fa-sign-out-alt me-2"></i>Logout
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Statistics Overview -->
+<div class="stats-grid">
+    {% if is_super_admin %}
+        <div class="stat-card">
+            <div class="stat-icon text-primary">
+                <i class="fas fa-building"></i>
+            </div>
+            <h3>{{ stats.total_companies }}</h3>
+            <p class="mb-0 text-muted">Companies</p>
+        </div>
+    {% endif %}
+    
+    <div class="stat-card">
+        <div class="stat-icon text-success">
+            <i class="fas fa-users"></i>
+        </div>
+        <h3>{{ stats.total_users }}</h3>
+        <p class="mb-0 text-muted">Total Users</p>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon text-info">
+            <i class="fas fa-user-tie"></i>
+        </div>
+        <h3>{{ stats.total_employees }}</h3>
+        <p class="mb-0 text-muted">Employees</p>
+    </div>
+    
+    <div class="stat-card">
+        <div class="stat-icon text-warning">
+            <i class="fas fa-sitemap"></i>
+        </div>
+        <h3>{{ stats.total_departments }}</h3>
+        <p class="mb-0 text-muted">Departments</p>
+    </div>
+</div>
+
+<!-- Models Administration -->
+<div class="row">
+    {% if is_super_admin %}
+    <!-- Companies Management -->
+    <div class="col-12">
+        <div class="model-section">
+            <div class="model-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-building me-2"></i>Companies
+                </h4>
+            </div>
+            <div class="action-buttons mb-3">
+                <button class="btn btn-primary" onclick="showCreateForm('company')">
+                    <i class="fas fa-plus me-2"></i>Add Company
+                </button>
+                <button class="btn btn-outline-secondary" onclick="exportData('companies')">
+                    <i class="fas fa-download me-2"></i>Export
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Employees</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for company in companies %}
+                        <tr>
+                            <td>{{ company.id }}</td>
+                            <td>{{ company.name }}</td>
+                            <td>{{ company.email }}</td>
+                            <td>{{ company.phone }}</td>
+                            <td>{{ company.get_employee_count }}</td>
+                            <td>
+                                {% if company.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" onclick="editRecord('company', {{ company.id }})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteRecord('company', {{ company.id }})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="7" class="text-center text-muted">No companies found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!-- Users Management -->
+    <div class="col-12">
+        <div class="model-section">
+            <div class="model-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-users me-2"></i>Users
+                </h4>
+            </div>
+            <div class="action-buttons mb-3">
+                <button class="btn btn-primary" onclick="showCreateForm('user')">
+                    <i class="fas fa-plus me-2"></i>Add User
+                </button>
+                <button class="btn btn-outline-secondary" onclick="exportData('users')">
+                    <i class="fas fa-download me-2"></i>Export
+                </button>
+                <button class="btn btn-outline-info" onclick="bulkActions('users')">
+                    <i class="fas fa-cogs me-2"></i>Bulk Actions
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Username</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Role</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Last Login</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for user_obj in users %}
+                        <tr>
+                            <td>{{ user_obj.id }}</td>
+                            <td>{{ user_obj.username }}</td>
+                            <td>{{ user_obj.get_full_name|default:"-" }}</td>
+                            <td>{{ user_obj.email }}</td>
+                            <td>
+                                <span class="badge bg-{% if user_obj.role == 'super_admin' %}danger{% elif user_obj.role == 'hr_manager' %}warning{% else %}info{% endif %}">
+                                    {{ user_obj.get_role_display }}
+                                </span>
+                            </td>
+                            <td>{{ user_obj.company.name|default:"-" }}</td>
+                            <td>
+                                {% if user_obj.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>{{ user_obj.last_login|date:"M d, Y H:i"|default:"Never" }}</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" onclick="editRecord('user', {{ user_obj.id }})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteRecord('user', {{ user_obj.id }})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9" class="text-center text-muted">No users found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Employees Management -->
+    <div class="col-12">
+        <div class="model-section">
+            <div class="model-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-user-tie me-2"></i>Employees
+                </h4>
+            </div>
+            <div class="action-buttons mb-3">
+                <button class="btn btn-primary" onclick="showCreateForm('employee')">
+                    <i class="fas fa-plus me-2"></i>Add Employee
+                </button>
+                <button class="btn btn-outline-secondary" onclick="exportData('employees')">
+                    <i class="fas fa-download me-2"></i>Export
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Employee ID</th>
+                            <th>Name</th>
+                            <th>Email</th>
+                            <th>Department</th>
+                            <th>Job Title</th>
+                            <th>Hire Date</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for employee in employees %}
+                        <tr>
+                            <td>{{ employee.id }}</td>
+                            <td>{{ employee.employee_id }}</td>
+                            <td>{{ employee.user.get_full_name|default:employee.user.username }}</td>
+                            <td>{{ employee.user.email }}</td>
+                            <td>{{ employee.department.name|default:"-" }}</td>
+                            <td>{{ employee.job_title|default:"-" }}</td>
+                            <td>{{ employee.hire_date|date:"M d, Y"|default:"-" }}</td>
+                            <td>
+                                {% if employee.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" onclick="editRecord('employee', {{ employee.id }})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteRecord('employee', {{ employee.id }})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="9" class="text-center text-muted">No employees found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <!-- Departments Management -->
+    <div class="col-12">
+        <div class="model-section">
+            <div class="model-header">
+                <h4 class="mb-0">
+                    <i class="fas fa-sitemap me-2"></i>Departments
+                </h4>
+            </div>
+            <div class="action-buttons mb-3">
+                <button class="btn btn-primary" onclick="showCreateForm('department')">
+                    <i class="fas fa-plus me-2"></i>Add Department
+                </button>
+                <button class="btn btn-outline-secondary" onclick="exportData('departments')">
+                    <i class="fas fa-download me-2"></i>Export
+                </button>
+            </div>
+            <div class="table-responsive">
+                <table class="table table-hover">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Name</th>
+                            <th>Description</th>
+                            <th>Manager</th>
+                            <th>Employees</th>
+                            <th>Company</th>
+                            <th>Status</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for department in departments %}
+                        <tr>
+                            <td>{{ department.id }}</td>
+                            <td>{{ department.name }}</td>
+                            <td>{{ department.description|truncatechars:50|default:"-" }}</td>
+                            <td>{{ department.manager.get_full_name|default:"-" }}</td>
+                            <td>{{ department.get_employee_count }}</td>
+                            <td>{{ department.company.name }}</td>
+                            <td>
+                                {% if department.is_active %}
+                                    <span class="badge bg-success">Active</span>
+                                {% else %}
+                                    <span class="badge bg-danger">Inactive</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary" onclick="editRecord('department', {{ department.id }})">
+                                    <i class="fas fa-edit"></i>
+                                </button>
+                                <button class="btn btn-sm btn-outline-danger" onclick="deleteRecord('department', {{ department.id }})">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </td>
+                        </tr>
+                        {% empty %}
+                        <tr>
+                            <td colspan="8" class="text-center text-muted">No departments found</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+function showCreateForm(modelType) {
+    alert(`Create ${modelType} form would open here. This would typically open a modal or redirect to a create form.`);
+    // TODO: Implement create forms for each model type
+}
+
+function editRecord(modelType, id) {
+    alert(`Edit ${modelType} ${id} form would open here. This would typically open a modal or redirect to an edit form.`);
+    // TODO: Implement edit forms for each model type
+}
+
+function deleteRecord(modelType, id) {
+    if (confirm(`Are you sure you want to delete this ${modelType}?`)) {
+        alert(`Delete ${modelType} ${id} action would be performed here.`);
+        // TODO: Implement delete functionality
+    }
+}
+
+function exportData(modelType) {
+    alert(`Export ${modelType} data would be performed here. This would typically download a CSV or Excel file.`);
+    // TODO: Implement export functionality
+}
+
+function bulkActions(modelType) {
+    alert(`Bulk actions for ${modelType} would be shown here. This would typically show a dropdown with actions like bulk delete, bulk edit, etc.`);
+    // TODO: Implement bulk actions
+}
+
+// Auto-refresh data every 30 seconds
+setInterval(function() {
+    // TODO: Implement auto-refresh of statistics
+    console.log('Auto-refreshing data...');
+}, 30000);
+</script>
+{% endblock %}
